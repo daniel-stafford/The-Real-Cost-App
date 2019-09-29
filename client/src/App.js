@@ -2,11 +2,17 @@ import React from 'react'
 import { gql } from 'apollo-boost'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
+import ExpenseList from './components/ExpenseList'
 
 const ALL_EXPENSES = gql`
   {
     expenses {
       title
+      cost
+      uses
+      purchaseDate
+      notes
+      id
     }
   }
 `
@@ -39,11 +45,8 @@ const App = () => {
   console.log('expenses', expenses)
   return (
     <div>
-      {!expenses.loading &&
-        expenses.data.expenses.map(e => {
-          return <li key={e.title}>{e.title}</li>
-        })}
       <CreateForm addExpense={addExpense} />
+      <ExpenseList expenses={expenses} />
     </div>
   )
 }

@@ -25,6 +25,7 @@ const typeDefs = gql`
     purchaseDate: String
     uses: Int!
     notes: String
+    id: ID!
   }
 
   type Query {
@@ -37,6 +38,7 @@ const typeDefs = gql`
       purchaseDate: String
       notes: String
     ): Expense!
+    addUse(id: ID!): Expense!
   }
 `
 
@@ -58,8 +60,14 @@ const resolvers = {
       } catch (error) {
         console.log('something went wrong with saving the expense', error)
       }
-      console.log('expense', expense)
       return expense
+    },
+    addUse: async (root, args) => {
+      const { id } = args
+      console.log('adduse id', id)
+      await Expense.findByIdAndUpdate(...uses, { uses: uses + 1 })
+      console.log('addUse expense', Expense.findById(id))
+      return Expense.findById(id)
     }
   }
 }

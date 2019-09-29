@@ -5,3 +5,4 @@ Technologies used in this app include React, Apollo, GraphQL, and MongoDB.
 As this project is part of the FullStack Open 2019 course at the University of Helsinki, work hours are below:
 
 27.9.19 - 2 hours
+28.9.19 - 2 hours
