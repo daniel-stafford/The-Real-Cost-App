@@ -5,14 +5,18 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    minlength: 4
+    minlength: 1
   },
   cost: {
     type: Number,
     required: true
   },
+  purchaseDate: {
+    type: Date
+  },
   uses: {
-    type: [Date]
+    type: Number,
+    default: 0
   },
   notes: {
     type: String

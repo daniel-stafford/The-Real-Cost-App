@@ -9,12 +9,18 @@ const CreateForm = () => {
   const cost = useField('number')
   const notes = useField('text')
 
-  console.log('hook title', title)
-  console.log('hook date', date)
-  const handleChange = date => setDate(date)
+  // const handleDateChange = date => setDate(date)
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('title', title.value)
+    console.log('date', date)
+    console.log('notes', notes.value)
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <label>Title: </label>
           <input {...title} />
@@ -23,7 +29,7 @@ const CreateForm = () => {
           <label>Purchase Date: </label>
           <DatePicker
             selected={date}
-            onChange={handleChange}
+            onChange={date => setDate(date)}
             popperPlacement='bottom'
             popperModifiers={{
               flip: {
@@ -42,10 +48,8 @@ const CreateForm = () => {
           <label>Notes: </label>
           <input {...notes} />
         </div>
-
-        <input type='submit' value='Submit' />
+        <button type='submit'>Create New!</button>
       </form>
-      {title.value} {date.toString()} {cost.value} {notes.value}
     </div>
   )
 }

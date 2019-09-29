@@ -3,22 +3,22 @@ import { gql } from 'apollo-boost'
 import { useQuery } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 
-const ALL_BOOKS = gql`
+const ALL_EXPENSES = gql`
   {
-    books {
+    expenses {
       title
     }
   }
 `
 
 const App = () => {
-  const books = useQuery(ALL_BOOKS)
-  console.log('books', books)
+  const expenses = useQuery(ALL_EXPENSES)
+  console.log('expenses', expenses)
   return (
     <div>
-      {!books.loading &&
-        books.data.books.map(b => {
-          return <li key={b.title}>{b.title}</li>
+      {!expenses.loading &&
+        expenses.data.expenses.map(e => {
+          return <li key={e.title}>{e.title}</li>
         })}
       <CreateForm />
     </div>
