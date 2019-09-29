@@ -12,7 +12,7 @@ const schema = new mongoose.Schema({
     required: true
   },
   purchaseDate: {
-    type: Date
+    type: String
   },
   uses: {
     type: Number,

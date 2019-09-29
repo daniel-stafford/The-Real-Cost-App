@@ -1,6 +1,6 @@
 import React from 'react'
 import { gql } from 'apollo-boost'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery, useMutation } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 
 const ALL_EXPENSES = gql`
@@ -10,9 +10,32 @@ const ALL_EXPENSES = gql`
     }
   }
 `
+const ADD_EXPENSE = gql`
+  mutation addExpense(
+    $title: String!
+    $purchaseDate: String
+    $cost: Int!
+    $notes: String
+  ) {
+    addExpense(
+      title: $title
+      purchaseDate: $purchaseDate
+      cost: $cost
+      notes: $notes
+    ) {
+      title
+      purchaseDate
+      cost
+      uses
+    }
+  }
+`
 
 const App = () => {
   const expenses = useQuery(ALL_EXPENSES)
+  const [addExpense] = useMutation(ADD_EXPENSE, {
+    refetchQueries: [{ query: ALL_EXPENSES }]
+  })
   console.log('expenses', expenses)
   return (
     <div>
@@ -20,7 +43,7 @@ const App = () => {
         expenses.data.expenses.map(e => {
           return <li key={e.title}>{e.title}</li>
         })}
-      <CreateForm />
+      <CreateForm addExpense={addExpense} />
     </div>
   )
 }

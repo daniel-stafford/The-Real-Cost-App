@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import useField from '../hooks/useField'
 
-const CreateForm = () => {
+const CreateForm = ({ addExpense }) => {
   const title = useField('text')
   const [date, setDate] = useState(new Date())
   const cost = useField('number')
@@ -11,11 +11,21 @@ const CreateForm = () => {
 
   // const handleDateChange = date => setDate(date)
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
     console.log('title', title.value)
     console.log('date', date)
     console.log('notes', notes.value)
+    console.log('cost', cost.value)
+
+    await addExpense({
+      variables: {
+        title: title.value,
+        date: date.toString(),
+        notes: notes.value,
+        cost: parseInt(cost.value, 10)
+      }
+    })
   }
 
   return (

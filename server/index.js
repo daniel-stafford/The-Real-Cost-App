@@ -20,9 +20,8 @@ mongoose
 
 const typeDefs = gql`
   type Expense {
-    title: String
-    cost: Int
-    # todo: make date type...
+    title: String!
+    cost: Int!
     purchaseDate: String
     uses: Int!
     notes: String
@@ -54,14 +53,13 @@ const resolvers = {
         purchaseDate,
         notes
       })
-      console.log('expense', expense)
       try {
         await expense.save()
       } catch (error) {
         console.log('something went wrong with saving the expense', error)
       }
-      const savedExpense = await Expense.find({ title })
-      return savedExpense
+      console.log('expense', expense)
+      return expense
     }
   }
 }
