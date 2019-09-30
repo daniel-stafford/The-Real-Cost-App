@@ -64,10 +64,12 @@ const resolvers = {
     },
     addUse: async (root, args) => {
       const { id } = args
-      console.log('adduse id', id)
-      await Expense.findByIdAndUpdate(...uses, { uses: uses + 1 })
-      console.log('addUse expense', Expense.findById(id))
-      return Expense.findById(id)
+      const incremented = await Expense.findByIdAndUpdate(
+        { _id: id },
+        { $inc: { uses: 1 } },
+        { new: true }
+      )
+      return incremented
     }
   }
 }

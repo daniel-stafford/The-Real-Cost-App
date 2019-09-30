@@ -1,8 +1,11 @@
 import React from 'react'
 
-const ExpenseList = ({ expenses }) => {
-  const handleClick = id => {
+const ExpenseList = ({ expenses, addUse }) => {
+  const handleClick = async id => {
     console.log(id)
+    await addUse({
+      variables: { id }
+    })
   }
 
   return (
@@ -15,6 +18,8 @@ const ExpenseList = ({ expenses }) => {
               {e.title}
               <ul>
                 <li>Cost: {e.cost}</li>
+                <li>Id: {e.id}</li>
+
                 <li>
                   Uses: {e.uses}{' '}
                   <button onClick={() => handleClick(e.id)}>Add use</button>

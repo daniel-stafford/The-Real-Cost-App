@@ -36,17 +36,31 @@ const ADD_EXPENSE = gql`
     }
   }
 `
+const ADD_USE = gql`
+  mutation addUse($id: ID!) {
+    addUse(id: $id) {
+      title
+      purchaseDate
+      cost
+      uses
+      notes
+    }
+  }
+`
 
 const App = () => {
   const expenses = useQuery(ALL_EXPENSES)
   const [addExpense] = useMutation(ADD_EXPENSE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })
+  const [addUse] = useMutation(ADD_USE, {
+    refetchQueries: [{ query: ALL_EXPENSES }]
+  })
   console.log('expenses', expenses)
   return (
     <div>
       <CreateForm addExpense={addExpense} />
-      <ExpenseList expenses={expenses} />
+      <ExpenseList expenses={expenses} addUse={addUse} />
     </div>
   )
 }
