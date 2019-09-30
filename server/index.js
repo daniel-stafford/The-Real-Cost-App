@@ -21,7 +21,7 @@ mongoose
 const typeDefs = gql`
   type Expense {
     title: String!
-    cost: Int!
+    price: Int!
     purchaseDate: String
     uses: Int!
     notes: String
@@ -34,7 +34,7 @@ const typeDefs = gql`
   type Mutation {
     addExpense(
       title: String!
-      cost: Int!
+      price: Int!
       purchaseDate: String
       notes: String
     ): Expense!
@@ -48,10 +48,10 @@ const resolvers = {
   },
   Mutation: {
     addExpense: async (root, args) => {
-      const { title, cost, purchaseDate, notes } = args
+      const { title, price, purchaseDate, notes } = args
       let expense = new Expense({
         title,
-        cost,
+        price,
         purchaseDate,
         notes
       })

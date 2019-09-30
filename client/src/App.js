@@ -8,7 +8,7 @@ const ALL_EXPENSES = gql`
   {
     expenses {
       title
-      cost
+      price
       uses
       purchaseDate
       notes
@@ -20,18 +20,18 @@ const ADD_EXPENSE = gql`
   mutation addExpense(
     $title: String!
     $purchaseDate: String
-    $cost: Int!
+    $price: Int!
     $notes: String
   ) {
     addExpense(
       title: $title
       purchaseDate: $purchaseDate
-      cost: $cost
+      price: $price
       notes: $notes
     ) {
       title
       purchaseDate
-      cost
+      price
       uses
     }
   }
@@ -41,7 +41,7 @@ const ADD_USE = gql`
     addUse(id: $id) {
       title
       purchaseDate
-      cost
+      price
       uses
       notes
     }

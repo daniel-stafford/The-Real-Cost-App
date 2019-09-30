@@ -7,6 +7,10 @@ const ExpenseList = ({ expenses, addUse }) => {
       variables: { id }
     })
   }
+  const costPerUse = (price, uses) => {
+    console.log(price)
+    console.log(uses)
+  }
 
   return (
     <div>
@@ -17,13 +21,14 @@ const ExpenseList = ({ expenses, addUse }) => {
             <li key={e.title}>
               {e.title}
               <ul>
-                <li>Cost: {e.cost}</li>
+                <li> Price: {e.price}</li>
                 <li>Id: {e.id}</li>
 
                 <li>
                   Uses: {e.uses}{' '}
                   <button onClick={() => handleClick(e.id)}>Add use</button>
                 </li>
+                <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               </ul>
             </li>
           )

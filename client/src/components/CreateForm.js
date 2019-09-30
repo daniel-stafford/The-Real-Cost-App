@@ -6,7 +6,7 @@ import useField from '../hooks/useField'
 const CreateForm = ({ addExpense }) => {
   const title = useField('text')
   const [date, setDate] = useState(new Date())
-  const cost = useField('number')
+  const price = useField('number')
   const notes = useField('text')
 
   // const handleDateChange = date => setDate(date)
@@ -16,14 +16,14 @@ const CreateForm = ({ addExpense }) => {
     console.log('title', title.value)
     console.log('date', date)
     console.log('notes', notes.value)
-    console.log('cost', cost.value)
+    console.log('price', price.value)
 
     await addExpense({
       variables: {
         title: title.value,
         date: date.toString(),
         notes: notes.value,
-        cost: parseInt(cost.value, 10)
+        price: parseInt(price.value, 10)
       }
     })
   }
@@ -51,8 +51,8 @@ const CreateForm = ({ addExpense }) => {
           </DatePicker>
         </div>
         <div>
-          <label>Cost: </label>
-          <input {...cost} />
+          <label>Price: </label>
+          <input {...price} />
         </div>
         <div>
           <label>Notes: </label>

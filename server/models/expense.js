@@ -7,7 +7,7 @@ const schema = new mongoose.Schema({
     unique: true,
     minlength: 1
   },
-  cost: {
+  price: {
     type: Number,
     required: true
   },
