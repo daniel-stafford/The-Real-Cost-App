@@ -4,15 +4,15 @@ const { ApolloServer, gql } = require('apollo-server')
 const Expense = require('./models/expense')
 
 const url = process.env.MONGODB_URI
-console.log('connecting to', url)
 
 mongoose
+  .set('useCreateIndex', true)
   .connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
   .then(() => {
-    console.log('connected to MongoDB')
+    console.log('Connected to MongoDB')
   })
   .catch(error => {
     console.log('error connection to MongoDB:', error.message)

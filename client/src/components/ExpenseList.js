@@ -10,6 +10,7 @@ const ExpenseList = ({ expenses, addUse }) => {
   const costPerUse = (price, uses) => {
     console.log(price)
     console.log(uses)
+    return price / uses
   }
 
   return (
@@ -28,7 +29,9 @@ const ExpenseList = ({ expenses, addUse }) => {
                   Uses: {e.uses}{' '}
                   <button onClick={() => handleClick(e.id)}>Add use</button>
                 </li>
-                <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
+                {e.uses > 0 && (
+                  <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
+                )}
               </ul>
             </li>
           )
