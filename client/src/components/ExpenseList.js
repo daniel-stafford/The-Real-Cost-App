@@ -1,11 +1,15 @@
 import React from 'react'
 
-const ExpenseList = ({ expenses, addUse }) => {
+const ExpenseList = ({ expenses, addUse, deleteExpense }) => {
   const handleClick = async id => {
     console.log(id)
-    await addUse({
-      variables: { id }
-    })
+    try {
+      await addUse({
+        variables: { id }
+      })
+    } catch (error) {
+      console.log('something went wrong with add use', error)
+    }
   }
   const costPerUse = (price, uses) => {
     console.log(price)
@@ -13,8 +17,19 @@ const ExpenseList = ({ expenses, addUse }) => {
     return price / uses
   }
 
+  const handleDelete = async id => {
+    console.log('delete id', id)
+    try {
+      await deleteExpense({
+        variables: { id }
+      })
+    } catch (error) {
+      console.log('something went wrong with deleting expense', error)
+    }
+  }
+
   return (
-    <div>
+    <ul>
       {!expenses.loading &&
         expenses.data.expenses.map(e => {
           console.log('e', e)
@@ -23,8 +38,6 @@ const ExpenseList = ({ expenses, addUse }) => {
               {e.title}
               <ul>
                 <li> Price: {e.price}</li>
-                <li>Id: {e.id}</li>
-
                 <li>
                   Uses: {e.uses}{' '}
                   <button onClick={() => handleClick(e.id)}>Add use</button>
@@ -32,11 +45,12 @@ const ExpenseList = ({ expenses, addUse }) => {
                 {e.uses > 0 && (
                   <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
                 )}
+                <button onClick={() => handleDelete(e.id)}>Delete</button>
               </ul>
             </li>
           )
         })}
-    </div>
+    </ul>
   )
 }
 

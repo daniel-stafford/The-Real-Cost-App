@@ -7,6 +7,7 @@ const url = process.env.MONGODB_URI
 
 mongoose
   .set('useCreateIndex', true)
+  .set('useFindAndModify', false)
   .connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -39,6 +40,7 @@ const typeDefs = gql`
       notes: String
     ): Expense!
     addUse(id: ID!): Expense!
+    deleteExpense(id: ID!): Expense!
   }
 `
 
@@ -70,6 +72,18 @@ const resolvers = {
         { new: true }
       )
       return incremented
+    },
+    deleteExpense: async (root, args) => {
+      const { id } = args
+      const expenseToDelete = await Expense.findById(id)
+      console.log('expensetodelete', expenseToDelete)
+      try {
+        await Expense.findByIdAndDelete(id)
+      } catch (e) {
+        console.log('something went wrong with delete', e)
+      }
+      await Expense.findByIdAndDelete(id)
+      return expenseToDelete
     }
   }
 }
