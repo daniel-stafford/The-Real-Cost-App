@@ -33,7 +33,6 @@ const typeDefs = gql`
   }
   type User {
     username: String!
-    #set password to nullable, as don't always want to access the password from the DB
     password: String
     id: ID!
     createdExpenses: [Expense!]
