@@ -2,30 +2,21 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const schema = new Schema({
-  title: {
+  username: {
     type: String,
     required: true,
-    unique: true,
-    minlength: 1
+    unique: true
   },
-  price: {
+  password: {
     type: Number,
     required: true
   },
-  purchaseDate: {
-    type: String
-  },
-  uses: {
-    type: Number,
-    default: 0
-  },
-  notes: {
-    type: String
-  },
-  creator: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }
+  createdExpenses: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Expense'
+    }
+  ]
 })
 
 schema.set('timestamps', true)
