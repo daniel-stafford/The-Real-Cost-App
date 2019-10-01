@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const uniqueValidator = require('mongoose-unique-validator')
+
 const Schema = mongoose.Schema
 
 const schema = new Schema({
@@ -8,7 +10,7 @@ const schema = new Schema({
     unique: true
   },
   password: {
-    type: Number,
+    type: String,
     required: true
   },
   createdExpenses: [
@@ -19,6 +21,7 @@ const schema = new Schema({
   ]
 })
 
+schema.plugin(uniqueValidator)
 schema.set('timestamps', true)
 
-module.exports = mongoose.model('Expense', schema)
+module.exports = mongoose.model('User', schema)

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const uniqueValidator = require('mongoose-unique-validator')
 
 const schema = new Schema({
   title: {
@@ -27,7 +28,7 @@ const schema = new Schema({
     ref: 'User'
   }
 })
-
+schema.plugin(uniqueValidator)
 schema.set('timestamps', true)
 
 module.exports = mongoose.model('Expense', schema)
