@@ -13,17 +13,13 @@ const CreateForm = ({ addExpense }) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    console.log('title', title.value)
-    console.log('date', date)
-    console.log('notes', notes.value)
-    console.log('price', price.value)
     if (date) {
       setDate(date.toString())
     }
     await addExpense({
       variables: {
         title: title.value,
-        purchaseDate: date,
+        // purchaseDate: date,
         notes: notes.value,
         price: parseInt(price.value, 10)
       }
@@ -37,7 +33,7 @@ const CreateForm = ({ addExpense }) => {
           <label>Title: </label>
           <input {...title} />
         </div>
-        <div>
+        {/* <div>
           <label>Purchase Date: </label>
           <DatePicker
             selected={date}
@@ -51,7 +47,7 @@ const CreateForm = ({ addExpense }) => {
           >
             <input type='time' name='time' />
           </DatePicker>
-        </div>
+        </div> */}
         <div>
           <label>Price: </label>
           <input {...price} />

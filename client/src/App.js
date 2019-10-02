@@ -10,7 +10,7 @@ const ALL_EXPENSES = gql`
       title
       price
       uses
-      purchaseDate
+      # purchaseDate
       notes
       id
     }
@@ -19,18 +19,18 @@ const ALL_EXPENSES = gql`
 const ADD_EXPENSE = gql`
   mutation addExpense(
     $title: String!
-    $purchaseDate: String
+    # $purchaseDate: String
     $price: Int!
     $notes: String
   ) {
     addExpense(
       title: $title
-      purchaseDate: $purchaseDate
+      # purchaseDate: $purchaseDate
       price: $price
       notes: $notes
     ) {
       title
-      purchaseDate
+      # purchaseDate
       price
       uses
     }
@@ -40,7 +40,7 @@ const ADD_USE = gql`
   mutation addUse($id: ID!) {
     addUse(id: $id) {
       title
-      purchaseDate
+      # purchaseDate
       price
       uses
       notes
@@ -52,7 +52,7 @@ const DELETE_EXPENSE = gql`
   mutation deleteExpense($id: ID!) {
     deleteExpense(id: $id) {
       title
-      purchaseDate
+      # purchaseDate
       price
       uses
       notes
