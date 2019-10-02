@@ -7,9 +7,7 @@ module.exports = {
   Query: {
     expenses: () => Expense.find({}),
     users: () => User.find({}),
-    me: (root, args, context) => {
-      return context.currentUser
-    }
+    me: (root, args, { currentUser }) => currentUser
   },
   Mutation: {
     addExpense: async (root, args, { currentUser }) => {
@@ -34,8 +32,7 @@ module.exports = {
       return expense
     },
 
-    addUse: async (root, args) => {
-      const { id } = args
+    addUse: async (root, { id }) => {
       const incremented = await Expense.findByIdAndUpdate(
         { _id: id },
         { $inc: { uses: 1 } },
@@ -44,8 +41,7 @@ module.exports = {
       return incremented
     },
 
-    deleteExpense: async (root, args) => {
-      const { id } = args
+    deleteExpense: async (root, { id }) => {
       const expenseToDelete = await Expense.findById(id)
       console.log('expensetodelete', expenseToDelete)
       try {
@@ -57,9 +53,7 @@ module.exports = {
       return expenseToDelete
     },
 
-    createUser: async (root, args) => {
-      const { username, password } = args
-
+    createUser: async (root, { username, password }) => {
       try {
         const saltRounds = 10
         const passwordHash = await bcrypt.hash(password, saltRounds)
@@ -75,9 +69,7 @@ module.exports = {
       }
     },
 
-    login: async (root, args) => {
-      const { username, password } = args
-
+    login: async (root, { username, password }) => {
       const user = await User.findOne({ username })
       if (!user) return console.log('sorry, user not found')
 
