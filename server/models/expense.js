@@ -13,9 +13,9 @@ const schema = new Schema({
     type: Number,
     required: true
   },
-  purchaseDate: {
-    type: String
-  },
+  // purchaseDate: {
+  //   type: String
+  // },
   uses: {
     type: Number,
     default: 0
