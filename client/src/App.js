@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 import ExpenseList from './components/ExpenseList'
@@ -13,7 +13,6 @@ import {
 
 const App = () => {
   const client = useApolloClient()
-
   const [errorMessage, setErrorMessage] = useState(null)
   const errorNotification = () =>
     errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>
@@ -25,6 +24,10 @@ const App = () => {
   }
 
   const [token, setToken] = useState(null)
+  useEffect(() => {
+    return setToken(localStorage.getItem('token'))
+  }, [])
+
   console.log('app level token', token)
 
   const expenses = useQuery(ALL_EXPENSES)

@@ -33,6 +33,7 @@ const server = new ApolloServer({
       const currentUser = await User.findById(decodedId).populate(
         'createdExpenses'
       )
+      console.log('current user', currentUser.username)
       return { currentUser }
     }
   }
