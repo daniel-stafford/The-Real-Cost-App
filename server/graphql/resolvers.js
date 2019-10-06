@@ -5,31 +5,36 @@ const jwt = require('jsonwebtoken')
 
 module.exports = {
   Query: {
-    expenses: () => Expense.find({}),
-    users: () => User.find({}),
+    expenses: () => Expense.find({}).populate('creator'),
+    users: () => User.find({}).populate('createdExpenses'),
     me: (root, args, { currentUser }) => currentUser
   },
   Mutation: {
     addExpense: async (root, args, { currentUser }) => {
       const { title, price, notes } = args
-      console.log('context currentUser', currentUser)
       if (!currentUser) return console.log("sorry, you're not logged in")
 
       let expense = new Expense({
         title,
         price,
         // purchaseDate,
-        notes
+        notes,
+        creator: currentUser.id
       })
       try {
         await expense.save()
+        const savedExpense = await Expense.findOne({ title })
+        const user = await User.findById(savedExpense.creator)
+        user.createdExpenses = user.createdExpenses.concat(savedExpense.id)
+        await user.save()
+        console.log('userToModify', user)
+        return savedExpense.populate('user')
       } catch (error) {
         console.log(
           'something went wrong with saving the expense',
           error.message
         )
       }
-      return expense
     },
 
     addUse: async (root, { id }) => {
