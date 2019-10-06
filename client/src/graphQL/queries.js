@@ -12,3 +12,14 @@ export const ALL_EXPENSES = gql`
     }
   }
 `
+export const CURRENT_USER = gql`
+  {
+    me {
+      username
+      id
+      createdExpenses {
+        title
+      }
+    }
+  }
+`

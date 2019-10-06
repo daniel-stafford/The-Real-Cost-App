@@ -3,7 +3,8 @@ import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 import ExpenseList from './components/ExpenseList'
 import LoginForm from './components/LoginForm'
-import { ALL_EXPENSES } from './graphQL/queries'
+import UserStatus from './components/UserStatus'
+import { ALL_EXPENSES, CURRENT_USER } from './graphQL/queries'
 import {
   ADD_EXPENSE,
   ADD_USE,
@@ -13,6 +14,7 @@ import {
 
 const App = () => {
   const client = useApolloClient()
+
   const [errorMessage, setErrorMessage] = useState(null)
   const errorNotification = () =>
     errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>
@@ -22,13 +24,11 @@ const App = () => {
       setErrorMessage(null)
     }, 10000)
   }
-
   const [token, setToken] = useState(null)
   useEffect(() => {
-    return setToken(localStorage.getItem('token'))
+    setToken(localStorage.getItem('token'))
   }, [])
-
-  console.log('app level token', token)
+  const currentUser = useQuery(CURRENT_USER)
 
   const expenses = useQuery(ALL_EXPENSES)
 
@@ -53,11 +53,13 @@ const App = () => {
     localStorage.clear()
     client.resetStore()
   }
+
   return (
     <div>
       {errorNotification()}
       <LoginForm login={login} setToken={setToken} />
       <button onClick={() => logout()}>Logout</button>
+      {token && <UserStatus currentUser={currentUser} />}
       <CreateForm addExpense={addExpense} onError={handleError} />
       <ExpenseList
         expenses={expenses}

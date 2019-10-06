@@ -23,14 +23,14 @@ const LoginForm = props => {
     <div>
       <form onSubmit={submit}>
         <div>
-          username{' '}
+          username
           <input
             value={username}
             onChange={({ target }) => setUsername(target.value)}
           />
         </div>
         <div>
-          password{' '}
+          password
           <input
             type='password'
             value={password}
