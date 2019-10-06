@@ -12,7 +12,7 @@ module.exports = {
   Mutation: {
     addExpense: async (root, args, { currentUser }) => {
       const { title, price, notes } = args
-      console.log('currentUser', currentUser)
+      console.log('context currentUser', currentUser)
       if (!currentUser) return console.log("sorry, you're not logged in")
 
       let expense = new Expense({

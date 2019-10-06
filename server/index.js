@@ -1,6 +1,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
-const { ApolloServer, gql } = require('apollo-server')
+const { ApolloServer } = require('apollo-server')
+
 const typeDefs = require('./graphql/typeDefs.js')
 const resolvers = require('./graphql/resolvers')
 const jwt = require('jsonwebtoken')
@@ -32,6 +33,7 @@ const server = new ApolloServer({
       const currentUser = await User.findById(decodedId).populate(
         'createdExpenses'
       )
+      console.log('context currentUser', currentUser)
       return { currentUser }
     }
   }
