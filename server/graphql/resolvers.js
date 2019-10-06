@@ -27,7 +27,6 @@ module.exports = {
         const user = await User.findById(savedExpense.creator)
         user.createdExpenses = user.createdExpenses.concat(savedExpense.id)
         await user.save()
-        console.log('userToModify', user)
         return savedExpense.populate('user')
       } catch (error) {
         console.log(

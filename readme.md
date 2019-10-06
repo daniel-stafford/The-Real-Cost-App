@@ -16,6 +16,6 @@
 <p>Week 2</p>
 <li>Tuesday, 01.10.19 - 2 hours (19-21)</li>
 <li>Wednesday, 02.10.19 - 4 hours (0830-1230)</li>
-<li>Sunday, 06.10.19 - 2.6 hours (1200-1440)</li>
-<li>Weekly Total: 8.6 hours</li>
+<li>Sunday, 06.10.19 - 4.5 hours (1200-1630)</li>
+<li>Weekly Total: 10.5 hours</li>
 </ul>
