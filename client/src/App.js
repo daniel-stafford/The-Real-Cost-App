@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useApolloClient } from '@apollo/react-hooks'
-import CreateForm from './components/CreateForm'
-import ExpenseList from './components/ExpenseList'
-import LoginForm from './components/LoginForm'
-import RegisterForm from './components/RegisterForm'
-import Home from './components/Home'
-import UserStatus from './components/UserStatus'
+import {
+  CreateForm,
+  ExpenseList,
+  LoginForm,
+  RegisterForm,
+  Home,
+  UserStatus
+} from './components/index'
 import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {

@@ -4,7 +4,7 @@ import { useMutation } from '@apollo/react-hooks'
 import { ADD_EXPENSE } from '../graphQL/mutations'
 import { ALL_EXPENSES } from '../graphQL/queries'
 
-const CreateForm = ({}) => {
+const CreateForm = () => {
   const [addExpense] = useMutation(ADD_EXPENSE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })

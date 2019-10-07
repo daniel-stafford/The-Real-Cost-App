@@ -9,15 +9,13 @@ const RegisterForm = props => {
 
   const submit = async event => {
     event.preventDefault()
-    console.log('username', username)
-    console.log('password', password)
     try {
       const result = await createUser({
         variables: { username, password }
       })
-      console.log('create user result', result)
       setPassword('')
       setUsername('')
+      console.log('user created!', result)
     } catch (e) {
       console.log(e)
       props.onError(e)
