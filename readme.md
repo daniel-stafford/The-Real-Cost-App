@@ -11,8 +11,8 @@
 </li>
 <li>Saturday, 28.9.19 - 2 hours (19-21)</li>
 <li>Sunday 29.9.19 - 2 hours (06-08)</li>
-</ul>
 <li>Weekly Total: 6 hours </li>
+</ul>
 </ul>
 
 <ul>
@@ -22,14 +22,14 @@
 <li>Wednesday, 02.10.19 - 4 hours (0830-1230)</li>
 <li>Sunday, 06.10.19 - 4.5 hours 
 (1200-1630)</li>
-</ul>
 <li>Weekly Total: 10.5 hours</li>
+</ul>
 </ul>
 
 <ul>
 <li>Week 3</li>
 <ul>
 <li>Monday, 07.10.19 - 9.25 hours (06-10, 11-13:30, 14-15:45, 17-18 )</li>
-</ul>
 <li>Weekly Total: 9.25 hours</li>
+</ul>
 </ul>
