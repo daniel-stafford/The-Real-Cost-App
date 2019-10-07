@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/react-hooks'
 import { ADD_EXPENSE } from '../graphQL/mutations'
 import { ALL_EXPENSES } from '../graphQL/queries'
 
+import { Form, Button } from 'semantic-ui-react'
+
 const CreateForm = () => {
   const [addExpense] = useMutation(ADD_EXPENSE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
@@ -25,7 +27,7 @@ const CreateForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <div>
           <label>Title: </label>
           <input {...title} />
@@ -38,8 +40,8 @@ const CreateForm = () => {
           <label>Notes: </label>
           <input {...notes} />
         </div>
-        <button type='submit'>Create New!</button>
-      </form>
+        <Button type='submit'>Create New!</Button>
+      </Form>
     </div>
   )
 }

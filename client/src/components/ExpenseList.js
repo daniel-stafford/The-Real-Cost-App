@@ -4,6 +4,8 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { ADD_USE, DELETE_EXPENSE } from '../graphQL/mutations'
 
+import { Button, Loader } from 'semantic-ui-react'
+
 const ExpenseList = () => {
   const expenses = useQuery(ALL_EXPENSES)
   const [addUse] = useMutation(ADD_USE, {
@@ -34,7 +36,12 @@ const ExpenseList = () => {
       console.log('something went wrong with deleting expense', error)
     }
   }
-  if (expenses.loading) return <div>Loading...</div>
+  if (expenses.loading)
+    return (
+      <div>
+        <Loader active />
+      </div>
+    )
   if (!expenses.data) return <div>No data available</div>
   return (
     <ul>
@@ -47,14 +54,14 @@ const ExpenseList = () => {
               <li> Price: {e.price}</li>
               <li>
                 Uses: {e.uses}{' '}
-                <button onClick={() => handleClick(e.id)}>Add use</button>
+                <Button onClick={() => handleClick(e.id)}>Add use</Button>
               </li>
               {e.uses > 0 && (
                 <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               )}
               <li>Created: {moment(e.createdAt).calendar()}</li>
               <li>Last Updated: {moment(e.updatedAt).calendar()}</li>
-              <button onClick={() => handleDelete(e.id)}>Delete</button>
+              <Button onClick={() => handleDelete(e.id)}>Delete</Button>
             </ul>
           </li>
         )

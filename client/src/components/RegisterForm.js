@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { CREATE_USER } from '../graphQL/mutations'
 import { useMutation } from '@apollo/react-hooks'
 
+import { Form, Button } from 'semantic-ui-react'
+
 const RegisterForm = props => {
   const [createUser] = useMutation(CREATE_USER)
   const [username, setUsername] = useState('')
@@ -24,7 +26,7 @@ const RegisterForm = props => {
 
   return (
     <div>
-      <form onSubmit={submit}>
+      <Form onSubmit={submit}>
         <div>
           username
           <input
@@ -40,8 +42,8 @@ const RegisterForm = props => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <button type='submit'>signup</button>
-      </form>
+        <Button type='submit'>signup</Button>
+      </Form>
     </div>
   )
 }
