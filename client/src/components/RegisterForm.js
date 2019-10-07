@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { CREATE_USER } from '../graphQL/mutations'
+import { useMutation } from '@apollo/react-hooks'
 
 const LoginForm = props => {
-  console.log('loginform props', props)
+  const [createUser] = useMutation(CREATE_USER)
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -10,17 +11,12 @@ const LoginForm = props => {
   const submit = async event => {
     event.preventDefault()
     try {
-      const result = await props.createUser({
+      const result = await createUser({
         variables: { username, password }
       })
       setPassword('')
       setUsername('')
-
-      const token = result.data.login.value
-      props.setToken(token)
-      localStorage.setItem('token', token)
-
-      console.log('localStorage', localStorage)
+      console.log('loginform result', result)
     } catch (e) {
       props.onError(e)
     }

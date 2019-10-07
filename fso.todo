@@ -1,7 +1,8 @@
 Todos:
 Client Side:
-  ☐ Set up condtional routes @today
-  ☐ Create menus for logged in / logged out @today
+  ✔ Set up condtonal routes @today @done(19-10-07 14:05)
+  ✔ Create menus for logged in / logged out @today @done(19-10-07 14:05)
+  ☐ Sign up form functionality
   ☐ Search feature
   ☐ Filter feature
   ☐ Sort feature (by date, by title, etc.)
@@ -23,8 +24,9 @@ Feature Ideas:
   ☐ categories for expense (like with mint)
   ☐ Comment feature
 
-  Random Ideas:
-    ☐ Consider using context for logged in user, avoid prop drilling.
+Random Ideas:
+  ☐ Consider using context for logged in user, avoid prop drilling.
+  ☐ Form validation (check if email)
 
 
 

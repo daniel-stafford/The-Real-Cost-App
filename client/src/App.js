@@ -17,7 +17,6 @@ import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
   const client = useApolloClient()
-  const [page, setPage] = useState('')
 
   const [errorMessage, setErrorMessage] = useState(null)
   const handleError = error => {
@@ -69,12 +68,10 @@ const App = () => {
           <Link to='/login'>Login</Link>
           <Link to='/register'>Sign Up</Link>
         </div>
-        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
         <Switch>
           <Route path='/login'>
             <LoginForm
               login={login}
-              show={page === 'signin'}
               setToken={setToken}
               onError={handleError}
             />
@@ -82,7 +79,6 @@ const App = () => {
           <Route path='/register'>
             <RegisterForm
               login={login}
-              show={page === 'signup'}
               setToken={setToken}
               onError={handleError}
             />
@@ -91,6 +87,7 @@ const App = () => {
             <Home />
           </Route>
         </Switch>
+        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
       </div>
     )
   }
@@ -104,7 +101,6 @@ const App = () => {
           <button onClick={() => logout()}>Logout</button>
         </div>
       </div>
-      {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
       <Switch>
         <Route path='/expenses'>
           <ExpenseList
@@ -118,6 +114,7 @@ const App = () => {
           <CreateForm addExpense={addExpense} onError={handleError} />
         </Route>
       </Switch>
+      {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     </div>
   )
 }
