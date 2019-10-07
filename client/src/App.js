@@ -10,6 +10,7 @@ import {
 } from './components'
 import { Switch, Route, Link } from 'react-router-dom'
 
+import { Menu } from 'semantic-ui-react'
 const App = () => {
   const client = useApolloClient()
 
@@ -43,11 +44,11 @@ const App = () => {
   if (!token) {
     return (
       <div>
-        <div>
+        <Menu>
           <Link to='/'>Home</Link>
           <Link to='/login'>Login</Link>
           <Link to='/register'>Sign Up</Link>
-        </div>
+        </Menu>
         <Switch>
           <Route path='/login'>
             <LoginForm setToken={setToken} onError={handleError} />
@@ -66,12 +67,12 @@ const App = () => {
   return (
     <div>
       <div>
-        <div>
+        <Menu>
           <Link to='/expenses'>Expenses</Link>
           <Link to='/create_expense'>Create New</Link>
           <UserStatus handleCurrentUser={handleCurrentUser} />
           <button onClick={() => logout()}>Logout</button>
-        </div>
+        </Menu>
       </div>
       <Switch>
         <Route path='/expenses'>
