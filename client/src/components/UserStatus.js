@@ -1,19 +1,20 @@
 import React from 'react'
+import { useQuery } from '@apollo/react-hooks'
+import { CURRENT_USER } from '../graphQL/queries'
 
-const UserStatus = currentUser => {
-  const { data, loading, error } = currentUser
-  console.log('data', data)
-  console.log('loading', loading)
-  console.log('error', error)
-  console.log('userstatus current user', currentUser)
-  if (currentUser.loading) return <div>Loading...</div>
-  if (!currentUser.data) return null
-  // todo: figure out why I can't get past this line and load the current user data, as I get currentUser.data.me to show up via console.log
-  return (
-    <div>
-      <p>{currentUser.data.me} is currently logged in</p>
-    </div>
-  )
+const UserStatus = ({ handleCurrentUser }) => {
+  const { loading, error, data } = useQuery(CURRENT_USER)
+  if (loading) return <div>Loading...</div>
+  if (error) return console.log('something went wrong with user status')
+  if (!loading) {
+    console.log('user status data', data)
+    handleCurrentUser(data)
+    return (
+      <div>
+        <p>{data.me.username} is currently logged in</p>
+      </div>
+    )
+  }
 }
 
 export default UserStatus

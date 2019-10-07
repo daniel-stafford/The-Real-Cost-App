@@ -4,7 +4,7 @@ import CreateForm from './components/CreateForm'
 import ExpenseList from './components/ExpenseList'
 import LoginForm from './components/LoginForm'
 import UserStatus from './components/UserStatus'
-import { ALL_EXPENSES, CURRENT_USER } from './graphQL/queries'
+import { ALL_EXPENSES } from './graphQL/queries'
 import {
   ADD_EXPENSE,
   ADD_USE,
@@ -28,7 +28,6 @@ const App = () => {
   useEffect(() => {
     setToken(localStorage.getItem('token'))
   }, [])
-  const currentUser = useQuery(CURRENT_USER)
 
   const expenses = useQuery(ALL_EXPENSES)
 
@@ -48,6 +47,14 @@ const App = () => {
     onError: handleError
   })
 
+  const [loggedInUser, setLoggedInUser] = useState(null)
+  console.log('loggedInUser app leel', loggedInUser)
+
+  const handleCurrentUser = user => {
+    console.log('handling current user', user)
+    setLoggedInUser(user)
+  }
+
   const logout = () => {
     setToken(null)
     localStorage.clear()
@@ -59,7 +66,7 @@ const App = () => {
       {errorNotification()}
       <LoginForm login={login} setToken={setToken} />
       <button onClick={() => logout()}>Logout</button>
-      {token && <UserStatus currentUser={currentUser} />}
+      {token && <UserStatus handleCurrentUser={handleCurrentUser} />}
       <CreateForm addExpense={addExpense} onError={handleError} />
       <ExpenseList
         expenses={expenses}
