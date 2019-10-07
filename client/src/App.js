@@ -96,17 +96,28 @@ const App = () => {
   }
   return (
     <div>
-      <UserStatus handleCurrentUser={handleCurrentUser} />
-      <button onClick={() => logout()}>Logout</button>
-
-      <CreateForm addExpense={addExpense} onError={handleError} />
-      <ExpenseList
-        expenses={expenses}
-        addUse={addUse}
-        deleteExpense={deleteExpense}
-        onError={handleError}
-      />
+      <div>
+        <div>
+          <Link to='/expenses'>Expenses</Link>
+          <Link to='/create_expense'>Create New</Link>
+          <UserStatus handleCurrentUser={handleCurrentUser} />
+          <button onClick={() => logout()}>Logout</button>
+        </div>
+      </div>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+      <Switch>
+        <Route path='/expenses'>
+          <ExpenseList
+            expenses={expenses}
+            addUse={addUse}
+            deleteExpense={deleteExpense}
+            onError={handleError}
+          />
+        </Route>
+        <Route path='/create_expense'>
+          <CreateForm addExpense={addExpense} onError={handleError} />
+        </Route>
+      </Switch>
     </div>
   )
 }
