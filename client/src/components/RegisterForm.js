@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { CREATE_USER } from '../graphQL/mutations'
 
 const LoginForm = props => {
   console.log('loginform props', props)
@@ -9,7 +10,7 @@ const LoginForm = props => {
   const submit = async event => {
     event.preventDefault()
     try {
-      const result = await props.login({
+      const result = await props.createUser({
         variables: { username, password }
       })
       setPassword('')
@@ -31,6 +32,7 @@ const LoginForm = props => {
         <div>
           username
           <input
+            type='text'
             value={username}
             onChange={({ target }) => setUsername(target.value)}
           />
@@ -38,8 +40,9 @@ const LoginForm = props => {
         <div>
           email
           <input
+            type='email'
             value={email}
-            onChange={({ target }) => setUsername(target.value)}
+            onChange={({ target }) => setEmail(target.value)}
           />
         </div>
         <div>

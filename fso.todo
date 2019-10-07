@@ -7,8 +7,10 @@ Client Side:
   ☐ Sort feature (by date, by title, etc.)
   ☐ Fix error handling
   ☐ Start styling
+  
 Server Side:
-  ☐ expenses query by id
+  ☐ expenses query by id (logged in user)
+  ☐ Price doesn't accept decimils
 
 Feature Ideas:
   ☐ Sigin up via google/facebook
@@ -19,6 +21,10 @@ Feature Ideas:
   ☐ bad words filter
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
+  ☐ Comment feature
+
+  Random Ideas:
+    ☐ Consider using context for logged in user, avoid prop drilling.
 
 
 
