@@ -1,12 +1,13 @@
 Todos:
 Client Side:
-  ✔ Set up condtonal routes @today @done(19-10-07 14:05)
+  ✔ Set up conditional routes for logged in/out users @today @done(19-10-07 14:05)
   ✔ Create menus for logged in / logged out @today @done(19-10-07 14:05)
-  ☐ Sign up form functionality
+  ✔ Sign up form functionalty @done(19-10-07 15:30)
+  ✔ Refactor app.js file, it's a mess. @done(19-10-07 15:31)
   ☐ Search feature
   ☐ Filter feature
   ☐ Sort feature (by date, by title, etc.)
-  ☐ Fix error handling
+  ☐ Fix error handling, it's really bad ATM
   ☐ Start styling
   
 Server Side:
@@ -26,7 +27,7 @@ Feature Ideas:
 
 Random Ideas:
   ☐ Consider using context for logged in user, avoid prop drilling.
-  ☐ Form validation (check if email)
+  ☐ Form validation (e.g. check if email)
 
 
 

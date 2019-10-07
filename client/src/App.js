@@ -7,7 +7,7 @@ import {
   RegisterForm,
   Home,
   UserStatus
-} from './components/index'
+} from './components'
 import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
 
   const [token, setToken] = useState(null)
 
+  // to prevent logout after browser refresh, fingers crossed this doesn't cause bugs
   useEffect(() => {
     setToken(localStorage.getItem('token'))
   }, [])
