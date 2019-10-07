@@ -48,10 +48,8 @@ const App = () => {
   })
 
   const [loggedInUser, setLoggedInUser] = useState(null)
-  console.log('loggedInUser app leel', loggedInUser)
-
+  console.log('loggedinuser', loggedInUser)
   const handleCurrentUser = user => {
-    console.log('handling current user', user)
     setLoggedInUser(user)
   }
 
