@@ -1,6 +1,10 @@
 import React from 'react'
 
 const UserStatus = currentUser => {
+  const { data, loading, error } = currentUser
+  console.log('data', data)
+  console.log('loading', loading)
+  console.log('error', error)
   console.log('userstatus current user', currentUser)
   if (currentUser.loading) return <div>Loading...</div>
   if (!currentUser.data) return null

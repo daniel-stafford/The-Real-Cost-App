@@ -5,7 +5,7 @@
 <p>As this project is part of the FullStack Open 2019 course at the University of Helsinki, work hours are below:</p>
 
 <ul>
-<p>Week 1</p>
+<li>Week 1</li>
 <li>Friday, 27.9.19 - 2 hours (11-13)</li>
 <li>Saturday, 28.9.19 - 2 hours (19-21)</li>
 <li>Sunday 29.9.19 - 2 hours (06-08)</li>
@@ -13,9 +13,15 @@
 </ul>
 
 <ul>
-<p>Week 2</p>
+<li>Week 2</li>
 <li>Tuesday, 01.10.19 - 2 hours (19-21)</li>
 <li>Wednesday, 02.10.19 - 4 hours (0830-1230)</li>
 <li>Sunday, 06.10.19 - 4.5 hours (1200-1630)</li>
 <li>Weekly Total: 10.5 hours</li>
+</ul>
+
+<ul>
+<li>Week 3</li>
+<li>Monday, 07.10.19 - XXX hours (06-XXX)</li>
+<li>Weekly Total: XXXX hours</li>
 </ul>
