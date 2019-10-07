@@ -1,23 +1,25 @@
 import React, { useState } from 'react'
-import { CREATE_USER } from '../graphQL/mutations'
-import { useMutation } from '@apollo/react-hooks'
+// import { CREATE_USER } from '../graphQL/mutations'
+// import { useMutation } from '@apollo/react-hooks'
 
-const LoginForm = props => {
-  const [createUser] = useMutation(CREATE_USER)
+const RegisterForm = props => {
+  // const [createUser] = useMutation(CREATE_USER)
   const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const submit = async event => {
     event.preventDefault()
+    console.log('username', username)
+    console.log('password', password)
     try {
-      const result = await createUser({
+      const result = await props.createUser({
         variables: { username, password }
       })
+      console.log('create user result', result)
       setPassword('')
       setUsername('')
-      console.log('loginform result', result)
     } catch (e) {
+      console.log(e)
       props.onError(e)
     }
   }
@@ -28,17 +30,8 @@ const LoginForm = props => {
         <div>
           username
           <input
-            type='text'
             value={username}
             onChange={({ target }) => setUsername(target.value)}
-          />
-        </div>
-        <div>
-          email
-          <input
-            type='email'
-            value={email}
-            onChange={({ target }) => setEmail(target.value)}
           />
         </div>
         <div>
@@ -55,4 +48,4 @@ const LoginForm = props => {
   )
 }
 
-export default LoginForm
+export default RegisterForm

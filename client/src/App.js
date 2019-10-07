@@ -11,7 +11,8 @@ import {
   ADD_EXPENSE,
   ADD_USE,
   DELETE_EXPENSE,
-  LOGIN
+  LOGIN,
+  CREATE_USER
 } from './graphQL/mutations'
 import { Switch, Route, Link } from 'react-router-dom'
 
@@ -49,6 +50,10 @@ const App = () => {
     onError: handleError
   })
 
+  const [createUser] = useMutation(CREATE_USER, {
+    onError: handleError
+  })
+
   const [loggedInUser, setLoggedInUser] = useState(null)
   console.log('loggedinuser', loggedInUser)
   const handleCurrentUser = user => {
@@ -77,11 +82,7 @@ const App = () => {
             />
           </Route>
           <Route path='/register'>
-            <RegisterForm
-              login={login}
-              setToken={setToken}
-              onError={handleError}
-            />
+            <RegisterForm onError={handleError} createUser={createUser} />
           </Route>
           <Route path='/'>
             <Home />
