@@ -14,16 +14,14 @@ import {
 
 const App = () => {
   const client = useApolloClient()
-
   const [errorMessage, setErrorMessage] = useState(null)
-  const errorNotification = () =>
-    errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>
   const handleError = error => {
-    setErrorMessage(error)
+    setErrorMessage(error.message.substring(15))
     setTimeout(() => {
       setErrorMessage(null)
-    }, 10000)
+    }, 5000)
   }
+
   const [token, setToken] = useState(null)
   useEffect(() => {
     setToken(localStorage.getItem('token'))
@@ -61,17 +59,19 @@ const App = () => {
 
   return (
     <div>
-      {errorNotification()}
-      <LoginForm login={login} setToken={setToken} />
-      <button onClick={() => logout()}>Logout</button>
-      {token && <UserStatus handleCurrentUser={handleCurrentUser} />}
-      <CreateForm addExpense={addExpense} onError={handleError} />
-      <ExpenseList
-        expenses={expenses}
-        addUse={addUse}
-        deleteExpense={deleteExpense}
-        onError={handleError}
-      />
+      <div>
+        <LoginForm login={login} setToken={setToken} onError={handleError} />
+        <button onClick={() => logout()}>Logout</button>
+        {token && <UserStatus handleCurrentUser={handleCurrentUser} />}
+        <CreateForm addExpense={addExpense} onError={handleError} />
+        <ExpenseList
+          expenses={expenses}
+          addUse={addUse}
+          deleteExpense={deleteExpense}
+          onError={handleError}
+        />
+      </div>
+      {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     </div>
   )
 }

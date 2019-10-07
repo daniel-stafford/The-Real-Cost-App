@@ -1,22 +1,26 @@
 import React, { useState } from 'react'
 
 const LoginForm = props => {
+  console.log('loginform props', props)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const submit = async event => {
     event.preventDefault()
-
-    const result = await props.login({
-      variables: { username, password }
-    })
-    console.log('result', result)
-    if (result) {
-      const token = result.data.login.value
-      props.setToken(token)
-      localStorage.setItem('token', token)
+    try {
+      const result = await props.login({
+        variables: { username, password }
+      })
+      console.log('result', result)
+      if (result) {
+        const token = result.data.login.value
+        props.setToken(token)
+        localStorage.setItem('token', token)
+      }
+      console.log('localStorage', localStorage)
+    } catch (e) {
+      props.onError(e)
     }
-    console.log('localStorage', localStorage)
   }
 
   return (
