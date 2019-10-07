@@ -10,7 +10,7 @@ import {
 } from './components'
 import { Switch, Route, Link } from 'react-router-dom'
 
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 const App = () => {
   const client = useApolloClient()
 
@@ -41,13 +41,33 @@ const App = () => {
     }, 5000)
   }
 
+  const [activeItem, setActiveItem] = useState('home')
+  console.log('activeItem', activeItem)
+
+  const handleItemClick = name => {
+    console.log('handleItemClick', name)
+    setActiveItem(name)
+  }
+
   if (!token) {
     return (
       <div>
-        <Menu>
-          <Link to='/'>Home</Link>
-          <Link to='/login'>Login</Link>
-          <Link to='/register'>Sign Up</Link>
+        <Menu pointing>
+          <Menu.Item active={activeItem === 'home'}>
+            <Link onClick={() => handleItemClick('home')} to='/'>
+              Home
+            </Link>
+          </Menu.Item>
+          <Menu.Item active={activeItem === 'login'}>
+            <Link onClick={() => handleItemClick('login')} to='/login'>
+              Login
+            </Link>
+          </Menu.Item>
+          <Menu.Item active={activeItem === 'register'}>
+            <Link onClick={() => handleItemClick('register')} to='/register'>
+              Sign Up
+            </Link>
+          </Menu.Item>
         </Menu>
         <Switch>
           <Route path='/login'>
@@ -67,11 +87,19 @@ const App = () => {
   return (
     <div>
       <div>
-        <Menu>
-          <Link to='/expenses'>Expenses</Link>
-          <Link to='/create_expense'>Create New</Link>
-          <UserStatus handleCurrentUser={handleCurrentUser} />
-          <button onClick={() => logout()}>Logout</button>
+        <Menu tabular>
+          <Menu.Item>
+            <Link to='/expenses'>Expenses</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to='/create_expense'>Create New</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <UserStatus handleCurrentUser={handleCurrentUser} />
+          </Menu.Item>
+          <Menu.Item>
+            <Button onClick={() => logout()}>Logout</Button>
+          </Menu.Item>
         </Menu>
       </div>
       <Switch>
