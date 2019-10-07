@@ -3,6 +3,8 @@ import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 import ExpenseList from './components/ExpenseList'
 import LoginForm from './components/LoginForm'
+import RegisterForm from './components/RegisterForm'
+import Home from './components/Home'
 import UserStatus from './components/UserStatus'
 import { ALL_EXPENSES } from './graphQL/queries'
 import {
@@ -11,9 +13,12 @@ import {
   DELETE_EXPENSE,
   LOGIN
 } from './graphQL/mutations'
+import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
   const client = useApolloClient()
+  const [page, setPage] = useState('')
+
   const [errorMessage, setErrorMessage] = useState(null)
   const handleError = error => {
     setErrorMessage(error.message)
@@ -56,21 +61,51 @@ const App = () => {
     localStorage.clear()
     client.resetStore()
   }
-
+  if (!token) {
+    return (
+      <div>
+        <div>
+          <Link to='/'>Home</Link>
+          <Link to='/login'>Login</Link>
+          <Link to='/register'>Sign Up</Link>
+        </div>
+        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+        <Switch>
+          <Route path='/login'>
+            <LoginForm
+              login={login}
+              show={page === 'signin'}
+              setToken={setToken}
+              onError={handleError}
+            />
+          </Route>
+          <Route path='/register'>
+            <RegisterForm
+              login={login}
+              show={page === 'signup'}
+              setToken={setToken}
+              onError={handleError}
+            />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    )
+  }
   return (
     <div>
-      <div>
-        <LoginForm login={login} setToken={setToken} onError={handleError} />
-        <button onClick={() => logout()}>Logout</button>
-        {token && <UserStatus handleCurrentUser={handleCurrentUser} />}
-        <CreateForm addExpense={addExpense} onError={handleError} />
-        <ExpenseList
-          expenses={expenses}
-          addUse={addUse}
-          deleteExpense={deleteExpense}
-          onError={handleError}
-        />
-      </div>
+      <UserStatus handleCurrentUser={handleCurrentUser} />
+      <button onClick={() => logout()}>Logout</button>
+
+      <CreateForm addExpense={addExpense} onError={handleError} />
+      <ExpenseList
+        expenses={expenses}
+        addUse={addUse}
+        deleteExpense={deleteExpense}
+        onError={handleError}
+      />
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     </div>
   )

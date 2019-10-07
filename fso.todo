@@ -1,7 +1,7 @@
 Todos:
 Client Side:
-  ☐ Set up condtional routes
-  ☐ Create menus for logged in / logged out
+  ☐ Set up condtional routes @today
+  ☐ Create menus for logged in / logged out @today
   ☐ Search feature
   ☐ Filter feature
   ☐ Sort feature (by date, by title, etc.)
@@ -10,5 +10,19 @@ Client Side:
 Server Side:
   ☐ expenses query by id
 
+Feature Ideas:
+  ☐ Sigin up via google/facebook
+  ☐ Email to user after signing up (will need to add email field)
+  ☐ Forgot password feature
+  ☐ Summary page with information visualizaion
+  ☐ User can edit expenses (change title, uses, etc.)
+  ☐ bad words filter
+  ☐ picture field for database? 
+  ☐ categories for expense (like with mint)
+
+
+
+
+  
 
 

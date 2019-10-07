@@ -11,12 +11,13 @@ const LoginForm = props => {
       const result = await props.login({
         variables: { username, password }
       })
-      console.log('result', result)
-      if (result) {
-        const token = result.data.login.value
-        props.setToken(token)
-        localStorage.setItem('token', token)
-      }
+      setPassword('')
+      setUsername('')
+
+      const token = result.data.login.value
+      props.setToken(token)
+      localStorage.setItem('token', token)
+
       console.log('localStorage', localStorage)
     } catch (e) {
       props.onError(e)
