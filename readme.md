@@ -22,6 +22,6 @@
 
 <ul>
 <li>Week 3</li>
-<li>Monday, 07.10.19 - XXX hours (06-XXX)</li>
+<li>Monday, 07.10.19 - 4 hours (06-10)</li>
 <li>Weekly Total: XXXX hours</li>
 </ul>

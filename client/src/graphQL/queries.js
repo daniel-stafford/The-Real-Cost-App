@@ -9,6 +9,8 @@ export const ALL_EXPENSES = gql`
       # purchaseDate
       notes
       id
+      createdAt
+      updatedAt
     }
   }
 `

@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 const ExpenseList = ({ expenses, addUse, deleteExpense }) => {
   const handleClick = async id => {
@@ -28,6 +29,7 @@ const ExpenseList = ({ expenses, addUse, deleteExpense }) => {
   return (
     <ul>
       {expenses.data.expenses.map(e => {
+        console.log('expenses', e)
         return (
           <li key={e.title}>
             {e.title}
@@ -40,6 +42,8 @@ const ExpenseList = ({ expenses, addUse, deleteExpense }) => {
               {e.uses > 0 && (
                 <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               )}
+              <li>Created: {moment(e.createdAt).calendar()}</li>
+              <li>Last Updated: {moment(e.updatedAt).calendar()}</li>
               <button onClick={() => handleDelete(e.id)}>Delete</button>
             </ul>
           </li>

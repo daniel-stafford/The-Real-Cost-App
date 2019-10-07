@@ -16,7 +16,7 @@ const App = () => {
   const client = useApolloClient()
   const [errorMessage, setErrorMessage] = useState(null)
   const handleError = error => {
-    setErrorMessage(error.message.substring(15))
+    setErrorMessage(error.message)
     setTimeout(() => {
       setErrorMessage(null)
     }, 5000)
