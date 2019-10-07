@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
+import { useMutation } from '@apollo/react-hooks'
+import { LOGIN } from '../graphQL/mutations'
 
 const LoginForm = props => {
-  console.log('loginform props', props)
+  const [login] = useMutation(LOGIN, {
+    onError: props.handleError
+  })
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const submit = async event => {
     event.preventDefault()
     try {
-      const result = await props.login({
+      const result = await login({
         variables: { username, password }
       })
       setPassword('')

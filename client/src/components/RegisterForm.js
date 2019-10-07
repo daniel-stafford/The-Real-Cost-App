@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-// import { CREATE_USER } from '../graphQL/mutations'
-// import { useMutation } from '@apollo/react-hooks'
+import { CREATE_USER } from '../graphQL/mutations'
+import { useMutation } from '@apollo/react-hooks'
 
 const RegisterForm = props => {
-  // const [createUser] = useMutation(CREATE_USER)
+  const [createUser] = useMutation(CREATE_USER)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -12,7 +12,7 @@ const RegisterForm = props => {
     console.log('username', username)
     console.log('password', password)
     try {
-      const result = await props.createUser({
+      const result = await createUser({
         variables: { username, password }
       })
       console.log('create user result', result)

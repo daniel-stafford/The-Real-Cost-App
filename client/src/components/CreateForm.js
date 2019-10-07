@@ -1,25 +1,22 @@
 import React from 'react'
-// import DatePicker from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker.css'
 import useField from '../hooks/useField'
+import { useMutation } from '@apollo/react-hooks'
+import { ADD_EXPENSE } from '../graphQL/mutations'
+import { ALL_EXPENSES } from '../graphQL/queries'
 
-const CreateForm = ({ addExpense }) => {
+const CreateForm = ({}) => {
+  const [addExpense] = useMutation(ADD_EXPENSE, {
+    refetchQueries: [{ query: ALL_EXPENSES }]
+  })
   const title = useField('text')
-  // const [date, setDate] = useState(null)
   const price = useField('number')
   const notes = useField('text')
 
-  // const handleDateChange = date => setDate(date)
-
   const handleSubmit = async e => {
     e.preventDefault()
-    // if (date) {
-    //   setDate(date.toString())
-    // }
     await addExpense({
       variables: {
         title: title.value,
-        // purchaseDate: date,
         notes: notes.value,
         price: parseInt(price.value, 10)
       }
@@ -33,21 +30,6 @@ const CreateForm = ({ addExpense }) => {
           <label>Title: </label>
           <input {...title} />
         </div>
-        {/* <div>
-          <label>Purchase Date: </label>
-          <DatePicker
-            selected={date}
-            onChange={date => setDate(date)}
-            popperPlacement='bottom'
-            popperModifiers={{
-              flip: {
-                behavior: ['bottom']
-              }
-            }}
-          >
-            <input type='time' name='time' />
-          </DatePicker>
-        </div> */}
         <div>
           <label>Price: </label>
           <input {...price} />

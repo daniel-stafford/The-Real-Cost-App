@@ -1,7 +1,17 @@
 import React from 'react'
 import moment from 'moment'
+import { useQuery, useMutation } from '@apollo/react-hooks'
+import { ALL_EXPENSES } from '../graphQL/queries'
+import { ADD_USE, DELETE_EXPENSE } from '../graphQL/mutations'
 
-const ExpenseList = ({ expenses, addUse, deleteExpense }) => {
+const ExpenseList = () => {
+  const expenses = useQuery(ALL_EXPENSES)
+  const [addUse] = useMutation(ADD_USE, {
+    refetchQueries: [{ query: ALL_EXPENSES }]
+  })
+  const [deleteExpense] = useMutation(DELETE_EXPENSE, {
+    refetchQueries: [{ query: ALL_EXPENSES }]
+  })
   const handleClick = async id => {
     try {
       await addUse({

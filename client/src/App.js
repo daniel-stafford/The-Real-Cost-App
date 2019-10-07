@@ -1,58 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { useQuery, useMutation, useApolloClient } from '@apollo/react-hooks'
+import { useApolloClient } from '@apollo/react-hooks'
 import CreateForm from './components/CreateForm'
 import ExpenseList from './components/ExpenseList'
 import LoginForm from './components/LoginForm'
 import RegisterForm from './components/RegisterForm'
 import Home from './components/Home'
 import UserStatus from './components/UserStatus'
-import { ALL_EXPENSES } from './graphQL/queries'
-import {
-  ADD_EXPENSE,
-  ADD_USE,
-  DELETE_EXPENSE,
-  LOGIN,
-  CREATE_USER
-} from './graphQL/mutations'
 import { Switch, Route, Link } from 'react-router-dom'
 
 const App = () => {
   const client = useApolloClient()
 
-  const [errorMessage, setErrorMessage] = useState(null)
-  const handleError = error => {
-    setErrorMessage(error.message)
-    setTimeout(() => {
-      setErrorMessage(null)
-    }, 5000)
-  }
-
   const [token, setToken] = useState(null)
+
   useEffect(() => {
     setToken(localStorage.getItem('token'))
   }, [])
-
-  const expenses = useQuery(ALL_EXPENSES)
-
-  const [addExpense] = useMutation(ADD_EXPENSE, {
-    refetchQueries: [{ query: ALL_EXPENSES }]
-  })
-
-  const [addUse] = useMutation(ADD_USE, {
-    refetchQueries: [{ query: ALL_EXPENSES }]
-  })
-
-  const [deleteExpense] = useMutation(DELETE_EXPENSE, {
-    refetchQueries: [{ query: ALL_EXPENSES }]
-  })
-
-  const [login] = useMutation(LOGIN, {
-    onError: handleError
-  })
-
-  const [createUser] = useMutation(CREATE_USER, {
-    onError: handleError
-  })
 
   const [loggedInUser, setLoggedInUser] = useState(null)
   console.log('loggedinuser', loggedInUser)
@@ -65,6 +28,15 @@ const App = () => {
     localStorage.clear()
     client.resetStore()
   }
+
+  const [errorMessage, setErrorMessage] = useState(null)
+  const handleError = error => {
+    setErrorMessage(error.message)
+    setTimeout(() => {
+      setErrorMessage(null)
+    }, 5000)
+  }
+
   if (!token) {
     return (
       <div>
@@ -75,14 +47,10 @@ const App = () => {
         </div>
         <Switch>
           <Route path='/login'>
-            <LoginForm
-              login={login}
-              setToken={setToken}
-              onError={handleError}
-            />
+            <LoginForm setToken={setToken} onError={handleError} />
           </Route>
           <Route path='/register'>
-            <RegisterForm onError={handleError} createUser={createUser} />
+            <RegisterForm onError={handleError} />
           </Route>
           <Route path='/'>
             <Home />
@@ -104,15 +72,10 @@ const App = () => {
       </div>
       <Switch>
         <Route path='/expenses'>
-          <ExpenseList
-            expenses={expenses}
-            addUse={addUse}
-            deleteExpense={deleteExpense}
-            onError={handleError}
-          />
+          <ExpenseList onError={handleError} />
         </Route>
         <Route path='/create_expense'>
-          <CreateForm addExpense={addExpense} onError={handleError} />
+          <CreateForm onError={handleError} />
         </Route>
       </Switch>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
