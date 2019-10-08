@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { ADD_USE, DELETE_EXPENSE } from '../graphQL/mutations'
 
-import { Button, Loader } from 'semantic-ui-react'
+import { Button, Loader, Card } from 'semantic-ui-react'
 
 const ExpenseList = () => {
   const expenses = useQuery(ALL_EXPENSES)
@@ -44,29 +44,34 @@ const ExpenseList = () => {
     )
   if (!expenses.data) return <div>No data available</div>
   return (
-    <ul>
+    <Card.Group>
       {expenses.data.expenses.map(e => {
         console.log('expenses', e)
         return (
-          <li key={e.title}>
-            {e.title}
-            <ul>
+          <Card key={e.title}>
+            <Card.Content>
+              <Card.Header>{e.title}</Card.Header>
+
               <li> Price: {e.price}</li>
               <li>
                 Uses: {e.uses}{' '}
-                <Button onClick={() => handleClick(e.id)}>Add use</Button>
+                <Button basic color='blue' onClick={() => handleClick(e.id)}>
+                  Add use
+                </Button>
               </li>
               {e.uses > 0 && (
                 <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               )}
               <li>Created: {moment(e.createdAt).calendar()}</li>
               <li>Last Updated: {moment(e.updatedAt).calendar()}</li>
-              <Button onClick={() => handleDelete(e.id)}>Delete</Button>
-            </ul>
-          </li>
+              <Button basic color='red' onClick={() => handleDelete(e.id)}>
+                Delete
+              </Button>
+            </Card.Content>
+          </Card>
         )
       })}
-    </ul>
+    </Card.Group>
   )
 }
 

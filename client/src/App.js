@@ -88,11 +88,18 @@ const App = () => {
     <div>
       <div>
         <Menu tabular>
-          <Menu.Item>
-            <Link to='/expenses'>Expenses</Link>
+          <Menu.Item active={activeItem === 'expenses'}>
+            <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
+              Expenses
+            </Link>
           </Menu.Item>
-          <Menu.Item>
-            <Link to='/create_expense'>Create New</Link>
+          <Menu.Item active={activeItem === 'create_expense'}>
+            <Link
+              onClick={() => handleItemClick('create_expense')}
+              to='/create_expense'
+            >
+              Create New
+            </Link>
           </Menu.Item>
           <Menu.Item>
             <UserStatus handleCurrentUser={handleCurrentUser} />
