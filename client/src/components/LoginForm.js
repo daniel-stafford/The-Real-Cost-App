@@ -13,6 +13,11 @@ const LoginForm = props => {
 
   const submit = async event => {
     event.preventDefault()
+    if (username.length < 3)
+      return props.handleNotification(
+        'error',
+        'Username must be longer than three characters'
+      )
     try {
       const result = await login({
         variables: { username, password }

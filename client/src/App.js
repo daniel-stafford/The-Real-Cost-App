@@ -34,7 +34,7 @@ const App = () => {
   }
 
   const [errorMessage, setErrorMessage] = useState(null)
-  const hideNotification = { category: 'hide' }
+  const hideNotification = { category: 'hide', content: '', time: 0 }
   const [notification, setNotification] = useState(hideNotification)
 
   const handleError = error => {
@@ -44,11 +44,15 @@ const App = () => {
     }, 5000)
   }
 
-  const handleNotification = message => {
-    setNotification(message)
+  const handleNotification = (
+    category = 'error',
+    content = 'Something went wrong',
+    time = 3
+  ) => {
+    setNotification({ category, content, time })
     setTimeout(() => {
       setNotification(hideNotification)
-    }, message.time * 1000)
+    }, time * 1000)
   }
 
   const [activeItem, setActiveItem] = useState('home')
@@ -88,10 +92,13 @@ const App = () => {
             />
           </Route>
           <Route path='/register'>
-            <RegisterForm onError={handleError} />
+            <RegisterForm
+              onError={handleError}
+              handleNotification={handleNotification}
+            />
           </Route>
           <Route path='/'>
-            <Home />
+            <Home handleNotification={handleNotification} />
           </Route>
         </Switch>
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}

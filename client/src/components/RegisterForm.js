@@ -12,6 +12,11 @@ const RegisterForm = props => {
 
   const submit = async event => {
     event.preventDefault()
+    if (password !== passwordConfirm)
+      return props.handleNotification(
+        'error',
+        "Your passwords don't match.  Please try again"
+      )
     try {
       const result = await createUser({
         variables: { username, password }
