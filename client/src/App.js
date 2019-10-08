@@ -6,10 +6,10 @@ import {
   LoginForm,
   RegisterForm,
   Home,
-  UserStatus
+  UserStatus,
+  Notification
 } from './components'
 import { Switch, Route, Link } from 'react-router-dom'
-
 import { Menu, Button } from 'semantic-ui-react'
 const App = () => {
   const client = useApolloClient()
@@ -34,11 +34,21 @@ const App = () => {
   }
 
   const [errorMessage, setErrorMessage] = useState(null)
+  const hideNotification = { category: 'hide' }
+  const [notification, setNotification] = useState(hideNotification)
+
   const handleError = error => {
     setErrorMessage(error.message)
     setTimeout(() => {
       setErrorMessage(null)
     }, 5000)
+  }
+
+  const handleNotification = message => {
+    setNotification(message)
+    setTimeout(() => {
+      setNotification(hideNotification)
+    }, message.time * 1000)
   }
 
   const [activeItem, setActiveItem] = useState('home')
@@ -71,7 +81,11 @@ const App = () => {
         </Menu>
         <Switch>
           <Route path='/login'>
-            <LoginForm setToken={setToken} onError={handleError} />
+            <LoginForm
+              setToken={setToken}
+              onError={handleError}
+              handleNotification={handleNotification}
+            />
           </Route>
           <Route path='/register'>
             <RegisterForm onError={handleError} />
@@ -81,6 +95,7 @@ const App = () => {
           </Route>
         </Switch>
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+        <Notification notification={notification} />
       </div>
     )
   }

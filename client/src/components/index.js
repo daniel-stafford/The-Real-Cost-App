@@ -4,5 +4,14 @@ import Home from './Home'
 import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import UserStatus from './UserStatus'
+import Notification from './Notification'
 
-export { CreateForm, ExpenseList, Home, LoginForm, RegisterForm, UserStatus }
+export {
+  CreateForm,
+  ExpenseList,
+  Home,
+  LoginForm,
+  RegisterForm,
+  UserStatus,
+  Notification
+}

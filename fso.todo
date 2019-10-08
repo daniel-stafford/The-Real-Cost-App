@@ -1,10 +1,10 @@
 Todos:
 Client Side:
-  ✔ Set up conditional routes for logged in/out users @today @done(19-10-07 14:05)
-  ✔ Create menus for logged in / logged out @today @done(19-10-07 14:05)
+  ✔ Set up conditional routes for logged in/out users  @done(19-10-07 14:05)
+  ✔ Create menus for logged in / logged out  @done(19-10-07 14:05)
   ✔ Sign up form functionalty @done(19-10-07 15:30)
   ✔ Refactor app.js file, it's a mess. @done(19-10-07 15:31)
-  ☐ Use Context and Hooks to control notifications
+  ☐ Use Context and Hooks to control notifications @today 
   ☐ Search feature
   ☐ Filter feature
   ☐ Sort feature (by date, by title, etc.)

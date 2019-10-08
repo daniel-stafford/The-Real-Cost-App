@@ -27,6 +27,11 @@ const LoginForm = props => {
       console.log('localStorage', localStorage)
     } catch (e) {
       props.onError(e)
+      props.handleNotification({
+        category: 'error',
+        content: 'Oops, something went wrong',
+        time: 5
+      })
     }
   }
 
