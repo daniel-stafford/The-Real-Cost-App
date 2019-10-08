@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { CREATE_USER } from '../graphQL/mutations'
 import { useMutation } from '@apollo/react-hooks'
 
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Message, Icon } from 'semantic-ui-react'
 
 const RegisterForm = props => {
   const [createUser] = useMutation(CREATE_USER)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
 
   const submit = async event => {
     event.preventDefault()
@@ -28,22 +29,34 @@ const RegisterForm = props => {
     <div>
       <Form onSubmit={submit}>
         <div>
-          username
+          Username
           <input
             value={username}
             onChange={({ target }) => setUsername(target.value)}
           />
         </div>
         <div>
-          password
+          Password
           <input
             type='password'
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
+        <div>
+          Confirm Password
+          <input
+            type='password'
+            value={passwordConfirm}
+            onChange={({ target }) => setPasswordConfirm(target.value)}
+          />
+        </div>
         <Button type='submit'>signup</Button>
       </Form>
+      <Message attached='bottom' warning>
+        <Icon name='help' />
+        Already signed up?&nbsp;<a href='/login'>Login here</a>&nbsp;instead.
+      </Message>
     </div>
   )
 }

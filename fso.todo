@@ -4,15 +4,17 @@ Client Side:
   ✔ Create menus for logged in / logged out @today @done(19-10-07 14:05)
   ✔ Sign up form functionalty @done(19-10-07 15:30)
   ✔ Refactor app.js file, it's a mess. @done(19-10-07 15:31)
+  ☐ Use Context and Hooks to control notifications
   ☐ Search feature
   ☐ Filter feature
   ☐ Sort feature (by date, by title, etc.)
   ☐ Fix error handling, it's really bad ATM
-  ☐ Start styling
+  ☐ Confirm password field when signing up
+  ✔ Start styling @done(19-10-08 18:19)
   
 Server Side:
   ☐ expenses query by id (logged in user)
-  ☐ Price doesn't accept decimils
+  ☐ Price doesn't accept decimilsd
 
 Feature Ideas:
   ☐ Sigin up via google/facebook
@@ -24,6 +26,7 @@ Feature Ideas:
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
   ☐ Comment feature
+  ☐ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references.
 
 Random Ideas:
   ☐ Consider using context for logged in user, avoid prop drilling.
