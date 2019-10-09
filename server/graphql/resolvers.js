@@ -9,7 +9,8 @@ module.exports = {
   Query: {
     expenses: () => Expense.find({}).populate('creator'),
     users: () => User.find({}).populate('createdExpenses'),
-    me: (root, args, { currentUser }) => currentUser
+    me: (root, args, { currentUser }) => currentUser,
+    expenseById: (root, { id }) => Expense.findById(id)
   },
   Date: new GraphQLScalarType({
     name: 'Date',

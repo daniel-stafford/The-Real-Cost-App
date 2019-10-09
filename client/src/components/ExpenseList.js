@@ -3,6 +3,7 @@ import moment from 'moment'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { ADD_USE, DELETE_EXPENSE } from '../graphQL/mutations'
+import { Link } from 'react-router-dom'
 
 import { Button, Loader, Card } from 'semantic-ui-react'
 
@@ -50,7 +51,9 @@ const ExpenseList = () => {
         return (
           <Card key={e.title}>
             <Card.Content>
-              <Card.Header>{e.title}</Card.Header>
+              <Card.Header>
+                <Link to={`/expenses/${e.id}`}>{e.title}</Link>
+              </Card.Header>
 
               <li> Price: {e.price}</li>
               <li>

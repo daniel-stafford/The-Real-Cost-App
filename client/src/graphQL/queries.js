@@ -25,3 +25,13 @@ export const CURRENT_USER = gql`
     }
   }
 `
+export const EXPENSE_BY_ID = gql`
+  query expenseById($id: ID!) {
+    expenseById(id: $id) {
+      title
+      price
+      uses
+      notes
+    }
+  }
+`

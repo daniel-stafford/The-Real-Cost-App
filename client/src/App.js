@@ -7,10 +7,14 @@ import {
   RegisterForm,
   Home,
   UserStatus,
-  Notification
+  Notification,
+  ExpenseDetail
 } from './components'
+import { useQuery } from '@apollo/react-hooks'
+import { EXPENSE_BY_ID, ALL_EXPENSES } from './graphQL/queries'
 import { Switch, Route, Link } from 'react-router-dom'
 import { Menu, Button } from 'semantic-ui-react'
+
 const App = () => {
   const client = useApolloClient()
 
@@ -63,6 +67,13 @@ const App = () => {
     setActiveItem(name)
   }
 
+  const getAllExpenses = useQuery(ALL_EXPENSES)
+  console.log('getAllExpenses', getAllExpenses)
+  const getExpenseById = id => {
+    if (!getAllExpenses.loading) console.log('inside function', getAllExpenses)
+    return getAllExpenses.data.expenses.filter(e => e.id === id)
+  }
+
   if (!token) {
     return (
       <div>
@@ -84,20 +95,20 @@ const App = () => {
           </Menu.Item>
         </Menu>
         <Switch>
-          <Route path='/login'>
+          <Route exact path='/login'>
             <LoginForm
               setToken={setToken}
               onError={handleError}
               handleNotification={handleNotification}
             />
           </Route>
-          <Route path='/register'>
+          <Route exact path='/register'>
             <RegisterForm
               onError={handleError}
               handleNotification={handleNotification}
             />
           </Route>
-          <Route path='/'>
+          <Route exact path='/'>
             <Home handleNotification={handleNotification} />
           </Route>
         </Switch>
@@ -132,12 +143,19 @@ const App = () => {
         </Menu>
       </div>
       <Switch>
-        <Route path='/expenses'>
+        <Route exact path='/expenses'>
           <ExpenseList onError={handleError} />
         </Route>
-        <Route path='/create_expense'>
+        <Route exact path='/create_expense'>
           <CreateForm onError={handleError} />
         </Route>
+        <Route
+          path='/expenses/:id'
+          exact
+          render={({ match }) => (
+            <ExpenseDetail expense={getExpenseById(match.params.id)} />
+          )}
+        />
       </Switch>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     </div>

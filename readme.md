@@ -31,6 +31,8 @@
 <ul>
 <li>Monday, 07.10.19 - 10.25 hours (06-10, 11-13:30, 14-15:45, 17-18, 21:20-22:20 )</li>
 <li>Tuesday, 08.10.19 - 4 hours (9-10, 15-1530, 18-2030)</li>
+<li>Wednesday, 09.10.19 - XXXX hours (1430-1500, 1940-)</li>
+
 <li>Weekly Total: 14.25 hours</li>
 </ul>
 </ul>

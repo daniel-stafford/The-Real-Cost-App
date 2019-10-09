@@ -24,6 +24,7 @@ module.exports = gql`
 
   type Query {
     expenses: [Expense]
+    expenseById(id: ID!): Expense!
     users: [User]
     me: User
   }

@@ -5,6 +5,7 @@ import LoginForm from './LoginForm'
 import RegisterForm from './RegisterForm'
 import UserStatus from './UserStatus'
 import Notification from './Notification'
+import ExpenseDetail from './ExpenseDetail'
 
 export {
   CreateForm,
@@ -13,5 +14,6 @@ export {
   LoginForm,
   RegisterForm,
   UserStatus,
-  Notification
+  Notification,
+  ExpenseDetail
 }
