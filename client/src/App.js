@@ -10,8 +10,6 @@ import {
   Notification,
   ExpenseDetail
 } from './components'
-import { useQuery } from '@apollo/react-hooks'
-import { EXPENSE_BY_ID, ALL_EXPENSES } from './graphQL/queries'
 import { Switch, Route, Link } from 'react-router-dom'
 import { Menu, Button } from 'semantic-ui-react'
 
@@ -66,13 +64,6 @@ const App = () => {
     console.log('handleItemClick', name)
     setActiveItem(name)
   }
-
-  // const getAllExpenses = useQuery(ALL_EXPENSES)
-  // console.log('getAllExpenses', getAllExpenses)
-  // const getExpenseById = id => {
-  //   if (!getAllExpenses.loading) console.log('inside function', getAllExpenses)
-  //   return getAllExpenses.data.expenses.filter(e => e.id === id)
-  // }
 
   if (!token) {
     return (
@@ -149,13 +140,11 @@ const App = () => {
         <Route exact path='/create_expense'>
           <CreateForm onError={handleError} />
         </Route>
-        {/* <Route
+        <Route
           path='/expenses/:id'
           exact
-          render={({ match }) => (
-            <ExpenseDetail expense={getExpenseById(match.params.id)} />
-          )}
-        /> */}
+          render={({ match }) => <ExpenseDetail id={match.params.id} />}
+        />
       </Switch>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
     </div>
