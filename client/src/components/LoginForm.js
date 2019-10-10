@@ -23,7 +23,6 @@ const LoginForm = props => {
       })
       setPassword('')
       setUsername('')
-
       const token = result.data.login.value
       props.setToken(token)
       localStorage.setItem('token', token)

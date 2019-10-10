@@ -1,18 +1,13 @@
 import React from 'react'
-import moment from 'moment'
-import { useQuery, useMutation } from '@apollo/react-hooks'
+import { useQuery } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { Link } from 'react-router-dom'
+import { Loader, Card } from 'semantic-ui-react'
+import { costPerUse } from '../utils/functions'
 
-import { Button, Loader, Card } from 'semantic-ui-react'
-
-const ExpenseList = () => {
+const ExpenseList = props => {
   const { loading, error, data } = useQuery(ALL_EXPENSES)
-
-  const costPerUse = (price, uses) => {
-    return price / uses
-  }
-
+  console.log('expense list props', props)
   if (loading)
     return (
       <div>
@@ -20,7 +15,10 @@ const ExpenseList = () => {
       </div>
     )
   if (error) return `Error! ${error.message}`
-  if (data.expenses.length === 0)
+  const userExpenses = data.expenses.filter(
+    e => e.creator.id === props.loggedInUser.me.id
+  )
+  if (userExpenses.length === 0)
     return (
       <div>
         <p> You haven't added any expenses yet </p>
@@ -31,7 +29,7 @@ const ExpenseList = () => {
     )
   return (
     <Card.Group>
-      {data.expenses.map(e => {
+      {userExpenses.map(e => {
         console.log('expenses', e)
         return (
           <Card key={e.title}>
@@ -45,8 +43,6 @@ const ExpenseList = () => {
               {e.uses > 0 && (
                 <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               )}
-              <li>Created: {moment(e.createdAt).calendar()}</li>
-              <li>Last Updated: {moment(e.updatedAt).calendar()}</li>
             </Card.Content>
           </Card>
         )

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CREATE_USER } from '../graphQL/mutations'
 import { useMutation } from '@apollo/react-hooks'
 
-import { Form, Button, Message, Icon } from 'semantic-ui-react'
+import { Form, Button, Message } from 'semantic-ui-react'
 
 const RegisterForm = props => {
   const [createUser] = useMutation(CREATE_USER)
@@ -28,6 +28,8 @@ const RegisterForm = props => {
       })
       setPassword('')
       setUsername('')
+      props.handleNotification('success', 'Fantastic! New user created!')
+
       console.log('user created!', result)
     } catch (e) {
       console.log(e)
@@ -64,7 +66,6 @@ const RegisterForm = props => {
         <Button type='submit'>signup</Button>
       </Form>
       <Message attached='bottom' warning>
-        <Icon name='help' />
         Already signed up?&nbsp;<a href='/login'>Login here</a>&nbsp;instead.
       </Message>
     </div>

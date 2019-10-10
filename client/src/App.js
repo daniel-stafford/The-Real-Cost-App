@@ -120,7 +120,6 @@ const App = () => {
           <Link
             onClick={() => handleItemClick('create_expense')}
             to='/create_expense'
-            handleNotification={handleNotification}
           >
             Create New
           </Link>
@@ -138,6 +137,7 @@ const App = () => {
           <ExpenseList
             onError={handleError}
             handleNotification={handleNotification}
+            loggedInUser={loggedInUser}
           />
         </Route>
         <Route exact path='/create_expense'>

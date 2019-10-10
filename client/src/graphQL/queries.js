@@ -6,7 +6,9 @@ export const ALL_EXPENSES = gql`
       title
       price
       uses
-      # purchaseDate
+      creator {
+        id
+      }
       notes
       id
       createdAt
@@ -33,6 +35,8 @@ export const EXPENSE_BY_ID = gql`
       uses
       notes
       id
+      createdAt
+      updatedAt
     }
   }
 `
