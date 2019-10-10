@@ -8,6 +8,7 @@ import Notification from './Notification'
 import ExpenseDetail from './ExpenseDetail'
 import DeleteExpense from './DeleteExpense'
 import Confirmation from './Confirmation'
+import AddUse from './AddUse'
 export {
   CreateForm,
   ExpenseList,
@@ -18,5 +19,6 @@ export {
   Notification,
   ExpenseDetail,
   DeleteExpense,
-  Confirmation
+  Confirmation,
+  AddUse
 }

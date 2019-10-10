@@ -2,27 +2,13 @@ import React from 'react'
 import moment from 'moment'
 import { useQuery, useMutation } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
-import { ADD_USE } from '../graphQL/mutations'
 import { Link } from 'react-router-dom'
 
 import { Button, Loader, Card } from 'semantic-ui-react'
 
 const ExpenseList = () => {
   const { loading, error, data } = useQuery(ALL_EXPENSES)
-  const [addUse] = useMutation(ADD_USE, {
-    refetchQueries: [{ query: ALL_EXPENSES }]
-  })
 
-  const handleClick = async ({ id, handleNotification }) => {
-    try {
-      await addUse({
-        variables: { id }
-      })
-    } catch (error) {
-      handleNotification('error', error)
-      console.log('something went wrong with add use', error)
-    }
-  }
   const costPerUse = (price, uses) => {
     return price / uses
   }
@@ -55,12 +41,7 @@ const ExpenseList = () => {
               </Card.Header>
 
               <li> Price: {e.price}</li>
-              <li>
-                Uses: {e.uses}{' '}
-                <Button basic color='blue' onClick={() => handleClick(e.id)}>
-                  Add use
-                </Button>
-              </li>
+              <li>Uses: {e.uses} </li>
               {e.uses > 0 && (
                 <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
               )}

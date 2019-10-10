@@ -120,6 +120,7 @@ const App = () => {
           <Link
             onClick={() => handleItemClick('create_expense')}
             to='/create_expense'
+            handleNotification={handleNotification}
           >
             Create New
           </Link>
@@ -134,7 +135,10 @@ const App = () => {
       <Notification notification={notification} />
       <Switch>
         <Route exact path='/expenses'>
-          <ExpenseList onError={handleError} />
+          <ExpenseList
+            onError={handleError}
+            handleNotification={handleNotification}
+          />
         </Route>
         <Route exact path='/create_expense'>
           <CreateForm
@@ -145,7 +149,12 @@ const App = () => {
         <Route
           path='/expenses/:id'
           exact
-          render={({ match }) => <ExpenseDetail id={match.params.id} />}
+          render={({ match }) => (
+            <ExpenseDetail
+              id={match.params.id}
+              handleNotification={handleNotification}
+            />
+          )}
         />
       </Switch>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}

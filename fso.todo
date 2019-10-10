@@ -6,15 +6,14 @@ Client Side:
   ✔ Create menus for logged in / logged out  @done(19-10-07 14:05)
   ✔ Sign up form functionalty @done(19-10-07 15:30)
   ✔ Refactor app.js file, it's a mess. @done(19-10-07 15:31)
-  ✔ Make expensedetail component with dynamic routing @today @done(19-10-09 23:12)
+  ✔ Make expensedetail component with dynamic routing  @done(19-10-09 23:12)
   ☐ Filter feature @today
   ☐ Sort feature (by date, by title, etc.)
-  ☐ Fix error handling, it's really bad ATM  
   ☐ Confirm password field when signing up @done(19-10-08 20:21)
   ✔ Start styling @done(19-10-08 18:19)
-  ☐ Finish fixing error/success handling notifications @today
+  ☐ Finish fixing error/success handling notifications @
   ☐ Create a good 404 page 
-  ☐ Redirects for create new, signing up, deleting, etc.@today
+  ✔ Redirects for create new, signing up, deleting, etc. @done(19-10-10 11:13)
   ☐ Only render user's own expenses when logged in @today
   ☐ Modal for delete confirmation
   ☐ Fix active highlight for menu
