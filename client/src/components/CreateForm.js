@@ -16,12 +16,16 @@ const CreateForm = ({ history, handleNotification }) => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    console.log(
+      'new price',
+      parseFloat(price.value.replace(/,/g, '.')).toFixed(2)
+    )
     try {
       await addExpense({
         variables: {
           title: title.value,
           notes: notes.value,
-          price: parseInt(price.value, 10)
+          price: parseFloat(price.value.replace(/,/g, '.')).toFixed(2)
         }
       })
       history.push('/expenses')
@@ -37,10 +41,6 @@ const CreateForm = ({ history, handleNotification }) => {
         <div>
           <label>Title: </label>
           <input {...title} />
-        </div>
-        <div>
-          <label>Price: </label>
-          <input {...price} />
         </div>
         <div>
           <label>Price: </label>
