@@ -33,6 +33,15 @@ const ExpenseList = () => {
       </div>
     )
   if (error) return `Error! ${error.message}`
+  if (data.expenses.length == 0)
+    return (
+      <div>
+        <p> You haven't added any expenses yet </p>
+        <p>
+          Go ahead and <Link to='/create_expense'>create one!</Link>
+        </p>
+      </div>
+    )
   return (
     <Card.Group>
       {data.expenses.map(e => {

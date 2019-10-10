@@ -24,9 +24,12 @@ const DeleteExpense = props => {
     }
   }
   return (
-    <Button basic color='red' onClick={() => handleDelete(props.id)}>
-      Delete
-    </Button>
+    <div>
+      <Button basic color='red' onClick={() => handleDelete(props.id)}>
+        Delete
+      </Button>
+      {/* <Confirmation /> */}
+    </div>
   )
 }
 
