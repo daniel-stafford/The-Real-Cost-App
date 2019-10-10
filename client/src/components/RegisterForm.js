@@ -17,6 +17,11 @@ const RegisterForm = props => {
         'error',
         "Your passwords don't match.  Please try again"
       )
+    if (password.length < 5)
+      return props.handleNotification(
+        'error',
+        'Password must be longer than 5 characters'
+      )
     try {
       const result = await createUser({
         variables: { username, password }

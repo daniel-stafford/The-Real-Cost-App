@@ -13,11 +13,10 @@ const LoginForm = props => {
 
   const submit = async event => {
     event.preventDefault()
-    if (username.length < 3)
-      return props.handleNotification(
-        'error',
-        'Username must be longer than three characters'
-      )
+    if (username.length === 0)
+      return props.handleNotification('error', 'Please enter your username')
+    if (password.length === 0)
+      return props.handleNotification('error', 'Please enter your password')
     try {
       const result = await login({
         variables: { username, password }
@@ -28,15 +27,10 @@ const LoginForm = props => {
       const token = result.data.login.value
       props.setToken(token)
       localStorage.setItem('token', token)
-
-      console.log('localStorage', localStorage)
     } catch (e) {
-      props.onError(e)
-      props.handleNotification({
-        category: 'error',
-        content: 'Oops, something went wrong',
-        time: 5
-      })
+      props.handleNotification('error', 'Incorrect username and/or password.')
+
+      console.log(e)
     }
   }
 

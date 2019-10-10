@@ -12,11 +12,12 @@ Client Side:
   ☐ Fix error handling, it's really bad ATM  
   ☐ Confirm password field when signing up @done(19-10-08 20:21)
   ✔ Start styling @done(19-10-08 18:19)
-  ☐ Finish fixing error handling notifications @today
+  ☐ Finish fixing error/success handling notifications @today
   ☐ Create a good 404 page 
   ☐ Redirects for create new, signing up, deleting, etc.@today
   ☐ Only render user's own expenses when logged in @today
   ☐ Modal for delete confirmation
+  ☐ Fix active highlight for menu
   
 
   

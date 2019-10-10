@@ -4,7 +4,7 @@ import { ALL_EXPENSES } from '../graphQL/queries'
 import { useMutation } from '@apollo/react-hooks'
 import { Button } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
-import { Confirmation } from '../components'
+// import { Confirmation } from '../components'
 
 const DeleteExpense = props => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE, {

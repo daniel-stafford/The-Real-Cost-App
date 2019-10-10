@@ -85,6 +85,7 @@ const App = () => {
             </Link>
           </Menu.Item>
         </Menu>
+        <Notification notification={notification} />
         <Switch>
           <Route exact path='/login'>
             <LoginForm
@@ -104,41 +105,42 @@ const App = () => {
           </Route>
         </Switch>
         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-        <Notification notification={notification} />
       </div>
     )
   }
   return (
     <div>
-      <div>
-        <Menu tabular>
-          <Menu.Item active={activeItem === 'expenses'}>
-            <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
-              Expenses
-            </Link>
-          </Menu.Item>
-          <Menu.Item active={activeItem === 'create_expense'}>
-            <Link
-              onClick={() => handleItemClick('create_expense')}
-              to='/create_expense'
-            >
-              Create New
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <UserStatus handleCurrentUser={handleCurrentUser} />
-          </Menu.Item>
-          <Menu.Item>
-            <Button onClick={() => logout()}>Logout</Button>
-          </Menu.Item>
-        </Menu>
-      </div>
+      <Menu tabular>
+        <Menu.Item active={activeItem === 'expenses'}>
+          <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
+            Expenses
+          </Link>
+        </Menu.Item>
+        <Menu.Item active={activeItem === 'create_expense'}>
+          <Link
+            onClick={() => handleItemClick('create_expense')}
+            to='/create_expense'
+          >
+            Create New
+          </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <UserStatus handleCurrentUser={handleCurrentUser} />
+        </Menu.Item>
+        <Menu.Item>
+          <Button onClick={() => logout()}>Logout</Button>
+        </Menu.Item>
+      </Menu>
+      <Notification notification={notification} />
       <Switch>
         <Route exact path='/expenses'>
           <ExpenseList onError={handleError} />
         </Route>
         <Route exact path='/create_expense'>
-          <CreateForm onError={handleError} />
+          <CreateForm
+            onError={handleError}
+            handleNotification={handleNotification}
+          />
         </Route>
         <Route
           path='/expenses/:id'

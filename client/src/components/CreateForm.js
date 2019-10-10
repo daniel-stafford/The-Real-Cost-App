@@ -6,7 +6,7 @@ import { ALL_EXPENSES } from '../graphQL/queries'
 import { Form, Button } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
-const CreateForm = ({ history }) => {
+const CreateForm = ({ history, handleNotification }) => {
   const [addExpense] = useMutation(ADD_EXPENSE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })
@@ -26,6 +26,7 @@ const CreateForm = ({ history }) => {
       })
       history.push('/expenses')
     } catch (error) {
+      handleNotification('error', error.message)
       console.log('something went wrong with add expense')
     }
   }

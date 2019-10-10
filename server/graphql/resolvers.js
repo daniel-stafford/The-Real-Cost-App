@@ -5,6 +5,8 @@ const jwt = require('jsonwebtoken')
 const { GraphQLScalarType } = require('graphql')
 const { Kind } = require('graphql/language')
 const moment = require('moment')
+const { AuthenticationError } = require('apollo-server')
+
 module.exports = {
   Query: {
     expenses: () => Expense.find({}).populate('creator'),
@@ -31,7 +33,7 @@ module.exports = {
   Mutation: {
     addExpense: async (root, args, { currentUser }) => {
       const { title, price, notes } = args
-      if (!currentUser) return console.log("sorry, you're not logged in")
+      if (!currentUser) throw new AuthenticationError('You must be logged in')
 
       let expense = new Expense({
         title,

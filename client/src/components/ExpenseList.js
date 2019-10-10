@@ -13,12 +13,13 @@ const ExpenseList = () => {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })
 
-  const handleClick = async id => {
+  const handleClick = async ({ id, handleNotification }) => {
     try {
       await addUse({
         variables: { id }
       })
     } catch (error) {
+      handleNotification('error', error)
       console.log('something went wrong with add use', error)
     }
   }
@@ -33,7 +34,7 @@ const ExpenseList = () => {
       </div>
     )
   if (error) return `Error! ${error.message}`
-  if (data.expenses.length == 0)
+  if (data.expenses.length === 0)
     return (
       <div>
         <p> You haven't added any expenses yet </p>
