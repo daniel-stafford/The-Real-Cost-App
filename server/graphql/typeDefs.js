@@ -5,7 +5,6 @@ module.exports = gql`
   type Expense {
     title: String!
     price: Int!
-    # purchaseDate: String
     uses: Int!
     notes: String
     id: ID!
