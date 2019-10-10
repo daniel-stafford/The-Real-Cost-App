@@ -9,7 +9,6 @@ import { Filter } from '../components'
 const ExpenseList = props => {
   const { loading, error, data } = useQuery(ALL_EXPENSES)
   const [filter, setFilter] = useState('')
-  const [expenses, setExpenses] = useState([])
 
   const handleFilter = userInput => {
     setFilter(userInput)
@@ -22,11 +21,20 @@ const ExpenseList = props => {
       </div>
     )
   if (error) return `Error! ${error.message}`
-  const userExpenses = data.expenses.filter(
+  const allExpenses = data.expenses
+
+  const userExpenses = allExpenses.filter(
     e => e.creator.id === props.loggedInUser.me.id
   )
 
-  if (userExpenses.length === 0)
+  let filteredExpenses = userExpenses
+
+  if (filter) {
+    filteredExpenses = userExpenses.filter(e =>
+      e.title.toLowerCase().includes(filter)
+    )
+  }
+  if (!userExpenses)
     return (
       <div>
         <p> You haven't added any expenses yet </p>
@@ -39,7 +47,7 @@ const ExpenseList = props => {
     <>
       <Filter handleFilter={handleFilter} />
       <Card.Group>
-        {userExpenses.map(e => {
+        {filteredExpenses.map(e => {
           console.log('expenses', e)
           return (
             <Card key={e.title}>
