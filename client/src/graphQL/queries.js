@@ -32,6 +32,7 @@ export const EXPENSE_BY_ID = gql`
       price
       uses
       notes
+      id
     }
   }
 `

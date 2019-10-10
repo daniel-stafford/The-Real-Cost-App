@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { EXPENSE_BY_ID } from '../graphQL/queries'
 import { Loader } from 'semantic-ui-react'
+import { DeleteExpense } from '../components'
 
 const ExpenseDetail = ({ id }) => {
   const { loading, error, data } = useQuery(EXPENSE_BY_ID, {
@@ -22,6 +23,7 @@ const ExpenseDetail = ({ id }) => {
       <li>Price: {e.price}</li>
       <li>Notes: {e.notes}</li>
       <li>Uses: {e.uses}</li>
+      <DeleteExpense id={e.id} />
     </ul>
   )
 }

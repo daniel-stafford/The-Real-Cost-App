@@ -6,6 +6,7 @@ import RegisterForm from './RegisterForm'
 import UserStatus from './UserStatus'
 import Notification from './Notification'
 import ExpenseDetail from './ExpenseDetail'
+import DeleteExpense from './DeleteExpense'
 
 export {
   CreateForm,
@@ -15,5 +16,6 @@ export {
   RegisterForm,
   UserStatus,
   Notification,
-  ExpenseDetail
+  ExpenseDetail,
+  DeleteExpense
 }
