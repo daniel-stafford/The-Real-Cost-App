@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { Button, Loader, Card } from 'semantic-ui-react'
 
 const ExpenseList = () => {
-  const expenses = useQuery(ALL_EXPENSES)
+  const { loading, error, data } = useQuery(ALL_EXPENSES)
   const [addUse] = useMutation(ADD_USE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })
@@ -37,16 +37,16 @@ const ExpenseList = () => {
       console.log('something went wrong with deleting expense', error)
     }
   }
-  if (expenses.loading)
+  if (loading)
     return (
       <div>
         <Loader active />
       </div>
     )
-  if (!expenses.data) return <div>No data available</div>
+  if (error) return `Error! ${error.message}`
   return (
     <Card.Group>
-      {expenses.data.expenses.map(e => {
+      {data.expenses.map(e => {
         console.log('expenses', e)
         return (
           <Card key={e.title}>
