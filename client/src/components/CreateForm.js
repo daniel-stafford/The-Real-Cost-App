@@ -3,10 +3,10 @@ import useField from '../hooks/useField'
 import { useMutation } from '@apollo/react-hooks'
 import { ADD_EXPENSE } from '../graphQL/mutations'
 import { ALL_EXPENSES } from '../graphQL/queries'
-
 import { Form, Button } from 'semantic-ui-react'
+import { withRouter } from 'react-router'
 
-const CreateForm = () => {
+const CreateForm = ({ history }) => {
   const [addExpense] = useMutation(ADD_EXPENSE, {
     refetchQueries: [{ query: ALL_EXPENSES }]
   })
@@ -16,13 +16,18 @@ const CreateForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    await addExpense({
-      variables: {
-        title: title.value,
-        notes: notes.value,
-        price: parseInt(price.value, 10)
-      }
-    })
+    try {
+      await addExpense({
+        variables: {
+          title: title.value,
+          notes: notes.value,
+          price: parseInt(price.value, 10)
+        }
+      })
+      history.push('/expenses')
+    } catch (error) {
+      console.log('something went wrong with add expense')
+    }
   }
 
   return (
@@ -46,4 +51,4 @@ const CreateForm = () => {
   )
 }
 
-export default CreateForm
+export default withRouter(CreateForm)

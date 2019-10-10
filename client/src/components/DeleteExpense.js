@@ -3,6 +3,7 @@ import { DELETE_EXPENSE } from '../graphQL/mutations'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { useMutation } from '@apollo/react-hooks'
 import { Button } from 'semantic-ui-react'
+import { withRouter } from 'react-router'
 
 const DeleteExpense = props => {
   const [deleteExpense] = useMutation(DELETE_EXPENSE, {
@@ -14,6 +15,7 @@ const DeleteExpense = props => {
       await deleteExpense({
         variables: { id }
       })
+      props.history.push('/expenses')
     } catch (error) {
       console.log('something went wrong with deleting expense', error)
     }
@@ -25,4 +27,4 @@ const DeleteExpense = props => {
   )
 }
 
-export default DeleteExpense
+export default withRouter(DeleteExpense)
