@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import { ALL_EXPENSES } from '../graphQL/queries'
 import { Link } from 'react-router-dom'
 import { Loader, Card } from 'semantic-ui-react'
 import { costPerUse } from '../utils/functions'
+import { Filter } from '../components'
 
 const ExpenseList = props => {
   const { loading, error, data } = useQuery(ALL_EXPENSES)
-  console.log('expense list props', props)
+  const [filter, setFilter] = useState('')
+  const [expenses, setExpenses] = useState([])
+
+  const handleFilter = userInput => {
+    setFilter(userInput)
+  }
+  console.log('expenselist filter', filter)
   if (loading)
     return (
       <div>
@@ -18,6 +25,7 @@ const ExpenseList = props => {
   const userExpenses = data.expenses.filter(
     e => e.creator.id === props.loggedInUser.me.id
   )
+
   if (userExpenses.length === 0)
     return (
       <div>
@@ -28,26 +36,29 @@ const ExpenseList = props => {
       </div>
     )
   return (
-    <Card.Group>
-      {userExpenses.map(e => {
-        console.log('expenses', e)
-        return (
-          <Card key={e.title}>
-            <Card.Content>
-              <Card.Header>
-                <Link to={`/expenses/${e.id}`}>{e.title}</Link>
-              </Card.Header>
+    <>
+      <Filter handleFilter={handleFilter} />
+      <Card.Group>
+        {userExpenses.map(e => {
+          console.log('expenses', e)
+          return (
+            <Card key={e.title}>
+              <Card.Content>
+                <Card.Header>
+                  <Link to={`/expenses/${e.id}`}>{e.title}</Link>
+                </Card.Header>
 
-              <li> Price: {e.price}</li>
-              <li>Uses: {e.uses} </li>
-              {e.uses > 0 && (
-                <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
-              )}
-            </Card.Content>
-          </Card>
-        )
-      })}
-    </Card.Group>
+                <li> Price: {e.price}</li>
+                <li>Uses: {e.uses} </li>
+                {e.uses > 0 && (
+                  <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
+                )}
+              </Card.Content>
+            </Card>
+          )
+        })}
+      </Card.Group>
+    </>
   )
 }
 

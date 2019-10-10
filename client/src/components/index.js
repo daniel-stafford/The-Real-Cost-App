@@ -9,6 +9,8 @@ import ExpenseDetail from './ExpenseDetail'
 import DeleteExpense from './DeleteExpense'
 import Confirmation from './Confirmation'
 import AddUse from './AddUse'
+import Filter from './Filter'
+
 export {
   CreateForm,
   ExpenseList,
@@ -20,5 +22,6 @@ export {
   ExpenseDetail,
   DeleteExpense,
   Confirmation,
-  AddUse
+  AddUse,
+  Filter
 }

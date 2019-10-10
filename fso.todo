@@ -14,7 +14,7 @@ Client Side:
   ☐ Finish fixing error/success handling notifications @
   ☐ Create a good 404 page 
   ✔ Redirects for create new, signing up, deleting, etc. @done(19-10-10 11:13)
-  ☐ Only render user's own expenses when logged in @today
+  ✔ Only render user's own expenses when logged in @today @done(19-10-10 19:37)
   ☐ Modal for delete confirmation
   ☐ Fix active highlight for menu
   

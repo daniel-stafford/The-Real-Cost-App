@@ -43,6 +43,10 @@ const CreateForm = ({ history, handleNotification }) => {
           <input {...price} />
         </div>
         <div>
+          <label>Price: </label>
+          <input {...price} />
+        </div>
+        <div>
           <label>Notes: </label>
           <input {...notes} />
         </div>
