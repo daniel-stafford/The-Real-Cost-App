@@ -10,6 +10,7 @@ import DeleteExpense from './DeleteExpense'
 import Confirmation from './Confirmation'
 import AddUse from './AddUse'
 import Filter from './Filter'
+import CostChart from './CostChart'
 
 export {
   CreateForm,
@@ -23,5 +24,6 @@ export {
   DeleteExpense,
   Confirmation,
   AddUse,
-  Filter
+  Filter,
+  CostChart
 }
