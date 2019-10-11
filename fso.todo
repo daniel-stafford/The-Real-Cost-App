@@ -27,6 +27,7 @@ Random Ideas:
   ☐ Create gif of app use as a tutorial
   ☐ Make add use more complicated, add a date, duration (if applicable).
   ☐ Option to send a reminder that membership is due to expire/renew
+  ☐ Rebuild the app using parcel and typescript, and perhaps next.js???
 
 Broad Ideas:
     ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
