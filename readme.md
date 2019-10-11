@@ -32,8 +32,9 @@
 <li>Monday, 07.10.19 - 10.25 hours (06-10, 11-13:30, 14-15:45, 17-18, 21:20-22:20 )</li>
 <li>Tuesday, 08.10.19 - 4 hours (9-10, 15-1530, 18-2030)</li>
 <li>Wednesday, 09.10.19 - 1.4 hours (1430-1500, 1940-2100, 2240-2250)</li>
-<li>Thursday, 10.10.19 - XXXX hours (715-815, 845-945, 1015-1130, 1730-1830, 1910-)</li>
+<li>Thursday, 10.10.19 - 6.91 hours (715-815, 845-945, 1015-1130, 1730-1830, 1910-2150)</li>
+<li>Friday, 1.10.19 - XXXX hours (XXXX)</li>
 
-<li>Weekly Total: 15.65 hours</li>
+<li>Weekly Total: 22.55 hours</li>
 </ul>
 </ul>

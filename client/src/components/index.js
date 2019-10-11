@@ -13,17 +13,17 @@ import Filter from './Filter'
 import CostChart from './CostChart'
 
 export {
-  CreateForm,
-  ExpenseList,
-  Home,
-  LoginForm,
-  RegisterForm,
-  UserStatus,
-  Notification,
-  ExpenseDetail,
-  DeleteExpense,
-  Confirmation,
-  AddUse,
-  Filter,
-  CostChart
+    CreateForm,
+    ExpenseList,
+    Home,
+    LoginForm,
+    RegisterForm,
+    UserStatus,
+    Notification,
+    ExpenseDetail,
+    DeleteExpense,
+    Confirmation,
+    AddUse,
+    Filter,
+    CostChart
 }

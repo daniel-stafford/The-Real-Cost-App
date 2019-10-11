@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { CREATE_USER } from '../graphQL/mutations'
 import { useMutation } from '@apollo/react-hooks'
-
 import { Form, Button, Message } from 'semantic-ui-react'
 
 const RegisterForm = props => {

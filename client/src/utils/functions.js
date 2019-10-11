@@ -1,3 +1,1 @@
-export const costPerUse = (price, uses) => {
-  return price / uses
-}
+export const costPerUse = (price, uses) => price / uses
