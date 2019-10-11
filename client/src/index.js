@@ -11,7 +11,7 @@ import { setContext } from 'apollo-link-context'
 import { Container } from 'semantic-ui-react'
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:4000/graphql'
+  uri: '/graphql'
 })
 
 const authLink = setContext((_, { headers }) => {
