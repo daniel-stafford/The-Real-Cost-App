@@ -31993,8 +31993,26 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.log = void 0;
 
-var log = function log(variable) {
-  return console.log(variable.toString(), variable);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var log = function log(val) {
+  var myVar = val;
+
+  var varToString = function varToString(varObj) {
+    return Object.keys(varObj)[0];
+  };
+
+  var someVar = myVar;
+  var displayName = varToString({
+    someVar: someVar
+  });
+  console.log(displayName);
+
+  var type = _typeof(val);
+
+  var stringed = val.toString();
+  var key = "".concat(displayName, "(").concat(type, ") ").concat(stringed, ":");
+  return console.log(key, val);
 };
 
 exports.log = log;
