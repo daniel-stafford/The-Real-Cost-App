@@ -31997,8 +31997,8 @@ var _react = _interopRequireDefault(require("react"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var App = function App() {
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Hello World"));
+var App = function App(props) {
+  return _react.default.createElement("div", null, _react.default.createElement("pre", null, _react.default.createElement("code", null, JSON.stringify(props, null, 4))), _react.default.createElement("p", null, "Hello World"));
 };
 
 var _default = App;
@@ -32014,7 +32014,9 @@ var _App = _interopRequireDefault(require("./App"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom.default.render(_react.default.createElement(_react.default.StrictMode, null, _react.default.createElement(_App.default, null)), document.getElementById("root"));
+_reactDom.default.render(_react.default.createElement(_react.default.StrictMode, null, _react.default.createElement(_App.default, {
+  name: "Daniel"
+})), document.getElementById("root"));
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","./App":"App.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
