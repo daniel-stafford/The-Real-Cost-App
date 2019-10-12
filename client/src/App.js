@@ -1,8 +1,12 @@
 import React, { Component } from "react"
 
 export default class App extends Component {
-  state = { loading: true }
+  state = { message: "Hello!" }
   render() {
-    return <div>{this.state.loading}</div>
+    return (
+      <div>
+        <p>{this.state.message}</p>
+      </div>
+    )
   }
 }

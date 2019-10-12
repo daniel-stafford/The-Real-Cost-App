@@ -32038,7 +32038,7 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "state", {
-      loading: true
+      message: "Hello!"
     });
 
     return _this;
@@ -32047,7 +32047,7 @@ function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, this.state.loading);
+      return _react.default.createElement("div", null, _react.default.createElement("p", null, this.state.message));
     }
   }]);
 
