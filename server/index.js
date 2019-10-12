@@ -1,7 +1,8 @@
 require('dotenv').config()
-const mongoose = require('mongoose')
-const { ApolloServer } = require('apollo-server')
 
+const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+const mongoose = require('mongoose')
 const typeDefs = require('./graphql/typeDefs.js')
 const resolvers = require('./graphql/resolvers')
 const jwt = require('jsonwebtoken')
@@ -23,6 +24,9 @@ mongoose
     console.log('error connection to MongoDB:', error.message)
   })
 
+if (process.env.NODE_ENV === 'production') {
+}
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -38,10 +42,11 @@ const server = new ApolloServer({
   }
 })
 
-if (process.env.NODE_ENV === 'production') {
-}
+const app = express();
 
-server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
-  console.log(`🚀 Server ready at ${url}`)
-  // console.log(`Subscriptions ready at ${subscriptionsUrl}`)
+server.applyMiddleware({ app });
+
+app.listen({ port: process.env.PORT }, () => {
+  console.log(`🚀 Server ready at port ${process.env.PORT}`)
 })
+
