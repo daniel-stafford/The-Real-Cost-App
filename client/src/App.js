@@ -1,12 +1,18 @@
-import React, { Component } from "react"
+import React, { useState } from "react"
+import Header from "./components/Header"
+import ThemeContext from "./components/ThemeContext"
+import Footer from "./components/Footer"
 
-export default class App extends Component {
-  state = { message: "Hello!" }
-  render() {
-    return (
+const App = () => {
+  const themeHook = useState("darkblue")
+  return (
+    <ThemeContext.Provider value={themeHook}>
       <div>
-        <p>{this.state.message}</p>
+        <Header />
+        <Footer />
       </div>
-    )
-  }
+    </ThemeContext.Provider>
+  )
 }
+
+export default App
