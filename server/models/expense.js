@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const uniqueValidator = require('mongoose-unique-validator')
-const Float = require('mongoose-float').loadType(mongoose)
 
 const schema = new Schema({
   title: {
