@@ -34,7 +34,7 @@
 <li>Wednesday, 09.10.19 - 1.4 hours (1430-1500, 1940-2100, 2240-2250)</li>
 <li>Thursday, 10.10.19 - 6.91 hours (715-815, 845-945, 1015-1130, 1730-1830, 1910-2150)</li>
 <li>Friday, 11.10.19 - 4 hours (1730-1830, 1930-2230)</li>
-<li>Saturday, 12.10.19 - XXX hours (0545-1020, 11-14, 1530-XXX</li>
+<li>Saturday, 12.10.19 - XXX hours (0545-1020, 11-14, 1530-1840</li>
 
 <li>Weekly Total: 24.55 hours</li>
 </ul>
