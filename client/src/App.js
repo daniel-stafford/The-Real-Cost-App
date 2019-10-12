@@ -1,15 +1,8 @@
-import React from "react"
+import React, { Component } from "react"
 
-const App = props => {
-  return (
-    <div>
-      {/* access via "pp" in vscode */}
-      <pre>
-        <code>{JSON.stringify(props, null, 4)}</code>
-      </pre>
-      <p>Hello World</p>
-    </div>
-  )
+export default class App extends Component {
+  state = { loading: true }
+  render() {
+    return <div>{this.state.loading}</div>
+  }
 }
-
-export default App
