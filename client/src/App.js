@@ -1,9 +1,6 @@
 import React from "react"
-import { log } from "./utils/functions"
 
 const App = props => {
-  const blah = "some sort of text"
-  log(blah)
   return (
     <div>
       {/* access via "pp" in vscode */}
