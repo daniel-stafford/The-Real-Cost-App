@@ -7,7 +7,7 @@ export default class Footer extends Component {
     return (
       <div>
         <ThemeContext.Consumer>
-          {theme => <p>{theme}!!!</p>}
+          {theme => <p>{theme}!</p>}
         </ThemeContext.Consumer>
       </div>
     )

@@ -32192,7 +32192,7 @@ function (_Component) {
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement(_ThemeContext.default.Consumer, null, function (theme) {
-        return _react.default.createElement("p", null, theme, "!!!");
+        return _react.default.createElement("p", null, theme, "!");
       }));
     }
   }]);
