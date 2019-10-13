@@ -2,6 +2,8 @@
 
 <p>Technologies used in this app include React, Apollo, GraphQL, and MongoDB.</p>
 
+<p>UPDATE (Sunday, 17 October 2019) After achieving basic functionality with the app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the App with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql will become clearer in the future.
+
 <p>As this project is part of the FullStack Open 2019 course at the University of Helsinki, work hours are below:</p>
 
 <ul>
@@ -36,6 +38,10 @@
 <li>Friday, 11.10.19 - 4 hours (1730-1830, 1930-2230)</li>
 <li>Saturday, 12.10.19 - 10 hours (0545-845, 11-1430, 17-20, 21-2130)</li> 
   Note: this was a tough day, attempted to deploy to heroku, failed.
-<li>Weekly Total: 34.55 hours</li>
+<li>Sunday, 13.10.19 - 5.5 hours (12-1730)</li> 
+  Note: tried building graphql-react boilerapp that could deploy to heroku, failed, going to convert project to RESTful api due to deployment 
+<li>Weekly Total: 42.06 hours</li>
 </ul>
 </ul>
+
+Total Hours: 58.56
