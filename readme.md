@@ -39,7 +39,7 @@
 <li>Saturday, 12.10.19 - 10 hours (0545-845, 11-1430, 17-20, 21-2130)</li> 
   Note: this was a tough day, attempted to deploy to heroku, failed.
 <li>Sunday, 13.10.19 - 5.5 hours (12-1730)</li> 
-  Note: tried building graphql-react boilerapp that could deploy to heroku, failed, going to convert project to RESTful api due to deployment 
+  Note: tried building graphql-react boilerapp that could deploy to heroku <a href="https://github.com/daniel-stafford/Express-React-Heroku"> -link-</a> failed, going to convert project to RESTful api due to deployment 
 <li>Weekly Total: 42.06 hours</li>
 </ul>
 </ul>
