@@ -12,13 +12,18 @@ const initialExpenses = [
   }
 ]
 beforeEach(async () => {
-  await Note.deleteMany({})
-
-  const expense = new expense(initialExpenses[0])
+  await Expense.deleteMany({})
+  const expense = new Expense(initialExpenses[0])
+  console.log('expense', expense)
   await expense.save()
 })
 
-test('all notes are returned', async () => {
-  const response = await api.get('/api/notes')
-  expect(response.body.length).toBe(initialNotes.length)
+describe('addition of a new expense', () => {
+  afterAll(async () => {
+    await mongoose.connection.close()
+  })
+  test('all notes are returned', async () => {
+    const response = await api.get('/api/expenses')
+    expect(response.body.length).toBe(initialExpenses.length)
+  })
 })
