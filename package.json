@@ -1,5 +1,11 @@
 {
-  "name": "react-node-heroku",
+  "name": "the-real-cost-app-mern",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -38,11 +44,5 @@
     "jest": "^24.9.0",
     "nodemon": "^1.19.3",
     "supertest": "^4.0.2"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
   }
 }
