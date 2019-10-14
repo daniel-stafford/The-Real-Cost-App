@@ -1,0 +1,53 @@
+Todos:
+☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
+
+Client Side:
+  ☐ Finish fixing error/success handling notifications @
+  ☐ Create a good 404 page 
+  ☐ Fix active highlight for menu
+  ☐ Create chart showing number of visit (x axis) by cost per visit (y axis)
+  ☐ Use cache to save local state (particuarly data)
+
+Server Side: 
+
+Feature Ideas:
+  ☐ Sigin up via google/facebook
+  ☐ Email to user after signing up (will need to add email field)
+  ☐ Forgot password feature
+  ☐ Summary page with information visualizaion
+  ☐ User can edit expenses (change title, uses, etc.)
+  ☐ bad words filter
+  ☐ picture field for database? 
+  ☐ categories for expense (like with mint)
+  ☐ Comment feature
+  ☐ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references.
+
+Random Ideas:
+  ☐ Form validation (e.g. check if email) Consider learning regex to do this.
+  ☐ Create gif of app use as a tutorial
+  ☐ Make add use more complicated, add a date, duration (if applicable).
+  ☐ Option to send a reminder that membership is due to expire/renew
+  ☐ Rebuild the app using parcel and typescript, and perhaps next.js???
+
+Broad Ideas:
+    ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
+
+Completed:
+  ✔ Set up conditional routes for logged in/out users  @done(19-10-07 14:05)
+  ✔ Create menus for logged in / logged out  @done(19-10-07 14:05)
+  ✔ Sign up form functionalty @done(19-10-07 15:30)
+  ✔ Refactor app.js file, it's a mess. @done(19-10-07 15:31)
+  ✔ Make expensedetail component with dynamic routing  @done(19-10-09 23:12)
+  ✔ Filter feature @today @done(19-10-10 20:49)
+  ✘ Sort feature (by date, by title, etc.) @cancelled(19-10-10 21:30)
+  ☐ Confirm password field when signing up @done(19-10-08 20:21)
+  ✔ Start styling @done(19-10-08 18:19)
+  ✔ Redirects for create new, signing up, deleting, etc. @done(19-10-10 11:13)
+  ✔ Only render user's own expenses when logged in @today @done(19-10-10 19:37)
+  ✘ Modal for delete confirmation @cancelled(19-10-10 21:30)
+   ✔ expenses query by id (logged in user) @done(19-10-10 07:18)
+  ✘ Get price to accept decimals (to the nearest hundreth) @cancelled(19-10-10 21:30)
+
+
+  
+
