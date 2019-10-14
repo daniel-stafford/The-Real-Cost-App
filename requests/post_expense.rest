@@ -1,0 +1,8 @@
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+
+{
+  "title": "this is a title",
+	"price": "100",
+  "notes": "blah blah"
+}
