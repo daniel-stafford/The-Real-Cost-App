@@ -2,7 +2,7 @@ POST http://localhost:8080/api/expenses
 Content-Type: application/json
 
 {
-  "title": "this is a title",
+  "title": "this is another title",
 	"price": "100",
   "notes": "blah blah"
 }
