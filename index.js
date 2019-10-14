@@ -30,7 +30,7 @@ app.get('/api', async (req, res) => {
     const response = await axios.get(`https://api.github.com/users/${user}`)
     res.json({ user: response.data })
   } catch (e) {
-    console.log('error with github get', e.message)
+    console.log('error with github get!', e.message)
   }
 })
 
