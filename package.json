@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "watch": "cross-env NODE_ENV=development nodemon index.js",
-    "server": "cross env NODE_ENV=production node index.js",
+    "server": "node index.js",
     "client": "cross-env NODE_ENV=development npm start --prefix client",
     "both": "concurrently \"npm run server\" \"npm run client\"",
     "dev": "cd client && code . && cd ../ && npm run watch",
