@@ -1,3 +1,8 @@
 {
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "rest-client.environmentVariables": {
+    "local": {
+      "url": "http://localhost:8080/api"
+    }
+  }
 }
