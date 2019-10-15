@@ -1,3 +1,0 @@
-GET {{url}}/expenses
-Content-Type: application/json
-

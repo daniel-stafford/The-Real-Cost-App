@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 const config = require('./utils/config')
 const axios = require('axios')
-const expenseRouter = require('./controlllers/expense')
+const expensesRouter = require('./controllers/expenses')
+const usersRouter = require('./controllers/users')
+const loginRouter = require('./controllers/login')
 
 mongoose
   .set('useCreateIndex', true)
@@ -42,6 +44,8 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-app.use('/api/expenses', expenseRouter)
+app.use('/api/expenses', expensesRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/login', loginRouter)
 
 module.exports = app

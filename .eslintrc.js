@@ -4,9 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true
   },
-  extends: [
-    'standard'
-  ],
+  extends: ['standard'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -15,5 +13,6 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
+    curly: 0
   }
 }

@@ -1,0 +1,6 @@
+PUT {{url}}/expenses/5da43acd85a9123a9a8e427c
+Content-Type: application/json
+
+{
+  "uses": 1
+}

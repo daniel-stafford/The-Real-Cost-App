@@ -1,0 +1,2 @@
+DELETE {{url}}/expenses/5da44836c059123ce39a8a18
+

@@ -1,4 +1,4 @@
-POST http://localhost:8080/api/expenses
+POST {{url}}/expenses
 Content-Type: application/json
 
 {
