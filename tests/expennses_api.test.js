@@ -3,7 +3,7 @@ const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 const Expense = require('../models/expense.model')
-const helper = require('./test_helper')
+const helper = require('./test_data')
 
 const initialExpenses = helper.initialExpenses
 
@@ -18,7 +18,7 @@ describe('addition of a new expense', () => {
     const response = await api.get('/api/expenses')
     expect(response.body.length).toBe(initialExpenses.length)
   })
-  test('new expense id is formatted correctly', async () => {
+  test('new expense id as response is formatted correctly', async () => {
     const response = await api.get('/api/expenses')
     expect(response.body[0].id).toBeDefined()
     expect(response.body[0]._id).not.toBeDefined()
