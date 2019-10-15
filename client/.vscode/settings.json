@@ -1,3 +1,7 @@
 {
-  "workbench.colorTheme": "Tomorrow Night Blue"
+  "workbench.colorTheme": "Default Dark+",
+  "cSpell.words": [
+    "hide",
+    "notification"
+  ]
 }

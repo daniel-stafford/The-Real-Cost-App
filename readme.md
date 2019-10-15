@@ -42,7 +42,11 @@
   Note: tried building a simple graphql-react app that could deploy to heroku <a href="https://github.com/daniel-stafford/Express-React-Heroku"> -link-</a> failed, going to convert project to RESTful api due to deployment 
 <li>Weekly Total: 42.06 hours</li>
 </ul>
+<li>Week 3</li>
+
 <li>Monday, 14.10.19 - 8 hours (7-9, 10-12, 13-15, 1930-21:30)</li>
+<li>Tuesday, 15.10.19 - XX hours (7-11)</li>
+
 </ul>
 
 Total Hours: 58.56
