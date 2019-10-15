@@ -45,7 +45,7 @@
 <li>Week 3</li>
 
 <li>Monday, 14.10.19 - 8 hours (7-9, 10-12, 13-15, 1930-21:30)</li>
-<li>Tuesday, 15.10.19 - XX hours (7-11)</li>
+<li>Tuesday, 15.10.19 - XX hours (7-11, 1530-17)</li>
 
 </ul>
 
