@@ -1,3 +1,3 @@
-GET http://localhost:8080/api/expenses
+GET {{url}}/expenses
 Content-Type: application/json
 
