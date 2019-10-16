@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { Form, Button, Message } from 'semantic-ui-react'
+import userService from '../services/users'
 
-const RegisterForm = props => {
+const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
@@ -22,13 +23,13 @@ const RegisterForm = props => {
       // const result = await createUser({
       //   variables: { username, password }
       // })
+      const result = await userService.create({ username, password })
       setPassword('')
       setUsername('')
       props.handleNotification('success', 'Fantastic! New user created!')
-
-      // console.log('user created!', result)
+      console.log('user created!', result)
     } catch (e) {
-      console.log(e)
+      props.handleNotification('error', e)
     }
   }
 
@@ -67,4 +68,4 @@ const RegisterForm = props => {
   )
 }
 
-export default RegisterForm
+export default RegisterUserForm

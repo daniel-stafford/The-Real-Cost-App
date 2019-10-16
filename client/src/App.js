@@ -5,7 +5,7 @@ import {
   Notification,
   Home,
   LogInForm,
-  RegisterForm,
+  RegisterUserForm,
   Summary
 } from './components'
 import { Menu } from 'semantic-ui-react'
@@ -36,7 +36,6 @@ const App = () => {
   }
 
   const [activeItem, setActiveItem] = useState('none')
-
   const handleItemClick = name => {
     setActiveItem(name)
   }
@@ -72,7 +71,7 @@ const App = () => {
             />
           </Route>
           <Route exact path="/register">
-            <RegisterForm handleNotification={handleNotification} />
+            <RegisterUserForm handleNotification={handleNotification} />
           </Route>
           <Route exact path="/">
             <Home handleNotification={handleNotification} />
@@ -126,7 +125,7 @@ const App = () => {
             />
           )}
         /> */}
-      </Switch>{' '}
+      </Switch>
     </div>
   )
 }

@@ -2,7 +2,7 @@
 // import ExpenseList from './ExpenseList'
 import Home from './Home'
 import LogInForm from './LogInForm'
-import RegisterForm from './RegisterForm'
+import RegisterUserForm from './RegisterUserForm'
 // import UserStatus from './UserStatus'
 import Notification from './Notification'
 import Summary from './Summary'
@@ -18,7 +18,7 @@ export {
   // ExpenseList,
   Home,
   LogInForm,
-  RegisterForm,
+  RegisterUserForm,
   // UserStatus,
   Notification,
   Summary

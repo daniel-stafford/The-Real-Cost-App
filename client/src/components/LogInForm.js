@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
 import { Form, Button } from 'semantic-ui-react'
-import expenseService from '../services/expenses.js'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
