@@ -3,13 +3,14 @@ import { Switch, Route, Link } from 'react-router-dom'
 import expenseService from './services/expenses'
 import { hideNotification } from './utils/constants'
 import { Notification, Home, LogInForm, RegisterForm } from './components'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 
 const App = () => {
   const [expenses, setExpenses] = useState([])
   console.log('expenses', expenses)
+  const [user, setUser] = useState(null)
+  console.log('user', user)
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     expenseService
       .getAll()
@@ -19,6 +20,14 @@ const App = () => {
       .catch(error => {
         console.log('error', error.message)
       })
+  }, [])
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('user')
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON)
+      setUser(user)
+    }
   }, [])
 
   const [notification, setNotification] = useState(hideNotification)
@@ -35,10 +44,8 @@ const App = () => {
   }
 
   const [activeItem, setActiveItem] = useState('none')
-  console.log('activeItem', activeItem)
 
   const handleItemClick = name => {
-    console.log('handleItemClick', name)
     setActiveItem(name)
   }
 
@@ -64,10 +71,7 @@ const App = () => {
       <Notification notification={notification} />
       <Switch>
         <Route exact path="/login">
-          <LoginForm
-            setToken={setToken}
-            handleNotification={handleNotification}
-          />
+          <LogInForm setNotification={setNotification} setUser={setUser} />
         </Route>
         <Route exact path="/register">
           <RegisterForm handleNotification={handleNotification} />

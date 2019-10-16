@@ -3,10 +3,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import { Container } from 'semantic-ui-react'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 ReactDOM.render(
-  <Container>
-    <App />
-  </Container>,
+  <Router>
+    <Container>
+      <App />
+    </Container>
+  </Router>,
   document.getElementById('root')
 )

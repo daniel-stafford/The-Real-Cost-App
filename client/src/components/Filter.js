@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Form } from 'semantic-ui-react'
 const Filter = ({ handleFilter }) => {
   const handleChange = e => {
@@ -6,7 +7,6 @@ const Filter = ({ handleFilter }) => {
     console.log(e.target.value)
     handleFilter(e.target.value.toLowerCase())
   }
-
   return (
     <Form onChange={handleChange}>
       <div className="ui icon input">
@@ -15,6 +15,10 @@ const Filter = ({ handleFilter }) => {
       </div>
     </Form>
   )
+}
+
+Filter.propTypes = {
+  handleFilter: PropTypes.func.isRequired
 }
 
 export default Filter
