@@ -47,8 +47,8 @@
 
 <li>Monday, 14.10.19 - 8 hours (7-9, 10-12, 13-15, 1930-21:30)</li>
 <li>Tuesday, 15.10.19 - 5.5 hours (7-11, 1530-17)</li>
-<li>Wednesday, 16.10.19 -  hours (7-9, 9:30-10, 13-1330, 14-1430)</li>
-<li>Weekly Total: 13.5 hours</li>
+<li>Wednesday, 16.10.19 - 4.5 hours (7-9, 9:30-10, 13-1330, 14-1430, 1730-1930)</li>
+<li>Weekly Total: 18 hours</li>
 
 </ul>
 

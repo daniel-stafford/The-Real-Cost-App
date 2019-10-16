@@ -29,7 +29,7 @@ const RegisterUserForm = props => {
       props.handleNotification('success', 'Fantastic! New user created!')
       console.log('user created!', result)
     } catch (e) {
-      props.handleNotification('error', e)
+      props.handleNotification('error', e.message)
     }
   }
 

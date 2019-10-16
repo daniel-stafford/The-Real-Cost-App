@@ -28,7 +28,7 @@ expenseRouter.get('/', (request, response, next) => {
         .populate('comments', {
           comment: 1
         })
-      response.json(expenses, authUser)
+      response.status(200).json({ expenses, authUser })
     } catch (error) {
       console.log(error)
     }
