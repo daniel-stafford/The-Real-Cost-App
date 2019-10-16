@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
 import { Form, Button } from 'semantic-ui-react'
+import expenseService from '../services/expenses.js'
+import { withRouter } from 'react-router'
 
 const LoginForm = props => {
   const [username, setUsername] = useState('')
@@ -23,12 +25,15 @@ const LoginForm = props => {
       )
       props.handleNotification(
         'success',
-        `Nice, you're logged in! Let's go to your summary page`,
-        5
+        `Nice, you're logged in! Let me take you to your home page`,
+        2
       )
-
+      setTimeout(() => {
+        props.setLoggedinUser(loggedinUser)
+        props.history.push('/summary')
+      }, 2000)
       //  have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
-      setTimeout(() => window.location.reload(), 2000)
+      // setTimeout(() => window.location.reload(), 2000)
     } catch (exception) {
       console.log('exception', exception)
       props.handleNotification('error', exception.message, 5)
@@ -58,4 +63,4 @@ const LoginForm = props => {
   )
 }
 
-export default LoginForm
+export default withRouter(LoginForm)

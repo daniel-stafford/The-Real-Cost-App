@@ -8,7 +8,11 @@ const setToken = newToken => {
 }
 
 const getAll = async () => {
-  const request = await axios.get(baseUrl)
+  const config = {
+    headers: { Authorization: token }
+  }
+  console.log('get all config', config)
+  const request = await axios.get(baseUrl, config)
   return request.data
 }
 

@@ -5,6 +5,7 @@ import LogInForm from './LogInForm'
 import RegisterForm from './RegisterForm'
 // import UserStatus from './UserStatus'
 import Notification from './Notification'
+import Summary from './Summary'
 // import ExpenseDetail from './ExpenseDetail'
 // import DeleteExpense from './DeleteExpense'
 // import Confirmation from './Confirmation'
@@ -19,7 +20,8 @@ export {
   LogInForm,
   RegisterForm,
   // UserStatus,
-  Notification
+  Notification,
+  Summary
   // ExpenseDetail,
   // DeleteExpense,
   // Confirmation,

@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
-import expenseService from './services/expenses'
 import { hideNotification } from './utils/constants'
-import { Notification, Home, LogInForm, RegisterForm } from './components'
+import {
+  Notification,
+  Home,
+  LogInForm,
+  RegisterForm,
+  Summary
+} from './components'
 import { Menu } from 'semantic-ui-react'
 
 const App = () => {
-  const [expenses, setExpenses] = useState([])
-  console.log('expenses', expenses)
-  const [token, setToken] = useState(null)
-  console.log('current token', token)
+  const [loggedinUser, setLoggedinUser] = useState(null)
+  console.log('loggedinUser app level', loggedinUser)
 
   useEffect(() => {
-    expenseService
-      .getAll()
-      .then(initialExpenses => {
-        setExpenses(initialExpenses)
-      })
-      .catch(error => {
-        console.log('error', error.message)
-      })
-  }, [])
-
-  useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('real-cost-user')
-    if (loggedUserJSON) {
-      const token = JSON.parse(loggedUserJSON)
-      setToken(token)
+    const loggedinUser = window.localStorage.getItem('real-cost-user')
+    if (loggedinUser) {
+      const user = JSON.parse(loggedinUser)
+      setLoggedinUser(user)
     }
   }, [])
 
@@ -49,7 +41,7 @@ const App = () => {
     setActiveItem(name)
   }
 
-  if (!token) {
+  if (!loggedinUser) {
     return (
       // logged out user
       <div>
@@ -76,7 +68,7 @@ const App = () => {
           <Route exact path="/login">
             <LogInForm
               handleNotification={handleNotification}
-              setToken={setToken}
+              setLoggedinUser={setLoggedinUser}
             />
           </Route>
           <Route exact path="/register">
@@ -93,9 +85,9 @@ const App = () => {
   return (
     <div>
       <Menu tabular>
-        <Menu.Item active={activeItem === 'expenses'}>
-          <Link onClick={() => handleItemClick('expenses')} to="/expenses">
-            Expenses
+        <Menu.Item active={activeItem === 'summary'}>
+          <Link onClick={() => handleItemClick('summary')} to="/summary">
+            Summary
           </Link>
         </Menu.Item>
         {/* <Menu.Item active={activeItem === 'create_expense'}>
@@ -114,9 +106,12 @@ const App = () => {
         </Menu.Item> */}
       </Menu>
       <Notification notification={notification} />
-      {/* <Switch>
-        <Route exact path={['/expenses', '/']}>
-          <ExpenseList handleNotification={handleNotification} user={user} />
+      <Switch>
+        <Route exact path={['/summary', '/']}>
+          <Summary handleNotification={handleNotification} />
+        </Route>
+        {/* <Route exact path={['/expenses', '/']}>
+          <ExpenseList handleNotification={handleNotification} />
         </Route>
         <Route exact path="/create_expense">
           <CreateForm handleNotification={handleNotification} />
@@ -130,8 +125,8 @@ const App = () => {
               handleNotification={handleNotification}
             />
           )}
-        />
-      </Switch> */}
+        /> */}
+      </Switch>{' '}
     </div>
   )
 }
