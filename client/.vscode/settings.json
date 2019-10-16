@@ -1,7 +1,6 @@
 {
   "workbench.colorTheme": "Default Dark+",
-  "cSpell.words": [
-    "hide",
-    "notification"
-  ]
-}
+  "cSpell.words": ["hide", "notification"],
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#228B22" // change this color!
+  }

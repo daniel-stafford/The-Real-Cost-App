@@ -7,6 +7,7 @@ const axios = require('axios')
 const expensesRouter = require('./controllers/expenses')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
+const middleware = require('./utils/middleware')
 
 mongoose
   .set('useCreateIndex', true)
@@ -26,16 +27,8 @@ const app = express()
 
 app.use(cors())
 app.use(express.json()) // no longer need bodyparse, included in express
-
-app.get('/api', async (req, res) => {
-  const user = req.query.user || 'daniel-stafford'
-  try {
-    const response = await axios.get(`https://api.github.com/users/${user}`)
-    res.json({ user: response.data })
-  } catch (e) {
-    console.log('error with github get!', e.message)
-  }
-})
+app.use(middleware.requestLogger)
+app.use(middleware.tokenExtractor)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
@@ -47,5 +40,8 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/expenses', expensesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+
+app.use(middleware.unknownEndpoint)
+app.use(middleware.errorHandler)
 
 module.exports = app

@@ -6,23 +6,23 @@ const User = require('../models/user.model')
 
 loginRouter.post('/', async (request, response) => {
   const body = request.body
-  console.log('request.body in login', request.body)
   const user = await User.findOne({ username: body.username })
   const passwordCorrect =
     user === null ? false : await bcrypt.compare(body.password, user.password)
   if (!(user && passwordCorrect)) {
     return response.status(401).json({
-      error: 'invalid username or password'
+      error: 'Invalid username and/or password.'
     })
   }
+  const { id, username } = user
   const userInToken = {
-    username: user.username,
-    id: user.id
+    username,
+    id
   }
 
   const token = jwt.sign(userInToken, process.env.JWT_SECRET)
 
-  response.status(200).send({ token, username: user.username, name: user.name })
+  response.status(200).send({ token, username })
 })
 
 module.exports = loginRouter

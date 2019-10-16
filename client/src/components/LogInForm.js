@@ -12,21 +12,23 @@ const LoginForm = props => {
       return props.handleNotification('error', 'Please enter your username')
     if (password.length === 0)
       return props.handleNotification('error', 'Please enter your password')
-    console.log('username', username, 'password', password)
     try {
       const loggedinUser = await loginService.login({
         username,
         password
       })
-      console.log('logininservice has fired', loggedinUser)
       window.localStorage.setItem(
         'real-cost-user',
         JSON.stringify(loggedinUser)
       )
-      console.log('is this running?')
-      props.handleNotification('success', `Nice, you're logged in`, 5)
-      //have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
-      window.location.reload()
+      props.handleNotification(
+        'success',
+        `Nice, you're logged in! Let's go to your summary page`,
+        5
+      )
+
+      //  have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
+      setTimeout(() => window.location.reload(), 2000)
     } catch (exception) {
       console.log('exception', exception)
       props.handleNotification('error', exception.message, 5)

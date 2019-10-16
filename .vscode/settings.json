@@ -4,5 +4,9 @@
     "local": {
       "url": "http://localhost:8080/api"
     }
+  },
+
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#A0522D" // change this color!
   }
 }

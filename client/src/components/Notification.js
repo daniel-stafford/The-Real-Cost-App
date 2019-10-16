@@ -2,7 +2,6 @@ import React from 'react'
 import { Message } from 'semantic-ui-react'
 
 const Notification = ({ notification }) => {
-  console.log('notification prop', notification)
   if (notification.category === 'hide') {
     return null
   }
