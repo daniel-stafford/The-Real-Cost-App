@@ -1,30 +1,33 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-
+import Cookies from 'js-cookie'
 import { Form, Button } from 'semantic-ui-react'
 
 const LoginForm = props => {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleLogin = async event => {
     event.preventDefault()
     if (username.length === 0)
-      return props.setNotification('error', 'Please enter your username')
+      return props.handleNotification('error', 'Please enter your username')
     if (password.length === 0)
-      return props.setNotification('error', 'Please enter your password')
+      return props.handleNotification('error', 'Please enter your password')
+    console.log('username', username, 'password', password)
     try {
       const loggedinUser = await loginService.login({
         username,
         password
       })
-      window.localStorage.setItem('user', JSON.stringify(loggedinUser))
-      props.setNotification('Correct credentials', 'success', 5)
+      Cookies.set('real-cost-user', JSON.stringify(loggedinUser), {
+        expires: 7
+      })
+      props.handleNotification('success', `Nice, you're logged in`, 5)
     } catch (exception) {
-      props.setNotification('Wrong credentials', 'error', 5)
+      console.log('exception', exception)
+      props.handleNotification('error', exception, 5)
     }
   }
-
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
   return (
     <div>
       <Form onSubmit={handleLogin}>

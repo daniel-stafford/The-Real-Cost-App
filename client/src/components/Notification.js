@@ -7,9 +7,9 @@ const Notification = ({ notification }) => {
     return null
   }
   if (notification.category === 'error')
-    return <Message error>{notification.content}</Message>
+    return <Message negative>{notification.content}</Message>
 
   if (notification.category === 'success')
-    return <Message success>{notification.content}</Message>
+    return <Message positive>{notification.content}</Message>
 }
 export default Notification

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
+import Cookies from 'js-cookie'
 import expenseService from './services/expenses'
 import { hideNotification } from './utils/constants'
 import { Notification, Home, LogInForm, RegisterForm } from './components'
@@ -7,9 +8,8 @@ import { Menu } from 'semantic-ui-react'
 
 const App = () => {
   const [expenses, setExpenses] = useState([])
-  console.log('expenses', expenses)
   const [user, setUser] = useState(null)
-  console.log('user', user)
+  console.log('current user', user)
 
   useEffect(() => {
     expenseService
@@ -23,7 +23,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    const loggedUserJSON = window.localStorage.getItem('user')
+    const loggedUserJSON = Cookies.get('real-cost-user')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
@@ -71,7 +71,10 @@ const App = () => {
       <Notification notification={notification} />
       <Switch>
         <Route exact path="/login">
-          <LogInForm setNotification={setNotification} setUser={setUser} />
+          <LogInForm
+            handleNotification={handleNotification}
+            setUser={setUser}
+          />
         </Route>
         <Route exact path="/register">
           <RegisterForm handleNotification={handleNotification} />
