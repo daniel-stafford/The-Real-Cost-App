@@ -25,6 +25,8 @@ const LoginForm = props => {
       )
       console.log('is this running?')
       props.handleNotification('success', `Nice, you're logged in`, 5)
+      //have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
+      window.location.reload()
     } catch (exception) {
       console.log('exception', exception)
       props.handleNotification('error', exception.message, 5)
