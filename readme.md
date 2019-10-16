@@ -2,7 +2,7 @@
 
 <p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> MongoDB, Express, React, and Node.js (MERN)</p>
 
-<p>UPDATE (Sunday, 17 October 2019) After achieving basic functionality with the app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the App with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql will become clearer in the future.
+<p>UPDATE (Sunday, 17 October 2019) After achieving basic functionality with the React/Graphql app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the App with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql will become clearer in the future.
 
 <p>As this project is part of the FullStack Open 2019 course at the University of Helsinki, work hours are below:</p>
 

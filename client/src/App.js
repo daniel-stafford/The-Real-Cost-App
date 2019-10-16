@@ -23,7 +23,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    const loggedUserJSON = Cookies.get('real-cost-user')
+    const loggedUserJSON = window.localStorage.getItem('real-cost-user')
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)

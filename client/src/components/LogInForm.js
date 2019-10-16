@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-import Cookies from 'js-cookie'
 import { Form, Button } from 'semantic-ui-react'
 
 const LoginForm = props => {
@@ -19,13 +18,14 @@ const LoginForm = props => {
         username,
         password
       })
-      Cookies.set('real-cost-user', JSON.stringify(loggedinUser), {
-        expires: 7
-      })
+      window.localStorage.setItem(
+        'real-cost-user',
+        JSON.stringify(loggedinUser)
+      )
       props.handleNotification('success', `Nice, you're logged in`, 5)
     } catch (exception) {
       console.log('exception', exception)
-      props.handleNotification('error', exception, 5)
+      props.handleNotification('error', exception.message, 5)
     }
   }
   return (
