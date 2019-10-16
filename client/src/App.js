@@ -23,7 +23,9 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    console.log('logged in use effect is firing')
     const loggedUserJSON = window.localStorage.getItem('real-cost-user')
+    console.log('loggedUserJSON', loggedUserJSON)
     if (loggedUserJSON) {
       const user = JSON.parse(loggedUserJSON)
       setUser(user)
