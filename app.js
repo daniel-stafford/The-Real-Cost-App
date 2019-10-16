@@ -28,7 +28,7 @@ const app = express()
 app.use(cors())
 app.use(express.json()) // no longer need bodyparse, included in express
 app.use(middleware.requestLogger)
-app.use(middleware.tokenExtractor)
+app.use(middleware.getToken)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
