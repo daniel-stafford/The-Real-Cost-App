@@ -17,7 +17,7 @@
     "both": "concurrently \"npm run server\" \"npm run client\"",
     "dev": "cd client && code . && cd ../ && npm run watch",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "deploy": "git add . && git commit -m deploy && git push heroku master",
+    "deploy": "git add . && git commit -m deploy_check && git push heroku master",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
   },
   "keywords": [],

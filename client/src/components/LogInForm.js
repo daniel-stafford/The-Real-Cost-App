@@ -18,10 +18,12 @@ const LoginForm = props => {
         username,
         password
       })
+      console.log('logininservice has fired', loggedinUser)
       window.localStorage.setItem(
         'real-cost-user',
         JSON.stringify(loggedinUser)
       )
+      console.log('is this running?')
       props.handleNotification('success', `Nice, you're logged in`, 5)
     } catch (exception) {
       console.log('exception', exception)
