@@ -26,10 +26,13 @@ const App = props => {
   }, [])
 
   const logout = () => {
-    setLoggedinUser(null)
-    localStorage.clear()
-    handleNotification('success', `OK, You're logged out`, 3)
-    props.history.push('/')
+    handleNotification('success', `OK, Let me log you out`, 2)
+    setTimeout(() => {
+      localStorage.clear()
+      setLoggedinUser(null)
+      props.history.push('/')
+      handleNotification('success', `Come back soon!`, 3)
+    }, 2000)
   }
 
   const [notification, setNotification] = useState(hideNotification)
