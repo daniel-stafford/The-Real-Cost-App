@@ -2,6 +2,6 @@ POST {{url}}/users
 Content-Type: application/json
 
 {
-"username": "user",
+"username": "user4",
 "password": "password"
 }

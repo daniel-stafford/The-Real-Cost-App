@@ -26,7 +26,11 @@ const RegisterUserForm = props => {
       const result = await userService.create({ username, password })
       setPassword('')
       setUsername('')
-      props.handleNotification('success', 'Fantastic! New user created!')
+      props.handleNotification(
+        'success',
+        'Fantastic! New user created! Go ahead and log in!',
+        5
+      )
       console.log('user created!', result)
     } catch (e) {
       props.handleNotification('error', e.message)
