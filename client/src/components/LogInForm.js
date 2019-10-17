@@ -24,12 +24,12 @@ const LoginForm = props => {
       )
       props.handleNotification(
         'success',
-        `Nice, you're logged in! Let me take you to your home page`,
+        `Nice, you're logged in! Let me take you to your expenses page`,
         2
       )
       setTimeout(() => {
         props.setLoggedinUser(loggedinUser)
-        props.history.push('/summary')
+        props.history.push('/expenses')
       }, 2000)
       //  have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
       // setTimeout(() => window.location.reload(), 2000)

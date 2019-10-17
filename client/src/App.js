@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link, withRouter } from 'react-router-dom'
 import { hideNotification } from './utils/constants'
 import {
   Notification,
   Home,
   LogInForm,
   RegisterUserForm,
-  Summary
+  UserStatus,
+  ExpenseList,
+  CreateExpenseForm,
+  ExpenseDetail
 } from './components'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Button } from 'semantic-ui-react'
 
-const App = () => {
+const App = props => {
   const [loggedinUser, setLoggedinUser] = useState(null)
   console.log('loggedinUser app level', loggedinUser)
 
@@ -21,6 +24,13 @@ const App = () => {
       setLoggedinUser(user)
     }
   }, [])
+
+  const logout = () => {
+    setLoggedinUser(null)
+    localStorage.clear()
+    handleNotification('success', `OK, You're logged out`, 3)
+    props.history.push('/')
+  }
 
   const [notification, setNotification] = useState(hideNotification)
 
@@ -84,12 +94,13 @@ const App = () => {
   return (
     <div>
       <Menu tabular>
-        <Menu.Item active={activeItem === 'summary'}>
-          <Link onClick={() => handleItemClick('summary')} to="/summary">
-            Summary
+        <Menu.Item active={activeItem === 'expenses'}>
+          <Link onClick={() => handleItemClick('expenses')} to="/expenses">
+            Expenses
           </Link>
         </Menu.Item>
-        {/* <Menu.Item active={activeItem === 'create_expense'}>
+        /*{' '}
+        <Menu.Item active={activeItem === 'create_expense'}>
           <Link
             onClick={() => handleItemClick('create_expense')}
             to="/create_expense"
@@ -98,22 +109,20 @@ const App = () => {
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <UserStatus handleCurrentUser={handleCurrentUser} />
+          <UserStatus loggedinUser={loggedinUser} />
         </Menu.Item>
         <Menu.Item>
           <Button onClick={() => logout()}>Logout</Button>
-        </Menu.Item> */}
+        </Menu.Item>{' '}
+        */
       </Menu>
       <Notification notification={notification} />
       <Switch>
-        <Route exact path={['/summary', '/']}>
-          <Summary handleNotification={handleNotification} />
-        </Route>
-        {/* <Route exact path={['/expenses', '/']}>
+        <Route exact path={['/expenses', '/']}>
           <ExpenseList handleNotification={handleNotification} />
         </Route>
         <Route exact path="/create_expense">
-          <CreateForm handleNotification={handleNotification} />
+          <CreateExpenseForm handleNotification={handleNotification} />
         </Route>
         <Route
           path="/expenses/:id"
@@ -124,10 +133,10 @@ const App = () => {
               handleNotification={handleNotification}
             />
           )}
-        /> */}
+        />
       </Switch>
     </div>
   )
 }
 
-export default App
+export default withRouter(App)
