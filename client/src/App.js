@@ -23,7 +23,7 @@ const App = props => {
     if (userInStorage) {
       const user = JSON.parse(userInStorage)
       setLoggedinUser(user)
-      expenseService.setToken(loggedinUser.token)
+      expenseService.setToken(userInStorage.token)
     }
   }, [])
 

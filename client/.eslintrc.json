@@ -15,11 +15,13 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks", "jsx-ally"],
   "rules": {
     "semi": ["error", "never"],
     "comma-dangle": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": 0,
     "react/jsx-filename-extension": [
       1,
       {
