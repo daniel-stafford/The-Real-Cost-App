@@ -26,7 +26,10 @@ expenseRouter.get('/', (request, response, next) => {
   jwt.verify(request.token, process.env.JWT_SECRET, async (err, authUser) => {
     if (err) return response.status(403).send('Please log in')
     try {
-      const expenses = await Expense.find({ creator: authUser.id })
+      let expenses = await Expense.find({ creator: authUser.id })
+      if (request.query.id) {
+        expenses = expenses.filter(e => e.id === request.query.id)
+      }
       response.status(200).json({ expenses, authUser })
     } catch (error) {
       console.log(error)
