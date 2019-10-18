@@ -17,6 +17,22 @@ const getAll = async () => {
   return response.data
 }
 
+const getByID = async ID => {
+  const config = {
+    headers: { Authorization: token }
+  }
+  const throwAwayObject = { message: 'hello' }
+  const response = await axios.get(baseUrl, {
+    params: {
+      ID
+    },
+    throwAwayObject,
+    config
+  })
+  console.log('getbyid repsonse', response)
+  return response.data
+}
+
 const create = async newObject => {
   const config = {
     headers: { Authorization: token }
@@ -38,4 +54,4 @@ const remove = async id => {
   return response.data
 }
 
-export default { getAll, create, update, remove, setToken }
+export default { getAll, getByID, create, update, remove, setToken }
