@@ -13,18 +13,15 @@ const ExpenseDetail = props => {
       setExpense(...response.expenses.filter(e => e.id === props.id))
     })
   }, [])
-  const handleNewUse = count => {
-    console.log('handleNewUseFired')
-    console.log('expense', expense)
-    let update = { ...expense, uses: expense.uses + 1 }
-    setExpense(update)
+  const handleNewUse = () => {
+    let useIncrease = { ...expense, uses: expense.uses + 1 }
+    setExpense(useIncrease)
   }
 
   if (!expense) return <Loader active />
   return (
     <>
       <ul>
-        {console.log('expense details is rerending')}
         <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
         <li>
