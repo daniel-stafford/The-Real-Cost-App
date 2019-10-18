@@ -32,7 +32,7 @@ expenseRouter.get('/', (request, response, next) => {
       }
       response.status(200).json({ expenses, authUser })
     } catch (error) {
-      console.log(error)
+      next(error)
     }
   })
 
@@ -50,7 +50,7 @@ expenseRouter.get('/', (request, response, next) => {
     try {
       response.json(updatedExpense.toJSON())
     } catch (error) {
-      console.log(error)
+      next(error)
     }
   })
 

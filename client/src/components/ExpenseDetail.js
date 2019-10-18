@@ -24,10 +24,10 @@ const ExpenseDetail = props => {
         <li>Price: {expense.price}</li>
         <li>
           Uses: {expense.uses}
-          {/* <AddUse
+          <AddUse
             id={expense.id}
             handleNotification={props.handleNotification}
-          /> */}
+          />
         </li>
         <li>Cost Per Use: {costPerUse(expense.price, expense.uses)}</li>
         <li>Notes: {expense.notes}</li>
@@ -38,6 +38,7 @@ const ExpenseDetail = props => {
         id={expense.id}
         title={expense.title}
         handleNotification={props.handleNotification}
+        uses={expense.uses}
       />
       <CostChart />
     </>

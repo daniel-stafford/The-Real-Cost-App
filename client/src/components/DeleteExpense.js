@@ -9,12 +9,19 @@ const DeleteExpense = props => {
     if (window.confirm(`Are you sure you want to delete ${props.title}`)) {
       try {
         expenseService.remove(props.id)
-        props.handleNotification('success', `OK, I'll delete that`, 2)
+        props.handleNotification('success', `OK, I'll delete that.`, 2)
         setTimeout(() => {
           props.history.push('/expenses')
         }, 2000)
       } catch (error) {
-        console.log('something went wrong with deleting expense', error)
+        props.handleNotification(
+          'error',
+          `Something went wrong with deleting that. Let's go back to the expenses page`,
+          2000
+        )
+        setTimeout(() => {
+          props.history.push('/expenses')
+        }, 2000)
       }
     }
   }
