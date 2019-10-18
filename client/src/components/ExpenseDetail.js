@@ -7,27 +7,28 @@ import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
-  const [uses, setUses] = useState(null)
   useEffect(() => {
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll(props.id).then(response => {
       setExpense(...response.expenses.filter(e => e.id === props.id))
     })
   }, [])
-  setUses(expense.uses)
-
   const handleNewUse = count => {
-    console.log('handle new use firing', count)
+    console.log('handleNewUseFired')
+    console.log('expense', expense)
+    let update = { ...expense, uses: expense.uses + 1 }
+    setExpense(update)
   }
 
-  if (!expense || !uses) return <Loader active />
+  if (!expense) return <Loader active />
   return (
     <>
       <ul>
+        {console.log('expense details is rerending')}
         <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
         <li>
-          Uses: {uses}
+          Uses: {expense.uses}
           <AddUse
             id={expense.id}
             uses={expense.uses}
@@ -45,7 +46,6 @@ const ExpenseDetail = props => {
         title={expense.title}
         uses={expense.uses}
         handleNotification={props.handleNotification}
-        uses={expense}
       />
       <CostChart />
     </>
