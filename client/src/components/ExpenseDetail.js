@@ -34,8 +34,12 @@ const ExpenseDetail = props => {
         <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
         <li>Created: {moment(expense.createdAt).calendar()}</li>
       </ul>
+      <DeleteExpense
+        id={expense.id}
+        title={expense.title}
+        handleNotification={props.handleNotification}
+      />
       <CostChart />
-      <DeleteExpense id={expense.id} />
     </>
   )
 }

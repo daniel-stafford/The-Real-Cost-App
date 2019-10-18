@@ -28,7 +28,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
       )
       setTimeout(() => {
         history.push('/expenses')
-      }, 3000)
+      }, 2000)
     } catch (error) {
       console.log(error.message)
     }
