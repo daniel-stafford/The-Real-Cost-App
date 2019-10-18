@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Message } from 'semantic-ui-react'
 import userService from '../services/users'
+import { withRouter } from 'react-router-dom'
 
 const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
@@ -20,20 +21,27 @@ const RegisterUserForm = props => {
         'Password must be longer than 5 characters'
       )
     try {
-      // const result = await createUser({
-      //   variables: { username, password }
-      // })
-      const result = await userService.create({ username, password })
+      await userService.create({ username, password })
       setPassword('')
       setUsername('')
+      setPasswordConfirm('')
+
       props.handleNotification(
         'success',
-        'Fantastic! New user created! Go ahead and log in!',
-        5
+        `Fantastic! New user created! Go ahead and log in. I'll take you there`,
+        3
       )
-      console.log('user created!', result)
+      setTimeout(params => {
+        props.history.push('/login')
+        props.handleNotification(
+          'success',
+          'Give me your new username and password to log in',
+          5
+        )
+      }, 3000)
     } catch (e) {
       props.handleNotification('error', e.message)
+      console.log('registration error', e.message)
     }
   }
 
@@ -72,4 +80,4 @@ const RegisterUserForm = props => {
   )
 }
 
-export default RegisterUserForm
+export default withRouter(RegisterUserForm)

@@ -55,7 +55,6 @@ const App = props => {
 
   if (!loggedinUser) {
     return (
-      // logged out user
       <div>
         {console.log('App is rendering')}
         <Menu pointing>
@@ -102,7 +101,6 @@ const App = props => {
             Expenses
           </Link>
         </Menu.Item>
-        /*{' '}
         <Menu.Item active={activeItem === 'create_expense'}>
           <Link
             onClick={() => handleItemClick('create_expense')}
@@ -116,13 +114,15 @@ const App = props => {
         </Menu.Item>
         <Menu.Item>
           <Button onClick={() => logout()}>Logout</Button>
-        </Menu.Item>{' '}
-        */
+        </Menu.Item>
       </Menu>
       <Notification notification={notification} />
       <Switch>
         <Route exact path={['/expenses', '/']}>
-          <ExpenseList handleNotification={handleNotification} />
+          <ExpenseList
+            handleNotification={handleNotification}
+            loggedinUser={loggedinUser}
+          />
         </Route>
         <Route exact path="/create_expense">
           <CreateExpenseForm handleNotification={handleNotification} />

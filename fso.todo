@@ -2,11 +2,10 @@ Todos:
 ☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
 
 Client Side:
-  ☐ Finish fixing error/success handling notifications @
-  ☐ Create a good 404 page 
-  ☐ Fix active highlight for menu
-  ☐ Create chart showing number of visit (x axis) by cost per visit (y axis)
-  ☐ Use cache to save local state (particuarly data)
+  ☐ Pull expenses (tied to user)
+  ☐ Create new expense (tied to user)
+  ☐ Each expense has own expense detail
+  
 
 Server Side: 
 

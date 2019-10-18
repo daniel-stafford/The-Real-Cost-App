@@ -2,7 +2,7 @@ import axios from 'axios'
 const baseUrl = '/api/expenses'
 
 let token = null
-
+console.log('expenses token', token)
 const setToken = newToken => {
   token = `bearer ${newToken}`
 }
@@ -13,6 +13,7 @@ const getAll = async () => {
   }
   console.log('get all config', config)
   const request = await axios.get(baseUrl, config)
+  console.log('get all request', request)
   return request.data
 }
 
