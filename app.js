@@ -7,6 +7,7 @@ const expensesRouter = require('./controllers/expenses')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const middleware = require('./utils/middleware')
+const bodyParser = require('body-parser')
 
 mongoose
   .set('useCreateIndex', true)
@@ -24,6 +25,7 @@ mongoose
 
 const app = express()
 
+app.use(bodyParser.json()) //perhaps will resolve Heroku issue
 app.use(cors())
 app.use(express.json()) // no longer need bodyparse, included in express
 app.use(middleware.getToken)
