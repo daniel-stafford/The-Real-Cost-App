@@ -12,9 +12,11 @@ import {
   ExpenseDetail
 } from './components'
 import { Menu, Button } from 'semantic-ui-react'
+import expenseService from './services/expenses'
 
 const App = props => {
   const [loggedinUser, setLoggedinUser] = useState(null)
+  const [expenses, setExpenses] = useState(null)
   console.log('loggedinUser app level', loggedinUser)
 
   useEffect(() => {
@@ -22,6 +24,7 @@ const App = props => {
     if (loggedinUser) {
       const user = JSON.parse(loggedinUser)
       setLoggedinUser(user)
+      expenseService.setToken(loggedinUser.token)
     }
   }, [])
 
@@ -51,6 +54,14 @@ const App = props => {
   const [activeItem, setActiveItem] = useState('none')
   const handleItemClick = name => {
     setActiveItem(name)
+  }
+
+  const getExpenseByID = async id => {
+    const response = await expenseService.getAll()
+    console.log('getepxensebyid', response)
+    const result = response.expenses.filter(e => e.id === id)
+    console.log('result', result)
+    return result
   }
 
   if (!loggedinUser) {
@@ -137,6 +148,8 @@ const App = props => {
             <ExpenseDetail
               id={match.params.id}
               handleNotification={handleNotification}
+              expense={getExpenseByID(match.params.id)}
+              loggedinUser={loggedinUser}
             />
           )}
         />

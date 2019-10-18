@@ -2,12 +2,14 @@ import axios from 'axios'
 const baseUrl = '/api/expenses'
 
 let token = null
-console.log('expenses token', token)
+console.log('expense service token', token)
 const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
 const getAll = async () => {
+  console.log('expense service token inside getall', token)
+
   const config = {
     headers: { Authorization: token }
   }
@@ -17,19 +19,16 @@ const getAll = async () => {
   return response.data
 }
 
-const getByID = async ID => {
+const getByID = async id => {
+  console.log('expense service token inside getallid', token)
+
   const config = {
     headers: { Authorization: token }
   }
-  const throwAwayObject = { message: 'hello' }
-  const response = await axios.get(baseUrl, {
-    params: {
-      ID
-    },
-    throwAwayObject,
-    config
-  })
-  console.log('getbyid repsonse', response)
+  console.log('get all id config', config)
+
+  const response = await axios.get(`${baseUrl}?=ID=${id}`, config)
+  console.log('getbyid repsonse', response.data)
   return response.data
 }
 
