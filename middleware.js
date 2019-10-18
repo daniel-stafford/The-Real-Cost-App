@@ -2,7 +2,7 @@ const requestLogger = (request, response, next) => {
   console.log('Method:', request.method)
   console.log('Path:  ', request.path)
   console.log('Body:  ', request.body)
-  console.log('Config:  ', request.header)
+  console.log('Config:  ', request.header.authorization)
   next()
 }
 
@@ -31,8 +31,8 @@ const errorHandler = (error, request, response, next) => {
 }
 
 module.exports = {
-  requestLogger,
   tokenExtractor,
   unknownEndpoint,
+  requestLogger,
   errorHandler
 }

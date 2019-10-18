@@ -125,7 +125,10 @@ const App = props => {
           />
         </Route>
         <Route exact path="/create_expense">
-          <CreateExpenseForm handleNotification={handleNotification} />
+          <CreateExpenseForm
+            handleNotification={handleNotification}
+            loggedinUser={loggedinUser}
+          />
         </Route>
         <Route
           path="/expenses/:id"

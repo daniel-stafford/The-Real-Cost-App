@@ -22,7 +22,7 @@ loginRouter.post('/', async (request, response) => {
 
   jwt.sign(userInToken, process.env.JWT_SECRET, (err, token) => {
     if (err) throw Error
-    return response.status(200).send({ token, username })
+    return response.status(200).send({ token, username, id })
   })
 })
 

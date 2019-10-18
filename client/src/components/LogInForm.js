@@ -34,8 +34,11 @@ const LoginForm = props => {
       //  have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
       // setTimeout(() => window.location.reload(), 2000)
     } catch (exception) {
-      console.log('exception', exception)
-      props.handleNotification('error', exception.message, 5)
+      props.handleNotification(
+        'error',
+        'Login failed. Check your username and/or password.',
+        5
+      )
     }
   }
   return (
