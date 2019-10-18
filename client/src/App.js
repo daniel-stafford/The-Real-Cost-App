@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
+import { Menu, Button } from 'semantic-ui-react'
+
 import { hideNotification } from './utils/constants'
 import {
   Notification,
@@ -11,35 +13,21 @@ import {
   CreateExpenseForm,
   ExpenseDetail
 } from './components'
-import { Menu, Button } from 'semantic-ui-react'
 import expenseService from './services/expenses'
 
 const App = props => {
   const [loggedinUser, setLoggedinUser] = useState(null)
-  const [expenses, setExpenses] = useState(null)
-  console.log('loggedinUser app level', loggedinUser)
 
   useEffect(() => {
-    const loggedinUser = window.localStorage.getItem('real-cost-user')
-    if (loggedinUser) {
-      const user = JSON.parse(loggedinUser)
+    const userInStorage = window.localStorage.getItem('real-cost-user')
+    if (userInStorage) {
+      const user = JSON.parse(userInStorage)
       setLoggedinUser(user)
       expenseService.setToken(loggedinUser.token)
     }
   }, [])
 
-  const logout = () => {
-    handleNotification('success', `OK, Let me log you out`, 2)
-    setTimeout(() => {
-      localStorage.clear()
-      setLoggedinUser(null)
-      props.history.push('/')
-      handleNotification('success', `Come back soon!`, 3)
-    }, 2000)
-  }
-
   const [notification, setNotification] = useState(hideNotification)
-
   const handleNotification = (
     category = 'error',
     content = 'Something went wrong',
@@ -51,6 +39,16 @@ const App = props => {
     }, time * 1000)
   }
 
+  const logout = () => {
+    handleNotification('success', `OK, Let me log you out`, 2)
+    setTimeout(() => {
+      localStorage.clear()
+      setLoggedinUser(null)
+      props.history.push('/')
+      handleNotification('success', `Come back soon!`, 3)
+    }, 2000)
+  }
+
   const [activeItem, setActiveItem] = useState('none')
   const handleItemClick = name => {
     setActiveItem(name)
@@ -58,16 +56,13 @@ const App = props => {
 
   const getExpenseByID = async id => {
     const response = await expenseService.getAll()
-    console.log('getepxensebyid', response)
     const result = response.expenses.filter(e => e.id === id)
-    console.log('result', result)
     return result
   }
 
   if (!loggedinUser) {
     return (
       <div>
-        {console.log('App is rendering')}
         <Menu pointing>
           <Menu.Item active={activeItem === 'home'}>
             <Link onClick={() => handleItemClick('home')} to="/">

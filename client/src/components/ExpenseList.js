@@ -8,7 +8,6 @@ import { costPerUse } from '../utils/functions'
 const ExpenseList = props => {
   const [expenses, setExpenses] = useState(null)
   const [filter, setFilter] = useState('')
-
   const handleFilter = userInput => {
     setFilter(userInput)
   }
@@ -21,17 +20,13 @@ const ExpenseList = props => {
     )
   }
   useEffect(() => {
-    console.log('useeffect is running')
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll().then(response => {
-      console.log('response', response)
       setExpenses(response.expenses)
-      console.log('expenses state', expenses)
     })
   }, [])
 
   if (!expenses) return <Loader active />
-  console.log('has passed loader')
   if (expenses.length === 0)
     return (
       <div>

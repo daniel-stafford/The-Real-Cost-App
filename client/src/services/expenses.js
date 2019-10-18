@@ -2,33 +2,23 @@ import axios from 'axios'
 const baseUrl = '/api/expenses'
 
 let token = null
-console.log('expense service token', token)
 const setToken = newToken => {
   token = `bearer ${newToken}`
 }
 
 const getAll = async () => {
-  console.log('expense service token inside getall', token)
-
   const config = {
     headers: { Authorization: token }
   }
-  console.log('get all config', config)
   const response = await axios.get(baseUrl, config)
-  console.log('getall response', response)
   return response.data
 }
 
 const getByID = async id => {
-  console.log('expense service token inside getallid', token)
-
   const config = {
     headers: { Authorization: token }
   }
-  console.log('get all id config', config)
-
   const response = await axios.get(`${baseUrl}?=ID=${id}`, config)
-  console.log('getbyid repsonse', response.data)
   return response.data
 }
 

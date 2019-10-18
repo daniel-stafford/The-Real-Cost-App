@@ -7,12 +7,9 @@ import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
-  console.log('detail expense', expense)
   useEffect(() => {
-    console.log('useeffect is running')
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll(props.id).then(response => {
-      console.log('response in detail', response)
       setExpense(...response.expenses.filter(e => e.id === props.id))
     })
   }, [])
@@ -38,7 +35,7 @@ const ExpenseDetail = props => {
         id={expense.id}
         title={expense.title}
         handleNotification={props.handleNotification}
-        uses={expense.uses}
+        uses={expense}
       />
       <CostChart />
     </>
