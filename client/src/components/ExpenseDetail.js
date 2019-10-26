@@ -14,7 +14,7 @@ const ExpenseDetail = props => {
     })
   }, [])
   const handleNewUse = () => {
-    let useIncrease = { ...expense, uses: expense.uses + 1 }
+    const useIncrease = { ...expense, uses: expense.uses + 1 }
     setExpense(useIncrease)
   }
 

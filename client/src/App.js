@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
 import { Menu, Button } from 'semantic-ui-react'
-
 import { hideNotification } from './utils/constants'
 import {
   Notification,
@@ -54,12 +53,6 @@ const App = props => {
     setActiveItem(name)
   }
 
-  const getExpenseByID = async id => {
-    const response = await expenseService.getAll()
-    const result = response.expenses.filter(e => e.id === id)
-    return result
-  }
-
   if (!loggedinUser) {
     return (
       <div>
@@ -98,7 +91,6 @@ const App = props => {
       </div>
     )
   }
-  // user logged in
   return (
     <div>
       <Menu tabular>
@@ -143,7 +135,6 @@ const App = props => {
             <ExpenseDetail
               id={match.params.id}
               handleNotification={handleNotification}
-              expense={getExpenseByID(match.params.id)}
               loggedinUser={loggedinUser}
             />
           )}

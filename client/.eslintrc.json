@@ -21,7 +21,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks", "jsx-ally"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
     "semi": ["error", "never"],
     "comma-dangle": ["error", "never"],

@@ -1,27 +1,32 @@
 import React, { Component } from 'react'
 import { Button, Confirm } from 'semantic-ui-react'
-
 class Confirmation extends Component {
   state = { open: false }
 
   show = () => this.setState({ open: true })
   handleConfirm = () => {
     this.setState({ open: false })
-    return true
+    this.props.handleDelete(true)
   }
   handleCancel = () => {
     this.setState({ open: false })
-    return false
+    this.props.handleDelete(false)
   }
 
   render() {
     return (
       <div>
-        <Button onClick={this.show}>Show</Button>
+        {/* <Button basic color="red" onClick={() => handleDelete(props.id)}>
+          Delete
+      </Button> */}
+        <Button basic color="red" onClick={this.show}>
+          Delete
+        </Button>
         <Confirm
           open={this.state.open}
           onCancel={this.handleCancel}
-          cancelButton='Never mind'
+          content={`Are you sure you want to delete ${this.props.title}?`}
+          cancelButton="Never mind"
           confirmButton="Let's do it"
           onConfirm={this.handleConfirm}
         />

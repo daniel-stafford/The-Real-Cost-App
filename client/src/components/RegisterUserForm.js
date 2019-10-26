@@ -41,7 +41,6 @@ const RegisterUserForm = props => {
       }, 3000)
     } catch (e) {
       props.handleNotification('error', e.message)
-      console.log('registration error', e.message)
     }
   }
 

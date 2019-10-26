@@ -31,8 +31,6 @@ const LoginForm = props => {
         props.setLoggedinUser(loggedinUser)
         props.history.push('/expenses')
       }, 2000)
-      //  have to reload page due to Heroku glitch (useEffect isn't being trigged),not needed on local build
-      // setTimeout(() => window.location.reload(), 2000)
     } catch (exception) {
       props.handleNotification(
         'error',

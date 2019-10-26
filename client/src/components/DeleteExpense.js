@@ -1,12 +1,12 @@
 import React from 'react'
-import { Button, Loader } from 'semantic-ui-react'
+import { Loader } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 import expenseService from '../services/expenses'
+import { Confirmation } from './index'
 
 const DeleteExpense = props => {
-  const handleDelete = async id => {
-    console.log('handle delete firing', id)
-    if (window.confirm(`Are you sure you want to delete ${props.title}`)) {
+  const handleDelete = async isConfirmed => {
+    if (isConfirmed) {
       try {
         expenseService.remove(props.id)
         props.handleNotification('success', `OK, I'll delete that.`, 2)
@@ -28,9 +28,7 @@ const DeleteExpense = props => {
   if (!props.id) return <Loader active />
   return (
     <div>
-      <Button basic color="red" onClick={() => handleDelete(props.id)}>
-        Delete
-      </Button>
+      <Confirmation handleDelete={handleDelete} title={props.title} />
     </div>
   )
 }

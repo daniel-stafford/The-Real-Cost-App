@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from 'semantic-ui-react'
-import expenseService from '../services/expenses'
 
 const AddUse = props => {
   return (
