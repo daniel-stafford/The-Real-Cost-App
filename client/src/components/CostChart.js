@@ -13,9 +13,9 @@ const CostChart = () => {
     <VictoryBar
       data={data}
       // data accessor for x values
-      x='quarter'
+      x="quarter"
       // data accessor for y values
-      y='earnings'
+      y="earnings"
     />
   )
 }

@@ -26,6 +26,7 @@
     "semi": ["error", "never"],
     "comma-dangle": ["error", "never"],
     "arrow-parens": ["warn", "as-needed"],
+    "react/require-default-props": 0,
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": 0,
     "react/jsx-filename-extension": [

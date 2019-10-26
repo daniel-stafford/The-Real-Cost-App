@@ -11,6 +11,7 @@ import Confirmation from './Confirmation'
 import AddUse from './AddUse'
 import Filter from './Filter'
 import CostChart from './CostChart'
+import DatePicker from './DatePicker'
 
 export {
   CreateExpenseForm,
@@ -25,5 +26,6 @@ export {
   Confirmation,
   AddUse,
   Filter,
-  CostChart
+  CostChart,
+  DatePicker
 }

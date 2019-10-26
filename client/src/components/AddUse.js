@@ -1,12 +1,15 @@
 import React from 'react'
-import { Button } from 'semantic-ui-react'
-
-const AddUse = props => {
-  return (
-    <Button basic color="blue" onClick={() => props.handleNewUse()}>
-      Add use
-    </Button>
-  )
-}
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { DatePicker } from './index'
+const AddUse = () => (
+  <Modal trigger={<Button>Add Use</Button>} centered={false}>
+    <Modal.Header>Add a Use!</Modal.Header>
+    <Modal.Content>
+      <Modal.Description>
+        <DatePicker />
+      </Modal.Description>
+    </Modal.Content>
+  </Modal>
+)
 
 export default AddUse

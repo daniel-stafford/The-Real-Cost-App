@@ -24,20 +24,18 @@ const ExpenseDetail = props => {
       <ul>
         <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
-        <li>
-          Uses: {expense.uses}
-          <AddUse
-            id={expense.id}
-            uses={expense.uses}
-            handleNotification={props.handleNotification}
-            handleNewUse={handleNewUse}
-          />
-        </li>
+        <li>Uses: {expense.uses}</li>
         <li>Cost Per Use: {costPerUse(expense.price, expense.uses)}</li>
         <li>Notes: {expense.notes}</li>
         <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
         <li>Created: {moment(expense.createdAt).calendar()}</li>
       </ul>
+      <AddUse
+        id={expense.id}
+        uses={expense.uses}
+        handleNotification={props.handleNotification}
+        handleNewUse={handleNewUse}
+      />
       <DeleteExpense
         id={expense.id}
         title={expense.title}
