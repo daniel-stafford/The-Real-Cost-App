@@ -7,14 +7,18 @@ import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
+
+  /*eslint-disable */
   useEffect(() => {
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll(props.id).then(response => {
       setExpense(...response.expenses.filter(e => e.id === props.id))
     })
   }, [])
-  const handleNewUse = () => {
-    const useIncrease = { ...expense, uses: expense.uses + 1 }
+  /*eslint-enable */
+
+  const handleNewUse = newUseDate => {
+    const useIncrease = { ...expense, uses: expense.uses.push(newUseDate) }
     setExpense(useIncrease)
   }
 

@@ -19,12 +19,15 @@ const ExpenseList = props => {
       e.title.toLowerCase().includes(filter)
     )
   }
+
+  /*eslint-disable */
   useEffect(() => {
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll().then(response => {
       setExpenses(response.expenses)
     })
   }, [])
+  /*eslint-enable */
 
   if (!expenses) return <Loader active />
   if (expenses.length === 0)

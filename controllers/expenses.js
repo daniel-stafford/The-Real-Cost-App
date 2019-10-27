@@ -37,6 +37,7 @@ expenseRouter.get('/', (request, response, next) => {
   })
 
   expenseRouter.put('/:id', async (request, response, next) => {
+    console.log('put is firing', request.body.data)
     const expense = {
       uses: request.body.uses
     }

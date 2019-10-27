@@ -1,6 +1,7 @@
 import React from 'react'
 import DayPickerInput from 'react-day-picker/DayPickerInput'
 import 'react-day-picker/lib/style.css'
+import moment from 'moment'
 
 export default class DatePick extends React.Component {
   constructor(props) {
@@ -13,6 +14,10 @@ export default class DatePick extends React.Component {
 
   handleDayChange(day) {
     this.setState({ selectedDay: day })
+    this.props.handleNewUse(day)
+  }
+  componentDidUpdate() {
+    console.log('state', this.state)
   }
 
   render() {
@@ -20,7 +25,7 @@ export default class DatePick extends React.Component {
     return (
       <div>
         {selectedDay && (
-          <p> Your selected date: {selectedDay.toLocaleDateString()}</p>
+          <p> Your selected date: {moment(selectedDay).format('LL')}</p>
         )}
         {!selectedDay && <p>Choose a date for your new use</p>}
         <DayPickerInput onDayChange={this.handleDayChange} />
