@@ -2,15 +2,13 @@ Todos:
 ☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
 
 Client Side:
-  ☐ Pull expenses (tied to user)
-  ☐ Create new expense (tied to user)
-  ☐ Each expense has own expense detail
-  
+☐ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references.
+☐ Display uses on a calendar
 
 Server Side: 
+☐ Changes uses from a number to an an array of dates in MongoDB 
 
 Feature Ideas:
-  ☐ Sigin up via google/facebook
   ☐ Email to user after signing up (will need to add email field)
   ☐ Forgot password feature
   ☐ Summary page with information visualizaion
@@ -19,7 +17,6 @@ Feature Ideas:
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
   ☐ Comment feature
-  ☐ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references.
 
 Random Ideas:
   ☐ Form validation (e.g. check if email) Consider learning regex to do this.
@@ -46,6 +43,10 @@ Completed:
   ✘ Modal for delete confirmation @cancelled(19-10-10 21:30)
    ✔ expenses query by id (logged in user) @done(19-10-10 07:18)
   ✘ Get price to accept decimals (to the nearest hundreth) @cancelled(19-10-10 21:30)
+  ✔ Pull expenses (tied to user) @done(19-10-26 18:06)
+  ✔ Create new expense (tied to user) @done(19-10-26 18:06)
+  ✔ Each expense has own expense detail @done(19-10-26 18:06)
+  
 
 
   
