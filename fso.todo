@@ -3,8 +3,9 @@ Todos:
 
 Client Side:
   ☐ Chart showing cost of current uses, prices of futures uses
-  ☐ Hide add use box when clicked
-  ☐ Disable create expense button once clicked (can currently create duplicates)
+  ☐ Hide add use modal once clicked
+  ✔ Disable create expense button once clicked (can currently create duplicates) @done(19-10-28 19:08)
+
 Server Side: 
   ☐ Chanage expense detail API call from getAll() with filter to user ID specific
 
@@ -17,8 +18,8 @@ Feature Ideas:
   ☐ bad words filter
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
-  ☐ Comment feature
-
+  ☐ Comment featureå
+å
 Random Ideas:
   ☐ Form validation (e.g. check if email) Consider learning regex to do this.
   ☐ Create gif of app use as a tutorial

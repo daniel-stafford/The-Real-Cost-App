@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import useField from '../hooks/useField'
 import { Form, Button } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
@@ -8,9 +8,11 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
   const title = useField('text')
   const price = useField('number')
   const notes = useField('text')
+  const [disabled, setDisabled] = useState(false)
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setDisabled(true)
     try {
       const newExpense = {
         title: title.value,
@@ -31,6 +33,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
       }, 2000)
     } catch (error) {
       console.log(error.message)
+      setDisabled(false)
     }
   }
   return (
@@ -48,7 +51,9 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
           <label>Notes: </label>
           <input {...notes} />
         </div>
-        <Button type="submit">Create New!</Button>
+        <Button disabled={disabled} type="submit">
+          Create New!
+        </Button>
       </Form>
     </div>
   )
