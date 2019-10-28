@@ -2,13 +2,17 @@ Todos:
 ☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
 
 Client Side:
-  ☐ Chart showing cost of current uses, prices of futures uses
-  ☐ Hide add use modal once clicked
-  ✔ Disable create expense button once clicked (can currently create duplicates) @done(19-10-28 19:08)
-
+  ☐ Redesign welcome page
+  ☐ Dark mode
+  ☐ Layout of expense detail
+  ☐ Convert Victory chart to D3 chart
+  ☐ Error handling for create new expense
+  ☐ Expire and refresh tokens
+  ☐ hover help text
+  ☐ Give use icon? (will also need to save in db)
+  
 Server Side: 
-  ☐ Chanage expense detail API call from getAll() with filter to user ID specific
-
+  ☐ Chanage expense detail API call from getAll() with filter to user ID specific, get ?id='' to work
 
 Feature Ideas:
   ☐ Email to user after signing up (will need to add email field)
@@ -31,6 +35,9 @@ Broad Ideas:
   ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
 
 Completed:  
+  ✔ Chart showing cost of current uses, prices of futures uses (encourage further use) @done(19-10-28 21:21)
+  ✔ Hide add use modal once clicked @done(19-10-28 20:29)
+  ✔ Disable create expense button once clicked (can currently create duplicates) @done(19-10-28 19:08)
   ✔ Changes uses from a number to an an array of dates in MongoDB @done(19-10-28 17:32)
   ✔ Display uses on a calendar @done(19-10-28 17:31)
   ✘ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references. @cancelled(19-10-28 17:31)
