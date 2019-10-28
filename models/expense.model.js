@@ -15,7 +15,7 @@ const schema = new Schema(
       trim: true
     },
     uses: {
-      type: Array
+      type: [Date]
     },
     notes: {
       type: String,
