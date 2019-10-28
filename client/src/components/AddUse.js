@@ -43,7 +43,12 @@ const AddUse = props => {
               placeholderText="Choose a date!"
             />
             <div>
-              <Button type="submit">Add it!</Button>
+              <Button positive type="submit">
+                Add!
+              </Button>
+              <Button negative onClick={() => setShowModal(false)}>
+                Cancel
+              </Button>
             </div>
           </Form>
         </Modal.Description>
