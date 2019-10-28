@@ -49,7 +49,7 @@ expenseRouter.get('/', (request, response, next) => {
       const updatedExpense = await Expense.findByIdAndUpdate(
         id,
         {
-          $push: { uses: uses }
+          $set: { uses }
         },
         {
           new: true

@@ -28,7 +28,7 @@ const ExpenseDetail = props => {
       <ul>
         <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
-        <li>Uses: {expense.uses}</li>
+        <li>Uses: {expense.uses.length}</li>
         <li>Cost Per Use: {costPerUse(expense.price, expense.uses)}</li>
         <li>Notes: {expense.notes}</li>
         <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
