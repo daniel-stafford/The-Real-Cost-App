@@ -6,7 +6,9 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 const AddUse = props => {
   const [startDate, setStartDate] = useState(undefined)
+  const [showModal, setShowModal] = useState(false)
   const handleSubmit = async () => {
+    setShowModal(false)
     try {
       props.handleNewUse(startDate)
       const update = await expenseService.update(props.id, { startDate })
@@ -21,7 +23,15 @@ const AddUse = props => {
   }
 
   return (
-    <Modal trigger={<Button color="green">Add Use</Button>} centered={false}>
+    <Modal
+      open={showModal}
+      trigger={
+        <Button color="green" onClick={() => setShowModal(true)}>
+          Add Use
+        </Button>
+      }
+      centered={false}
+    >
       <Modal.Header>Add a Use!</Modal.Header>
       <Modal.Content>
         <Modal.Description>
@@ -32,7 +42,9 @@ const AddUse = props => {
               name="startDate"
               placeholderText="Choose a date!"
             />
-            <Button type="submit">Add it!</Button>
+            <div>
+              <Button type="submit">Add it!</Button>
+            </div>
           </Form>
         </Modal.Description>
       </Modal.Content>
