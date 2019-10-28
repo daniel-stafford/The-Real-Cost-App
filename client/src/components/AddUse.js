@@ -8,8 +8,9 @@ const AddUse = props => {
   const [startDate, setStartDate] = useState(undefined)
   const handleSubmit = async () => {
     try {
-      await expenseService.update(props.id, { startDate })
-      console.log('update has fired')
+      props.handleNewUse(startDate)
+      const update = await expenseService.update(props.id, { startDate })
+      console.log('update', update) //  not sure why this line isn't being read
     } catch (e) {
       console.log('add use failed', e.message)
     }

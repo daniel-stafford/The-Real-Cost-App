@@ -7,6 +7,7 @@ import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
+  console.log('expense detail state', expense)
 
   /*eslint-disable */
   useEffect(() => {
@@ -17,9 +18,8 @@ const ExpenseDetail = props => {
   }, [])
   /*eslint-enable */
 
-  const handleNewUse = newUseDate => {
-    const useIncrease = { ...expense, uses: expense.uses.push(newUseDate) }
-    setExpense(useIncrease)
+  const handleNewUse = startDate => {
+    setExpense({ ...expense, uses: expense.uses.concat(startDate) })
   }
 
   if (!expense) return <Loader active />
@@ -29,7 +29,7 @@ const ExpenseDetail = props => {
         <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
         <li>Uses: {expense.uses.length}</li>
-        <li>Cost Per Use: {costPerUse(expense.price, expense.uses)}</li>
+        <li>Cost Per Use: {costPerUse(expense.price, expense.uses.length)}</li>
         <li>Notes: {expense.notes}</li>
         <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
         <li>Created: {moment(expense.createdAt).calendar()}</li>
