@@ -26,8 +26,8 @@ class Confirmation extends Component {
           open={this.state.open}
           onCancel={this.handleCancel}
           content={`Are you sure you want to delete ${this.props.title}?`}
-          cancelButton="Never mind"
-          confirmButton="Let's do it"
+          cancelButton="Never mind."
+          confirmButton="Trash it!"
           onConfirm={this.handleConfirm}
         />
       </div>

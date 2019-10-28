@@ -1,8 +1,8 @@
 <p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing your per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
 
-<p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> MongoDB, Express, React, and Node.js (MERN)</p>
+<p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> React and Semantic UI React on the frontend with Node, Express, and MongoDB on the backend.  This is know as the MERN stack.</p>
 
-<p>UPDATE (Sunday, 13 October 2019) After achieving basic functionality with the React/Graphql app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the app with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql will become clearer in the future.
+<p>UPDATE (Sunday, 13 October 2019) After achieving basic functionality with the React/Graphql app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the app with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql via Heroku will become clearer in the future.
 
 <p>As this project is part of the FullStack Open 2019 course at the University of Helsinki, work hours are below:</p>
 
@@ -64,7 +64,7 @@ Note: my app is now fully converted to REST with Express.
 
 <li>Week 6</li>
 <ul>
-<li>Monday, 28.10.19 - XXX hours (14-XXXX)</li>
+<li>Monday, 28.10.19 - 3.75 hours (14-1745, 19-)</li>
 <li>Weekly Total: XXX hours</li>
 </ul>
 
