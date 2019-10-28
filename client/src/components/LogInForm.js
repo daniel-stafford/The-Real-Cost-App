@@ -6,13 +6,20 @@ import { withRouter } from 'react-router'
 const LoginForm = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [disabled, setDisabled] = useState(false)
 
   const handleLogin = async event => {
     event.preventDefault()
-    if (username.length === 0)
+    setDisabled(true)
+    if (username.length === 0) {
+      setDisabled(false)
       return props.handleNotification('error', 'Please enter your username')
-    if (password.length === 0)
+    }
+
+    if (password.length === 0) {
+      setDisabled(false)
       return props.handleNotification('error', 'Please enter your password')
+    }
     try {
       const loggedinUser = await loginService.login({
         username,
@@ -37,6 +44,7 @@ const LoginForm = props => {
         'Login failed. Check your username and/or password.',
         5
       )
+      setDisabled(true)
     }
   }
   return (
@@ -57,7 +65,9 @@ const LoginForm = props => {
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <Button type="submit">login</Button>
+        <Button disabled={disabled} type="submit">
+          login
+        </Button>
       </Form>
     </div>
   )

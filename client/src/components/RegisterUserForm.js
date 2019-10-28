@@ -7,14 +7,21 @@ const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [disabled, setDisabled] = useState(false)
+  console.log('register use form disable', disabled)
 
-  const submit = async event => {
+  const handleSubmit = async event => {
     event.preventDefault()
-    if (password !== passwordConfirm)
-      return props.handleNotification(
+    console.log('before set disabled', disabled)
+    setDisabled(true)
+    console.log('after set disabled', disabled)
+    if (password !== passwordConfirm) {
+      props.handleNotification(
         'error',
         "Your passwords don't match.  Please try again"
       )
+      return setDisabled(false)
+    }
     if (password.length < 5)
       return props.handleNotification(
         'error',
@@ -46,7 +53,7 @@ const RegisterUserForm = props => {
 
   return (
     <div>
-      <Form onSubmit={submit}>
+      <Form onSubmit={handleSubmit}>
         <div>
           Username
           <input
@@ -70,7 +77,9 @@ const RegisterUserForm = props => {
             onChange={({ target }) => setPasswordConfirm(target.value)}
           />
         </div>
-        <Button type="submit">signup</Button>
+        <Button disabled={disabled} type="submit">
+          signup
+        </Button>
       </Form>
       <Message attached="bottom" warning>
         Already signed up?&nbsp;<a href="/login">Login here</a>&nbsp;instead.
