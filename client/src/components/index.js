@@ -5,6 +5,7 @@ import LogInForm from './LogInForm'
 import RegisterUserForm from './RegisterUserForm'
 import UserStatus from './UserStatus'
 import Notification from './Notification'
+import ExpenseCalendar from './ExpenseCalendar'
 import ExpenseDetail from './ExpenseDetail'
 import DeleteExpense from './DeleteExpense'
 import Confirmation from './Confirmation'
@@ -16,6 +17,7 @@ import CostChart from './CostChart'
 export {
   CreateExpenseForm,
   ExpenseList,
+  ExpenseCalendar,
   Home,
   LogInForm,
   RegisterUserForm,

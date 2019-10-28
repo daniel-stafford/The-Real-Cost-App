@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Loader } from 'semantic-ui-react'
-import { DeleteExpense, AddUse, CostChart } from '../components'
+import {
+  DeleteExpense,
+  AddUse,
+  CostChart,
+  ExpenseCalendar
+} from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
 import moment from 'moment'
@@ -46,6 +51,7 @@ const ExpenseDetail = props => {
         uses={expense.uses}
         handleNotification={props.handleNotification}
       />
+      <ExpenseCalendar uses={expense.uses} />
       <CostChart />
     </>
   )
