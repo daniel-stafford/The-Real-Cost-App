@@ -30,6 +30,7 @@ const ExpenseDetail = props => {
   if (!expense) return <Loader active />
   return (
     <>
+      {console.table('expense uses', expense.uses)}
       <Header as="h1">{expense.title}</Header>
       <ul>
         <li>Price: {expense.price}</li>
@@ -52,7 +53,7 @@ const ExpenseDetail = props => {
         handleNotification={props.handleNotification}
       />
       <ExpenseCalendar uses={expense.uses} />
-      <CostChart />
+      <CostChart expense={expense} />
     </>
   )
 }
