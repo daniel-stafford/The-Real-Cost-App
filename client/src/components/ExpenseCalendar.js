@@ -5,8 +5,8 @@ import 'react-day-picker/lib/style.css'
 const ExpenseCalendar = ({ uses }) => {
   const getModifiers = () => {
     const modObject = { highlighted: [] }
-    uses.map(date => modObject.highlighted.push(date))
-    console.log('modoject', modObject)
+    uses.map(date => modObject.highlighted.push(new Date(date)))
+    console.log('modobject', modObject)
     return modObject
   }
   const highlightStyle = `.DayPicker-Day--highlighted {
