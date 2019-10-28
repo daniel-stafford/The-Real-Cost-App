@@ -2,11 +2,12 @@ Todos:
 ☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
 
 Client Side:
-☐ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references.
-☐ Display uses on a calendar
-
+  ☐ Chart showing cost of current uses, prices of futures uses
+  ☐ Hide add use box when clicked
+  ☐ Disable create expense button once clicked (can currently create duplicates)
 Server Side: 
-☐ Changes uses from a number to an an array of dates in MongoDB 
+  ☐ Chanage expense detail API call from getAll() with filter to user ID specific
+
 
 Feature Ideas:
   ☐ Email to user after signing up (will need to add email field)
@@ -26,9 +27,12 @@ Random Ideas:
   ☐ Rebuild the app using parcel and typescript, and perhaps next.js???
 
 Broad Ideas:
-    ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
+  ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
 
-Completed:
+Completed:  
+  ✔ Changes uses from a number to an an array of dates in MongoDB @done(19-10-28 17:32)
+  ✔ Display uses on a calendar @done(19-10-28 17:31)
+  ✘ Click add use opens up a modal, where uses can add a date of use, duration of use, and any notes.  May have to create seperate "use" schema and apply references. @cancelled(19-10-28 17:31)
   ✔ Set up conditional routes for logged in/out users  @done(19-10-07 14:05)
   ✔ Create menus for logged in / logged out  @done(19-10-07 14:05)
   ✔ Sign up form functionalty @done(19-10-07 15:30)

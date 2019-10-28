@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Loader } from 'semantic-ui-react'
+import { Loader, Header } from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -30,8 +30,8 @@ const ExpenseDetail = props => {
   if (!expense) return <Loader active />
   return (
     <>
+      <Header as="h1">{expense.title}</Header>
       <ul>
-        <li>Title: {expense.title}</li>
         <li>Price: {expense.price}</li>
         <li>Uses: {expense.uses.length}</li>
         <li>Cost Per Use: {costPerUse(expense.price, expense.uses.length)}</li>
