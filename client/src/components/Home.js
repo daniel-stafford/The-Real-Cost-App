@@ -1,11 +1,21 @@
 import React from 'react'
+import styled from 'styled-components'
 
-const Home = () => {
+const Summary = () => {
+  const Header = styled.div`
+    background-color: black;
+    color: white
+    min-height: 200px;
+    margin: 30px auto;
+    box-sizing: border-box;
+  `
   return (
     <div>
-      <p>Welcome to the Real Cost App!</p>
+      <Header>
+        <h1>Welcome to the Real Cost App</h1>
+      </Header>
     </div>
   )
 }
 
-export default Home
+export default Summary
