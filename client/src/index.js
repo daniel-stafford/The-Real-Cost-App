@@ -12,9 +12,7 @@ const Wrapper = styled.div``
 ReactDOM.render(
   <Wrapper>
     <Router>
-      <Container>
-        <App />
-      </Container>
+      <App />
     </Router>
   </Wrapper>,
   document.getElementById('root')
