@@ -44,7 +44,7 @@ const LoginForm = props => {
         'Login failed. Check your username and/or password.',
         5
       )
-      setDisabled(true)
+      setDisabled(false)
     }
   }
   return (
