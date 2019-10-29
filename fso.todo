@@ -7,7 +7,7 @@ Client Side:
   ☐ Layout of expense detail
   ☐ Convert Victory chart to D3 chart
   ☐ Error handling for create new expense
-  ☐ Expire and refresh tokens
+  ☐ Expire awnd refresh tokens
   ☐ hover help text
   ☐ Give use icon? (will also need to save in db)
   
@@ -32,7 +32,7 @@ Random Ideas:
   ☐ Rebuild the app using parcel and typescript, and perhaps next.js???
 
 Broad Ideas:
-  ☐ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics.  
+  ✘ Consider limiting the app to just memberships/subscriptions - track visits/uses, cost  Get into specifics. @cancelled(19-10-29 11:04)
 
 Completed:  
   ✔ Chart showing cost of current uses, prices of futures uses (encourage further use) @done(19-10-28 21:21)

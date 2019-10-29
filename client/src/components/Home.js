@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import img from '../images/dollars.jpg'
+import img from '../resources/images/dollars.jpg'
 
 const Home = () => {
   const Header = styled.div`
@@ -15,16 +15,16 @@ const Home = () => {
     background-size: cover;
     background-position: top;
     text-align: center;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); */
     position: relative;
   `
   return (
-    <div>
-      <Header>
+    <Header>
+      <div>
         <h1>Welcome to the Real Cost App</h1>
-      </Header>
-    </div>
+      </div>
+    </Header>
   )
 }
 

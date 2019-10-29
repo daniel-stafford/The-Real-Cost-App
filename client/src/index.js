@@ -8,12 +8,9 @@ import styled from 'styled-components'
 import App from './App'
 import './index.css'
 
-const Wrapper = styled.div``
 ReactDOM.render(
-  <Wrapper>
-    <Router>
-      <App />
-    </Router>
-  </Wrapper>,
+  <Router>
+    <App />
+  </Router>,
   document.getElementById('root')
 )
