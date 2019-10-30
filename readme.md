@@ -1,3 +1,5 @@
+Live site here: https://stafford-real-cost.herokuapp.com/
+
 <p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing your per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
 
 <p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> React and Semantic UI React on the frontend with Node, Express, and MongoDB on the backend.  This is know as the MERN stack.</p>
@@ -65,7 +67,8 @@ Note: my app is now fully converted to REST with Express.
 <li>Week 6</li>
 <ul>
 <li>Monday, 28.10.19 - 6.75 hours (14-1745, 19-22)</li>
-<li>Tuesday, 29.10.19 - XXXX hours (11-1230)</li>
+<li>Tuesday, 29.10.19 - 3.5 hours (11-1230, 14-16)</li>
+<li>Wednesday, 30.10.19 - XXXX hours (545-xx)</li>
 
 <li>Weekly Total: 6.75 hours</li>
 </ul>

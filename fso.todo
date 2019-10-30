@@ -2,6 +2,7 @@ Todos:
 ☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
 
 Client Side:
+  ✔ Keep learning styled componets, SCSS @done(19-10-30 05:45)
   ☐ Redesign welcome page
   ☐ Dark mode
   ☐ Layout of expense detail
@@ -9,7 +10,8 @@ Client Side:
   ☐ Error handling for create new expense
   ☐ Expire awnd refresh tokens
   ☐ hover help text
-  ☐ Give use icon? (will also need to save in db)
+  ☐ Testing
+  ☐ User icon?
   
 Server Side: 
   ☐ Chanage expense detail API call from getAll() with filter to user ID specific, get ?id='' to work
