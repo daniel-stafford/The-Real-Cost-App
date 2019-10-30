@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import { Form, Button, Message } from 'semantic-ui-react'
+import { Container, Form, Button, Message } from 'semantic-ui-react'
 import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
+import '../index.css'
 
 const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
@@ -40,6 +41,7 @@ const RegisterUserForm = props => {
       )
       setTimeout(params => {
         props.history.push('/login')
+        props.setActiveItem('login')
         props.handleNotification(
           'success',
           'Give me your new username and password to log in',
@@ -77,13 +79,21 @@ const RegisterUserForm = props => {
             onChange={({ target }) => setPasswordConfirm(target.value)}
           />
         </div>
-        <Button disabled={disabled} type="submit">
-          signup
-        </Button>
+        <div className="register__button">
+          <Button disabled={disabled} type="submit" positive>
+            Sign me up!
+          </Button>
+        </div>
       </Form>
-      <Message attached="bottom" warning>
-        Already signed up?&nbsp;<a href="/login">Login here</a>&nbsp;instead.
-      </Message>
+      <div className="register__warning">
+        <Message attached="bottom">
+          Already signed up?&nbsp;
+          <a onClick={() => props.setActiveItem('login')} href="/login">
+            Login here
+          </a>
+          &nbsp;instead.
+        </Message>
+      </div>
     </div>
   )
 }

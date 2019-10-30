@@ -1,9 +1,10 @@
 import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 import img from '../resources/images/dollars.jpg'
+import { withRouter } from 'react-router-dom'
 import '../index.css'
 
-const Home = () => {
+const Home = props => {
   const HomepageHeading = ({ mobile }) => (
     <Container text className="header-container">
       <Header
@@ -25,8 +26,15 @@ const Home = () => {
           marginTop: mobile ? '0.5em' : '1.5em'
         }}
       />
-      <Button primary size="huge">
-        Sign up for Free
+      <Button
+        onClick={() => {
+          props.setActiveItem('register')
+          props.history.push('/register')
+        }}
+        primary
+        size="huge"
+      >
+        Sign up for free
         <Icon name="right arrow" />
       </Button>
     </Container>
@@ -34,4 +42,4 @@ const Home = () => {
   return <HomepageHeading />
 }
 
-export default Home
+export default withRouter(Home)

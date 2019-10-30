@@ -1,2 +1,9 @@
 .header-container {
 }
+.register__warning {
+  margin-top: 10px;
+  display: inline-block;
+}
+.register__button {
+  margin-top: 10px;
+}

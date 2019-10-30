@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link, withRouter } from 'react-router-dom'
+import { Switch, Route, Link, withRouter, NavLink } from 'react-router-dom'
 import { Menu, Button } from 'semantic-ui-react'
 import { hideNotification } from './utils/constants'
 import {
@@ -57,20 +57,29 @@ const App = props => {
     return (
       <div>
         <Menu pointing>
-          <Menu.Item active={activeItem === 'home'}>
-            <Link onClick={() => handleItemClick('home')} to="/">
-              Home
-            </Link>
+          <Menu.Item
+            as={Link}
+            to="/"
+            active={activeItem === 'home'}
+            onClick={() => handleItemClick('home')}
+          >
+            Home
           </Menu.Item>
-          <Menu.Item active={activeItem === 'login'}>
-            <Link onClick={() => handleItemClick('login')} to="/login">
-              Login
-            </Link>
+          <Menu.Item
+            as={Link}
+            to="/login"
+            active={activeItem === 'login'}
+            onClick={() => handleItemClick('login')}
+          >
+            Login
           </Menu.Item>
-          <Menu.Item active={activeItem === 'register'}>
-            <Link onClick={() => handleItemClick('register')} to="/register">
-              Sign Up
-            </Link>
+          <Menu.Item
+            as={Link}
+            to="/register"
+            active={activeItem === 'register'}
+            onClick={() => handleItemClick('register')}
+          >
+            Sign Up
           </Menu.Item>
         </Menu>
         <Notification notification={notification} />
@@ -82,10 +91,16 @@ const App = props => {
             />
           </Route>
           <Route exact path="/register">
-            <RegisterUserForm handleNotification={handleNotification} />
+            <RegisterUserForm
+              handleNotification={handleNotification}
+              setActiveItem={setActiveItem}
+            />
           </Route>
           <Route exact path="/">
-            <Home handleNotification={handleNotification} />
+            <Home
+              handleNotification={handleNotification}
+              setActiveItem={setActiveItem}
+            />
           </Route>
         </Switch>
       </div>
