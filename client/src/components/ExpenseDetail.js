@@ -34,10 +34,11 @@ const ExpenseDetail = props => {
         <Header as="h1">{expense.title}</Header>
         <div>
           <p>
-            Now that you've added a new membership, let's start tracking when
-            and how often you use it. One you add a use, we'll figure out how
-            much that membership costing you each time you use it. Click the
-            button below and choose a date you first used your membership.
+            This is your details page for tracking your uses of each membership.{' '}
+          </p>
+          <p>
+            When was the last time you used your membership? Go ahead and add a
+            use below.
           </p>
         </div>
         <AddUse
@@ -49,31 +50,42 @@ const ExpenseDetail = props => {
       </div>
     )
   return (
-    <Grid>
-      <Header as="h1">{expense.title}</Header>
-      <ul>
-        <li>Price: {expense.price}</li>
-        <li>Uses: {expense.uses.length}</li>
-        <li>Cost Per Use: {costPerUse(expense.price, expense.uses.length)}</li>
-        <li>Notes: {expense.notes}</li>
-        <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
-        <li>Created: {moment(expense.createdAt).calendar()}</li>
-      </ul>
-      <AddUse
-        id={expense.id}
-        uses={expense.uses}
-        handleNotification={props.handleNotification}
-        handleNewUse={handleNewUse}
-      />
-      <DeleteExpense
-        id={expense.id}
-        title={expense.title}
-        uses={expense.uses}
-        handleNotification={props.handleNotification}
-      />
-      <ExpenseCalendar uses={expense.uses} />
-      <CostChart expense={expense} />
-    </Grid>
+    <>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column floated="left" width={5}>
+            <Header as="h1">{expense.title}</Header>
+          </Grid.Column>
+
+          <DeleteExpense
+            id={expense.id}
+            title={expense.title}
+            uses={expense.uses}
+            handleNotification={props.handleNotification}
+          />
+        </Grid.Row>
+        <Grid.Row></Grid.Row>
+        <ul>
+          <li>Price: {expense.price}</li>
+          <li>Uses: {expense.uses.length}</li>
+          <li>
+            Cost Per Use: {costPerUse(expense.price, expense.uses.length)}
+          </li>
+          <li>Notes: {expense.notes}</li>
+          <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
+          <li>Created: {moment(expense.createdAt).calendar()}</li>
+        </ul>
+        <AddUse
+          id={expense.id}
+          uses={expense.uses}
+          handleNotification={props.handleNotification}
+          handleNewUse={handleNewUse}
+        />
+
+        <ExpenseCalendar uses={expense.uses} />
+        <CostChart expense={expense} />
+      </Grid>
+    </>
   )
 }
 
