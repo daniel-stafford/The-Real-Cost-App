@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Loader, Header } from 'semantic-ui-react'
+import { Loader, Header, Grid } from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -28,9 +28,28 @@ const ExpenseDetail = props => {
   }
 
   if (!expense) return <Loader active />
+  if (expense.uses.length === 0)
+    return (
+      <div>
+        <Header as="h1">{expense.title}</Header>
+        <div>
+          <p>
+            Now that you've added a new membership, let's start tracking when
+            and how often you use it. One you add a use, we'll figure out how
+            much that membership costing you each time you use it. Click the
+            button below and choose a date you first used your membership.
+          </p>
+        </div>
+        <AddUse
+          id={expense.id}
+          uses={expense.uses}
+          handleNotification={props.handleNotification}
+          handleNewUse={handleNewUse}
+        />
+      </div>
+    )
   return (
-    <>
-      {console.table('expense uses', expense.uses)}
+    <Grid>
       <Header as="h1">{expense.title}</Header>
       <ul>
         <li>Price: {expense.price}</li>
@@ -54,7 +73,7 @@ const ExpenseDetail = props => {
       />
       <ExpenseCalendar uses={expense.uses} />
       <CostChart expense={expense} />
-    </>
+    </Grid>
   )
 }
 

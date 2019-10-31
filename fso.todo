@@ -1,11 +1,11 @@
 Todos:
-☐ REMEMBER TO KEEP THIS APP SIMPLE!!!! MININUM VIABLE PRODUCT
+☐ Try to deploy site on AWS
 
 Client Side:
-  ✔ Keep learning styled componets, SCSS @done(19-10-30 05:45)
-  ☐ Redesign welcome page
-  ☐ Dark mode
   ☐ Layout of expense detail
+  ✔ Keep learning styled componets, SCSS @done(19-10-30 05:45)
+  ✔ Redesign welcome page @done(19-10-30 14:31)
+  ☐ Dark mode
   ☐ Convert Victory chart to D3 chart
   ☐ Error handling for create new expense
   ☐ Expire awnd refresh tokens

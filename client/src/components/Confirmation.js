@@ -19,8 +19,8 @@ class Confirmation extends Component {
         {/* <Button basic color="red" onClick={() => handleDelete(props.id)}>
           Delete
       </Button> */}
-        <Button basic color="red" onClick={this.show}>
-          Delete
+        <Button negative onClick={this.show}>
+          Delete This Membership
         </Button>
         <Confirm
           open={this.state.open}

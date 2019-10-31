@@ -111,7 +111,7 @@ const App = props => {
       <Menu tabular>
         <Menu.Item active={activeItem === 'expenses'}>
           <Link onClick={() => handleItemClick('expenses')} to="/expenses">
-            Expenses
+            Your Memberships
           </Link>
         </Menu.Item>
         <Menu.Item active={activeItem === 'create_expense'}>
@@ -119,7 +119,7 @@ const App = props => {
             onClick={() => handleItemClick('create_expense')}
             to="/create_expense"
           >
-            Create New
+            Create New Membership
           </Link>
         </Menu.Item>
         <Menu.Item>

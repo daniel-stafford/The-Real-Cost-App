@@ -28,6 +28,8 @@ const RegisterUserForm = props => {
         'error',
         'Password must be longer than 5 characters'
       )
+    setDisabled(false)
+
     try {
       await userService.create({ username, password })
       setPassword('')
@@ -50,6 +52,7 @@ const RegisterUserForm = props => {
       }, 3000)
     } catch (e) {
       props.handleNotification('error', e.message)
+      setDisabled(false)
     }
   }
 
