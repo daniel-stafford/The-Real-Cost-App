@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Loader, Header, Grid } from 'semantic-ui-react'
+import { Container, Loader, Header, Grid } from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -9,6 +9,7 @@ import {
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
 import moment from 'moment'
+import '../index.css'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
@@ -50,54 +51,58 @@ const ExpenseDetail = props => {
       </div>
     )
   return (
-    <>
-      <Grid>
-        <Grid.Row>
-          <Grid.Column floated="left" width={5}>
-            <Header as="h1">{expense.title}</Header>
-          </Grid.Column>
+    <Grid>
+      <Grid.Row centered columns={16}>
+        <Container text>
+          <Header as="h1">{expense.title}</Header>
+        </Container>
+      </Grid.Row>
 
-          <DeleteExpense
+      <Grid.Row>
+        <Grid.Column width={6}>
+          <h2>Current Stats</h2>
+          <ul>
+            <li>Membership Price: {expense.price}</li>
+            <li>Number of Uses: {expense.uses.length}</li>
+            <li>
+              Current Cost Per Use:
+              {costPerUse(expense.price, expense.uses.length)}
+            </li>
+            <li>Notes: {expense.notes}</li>
+            <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
+            <li>Created: {moment(expense.createdAt).calendar()}</li>
+          </ul>
+        </Grid.Column>
+        <Grid.Column width={10} floated="right">
+          <div className="expenseDetails__graph">
+            <CostChart expense={expense} className="expenseDetails__graph" />
+          </div>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column width={8}>
+          <h2>Recorded uses</h2>
+          <ExpenseCalendar uses={expense.uses} />
+          <AddUse
             id={expense.id}
-            title={expense.title}
             uses={expense.uses}
             handleNotification={props.handleNotification}
+            handleNewUse={handleNewUse}
+            buttonText="Add another use"
           />
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <h2>Current Stats</h2>
-            <ul>
-              <li>Membership Price: {expense.price}</li>
-              <li>Number of Uses: {expense.uses.length}</li>
-              <li>
-                Current Cost Per Use:{' '}
-                {costPerUse(expense.price, expense.uses.length)}
-              </li>
-              <li>Notes: {expense.notes}</li>
-              <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
-              <li>Created: {moment(expense.createdAt).calendar()}</li>
-            </ul>
-          </Grid.Column>
-          <Grid.Column width={8}>
-            <CostChart expense={expense} />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column wdith={8}>
-            <h2>My past uses</h2>
-            <ExpenseCalendar uses={expense.uses} />
-            <AddUse
+        </Grid.Column>
+        <Grid.Column floated="right" width={8}>
+          <div>
+            <DeleteExpense
               id={expense.id}
+              title={expense.title}
               uses={expense.uses}
               handleNotification={props.handleNotification}
-              handleNewUse={handleNewUse}
-              buttonText="Add another use"
             />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </>
+          </div>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   )
 }
 

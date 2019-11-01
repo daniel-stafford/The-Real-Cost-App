@@ -7,3 +7,6 @@
 .register__button {
   margin-top: 10px;
 }
+svg {
+  /* height: fit-content !important; */
+}

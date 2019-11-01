@@ -52,7 +52,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
           <input {...notes} />
         </div>
         <Button disabled={disabled} type="submit">
-          Create New! }
+          Create!
         </Button>
       </Form>
     </div>

@@ -16,9 +16,10 @@ const CostChart = props => {
 
   return (
     <VictoryChart
+      style={{ height: 'fit-content' }}
       // domainPadding will add space to each side of VictoryBar to
       // prevent it from overlapping the axis
-      domainPadding={50}
+      domainPadding={40}
     >
       <VictoryAxis
         // tickValues specifies both the number of ticks and where
