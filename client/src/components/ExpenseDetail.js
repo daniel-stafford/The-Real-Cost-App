@@ -35,11 +35,11 @@ const ExpenseDetail = props => {
         <Header as="h1">{expense.title}</Header>
         <div>
           <p>
-            This is your details page for tracking your uses of each membership.{' '}
+            This is your details page for tracking your uses of each membership.
           </p>
           <p>
-            When was the last time you used your membership? Go ahead and add a
-            use below.
+            When was the last time you used your membership? Choose a date with
+            button below.
           </p>
         </div>
         <AddUse
@@ -47,6 +47,7 @@ const ExpenseDetail = props => {
           uses={expense.uses}
           handleNotification={props.handleNotification}
           handleNewUse={handleNewUse}
+          buttonText="Add first use"
         />
       </div>
     )

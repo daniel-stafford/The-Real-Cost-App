@@ -26,8 +26,8 @@ const AddUse = props => {
     <Modal
       open={showModal}
       trigger={
-        <Button color="green" onClick={() => setShowModal(true)}>
-          Add Use
+        <Button positive onClick={() => setShowModal(true)}>
+          {props.buttonText}
         </Button>
       }
       centered={false}
