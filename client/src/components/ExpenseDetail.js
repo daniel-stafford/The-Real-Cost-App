@@ -64,26 +64,38 @@ const ExpenseDetail = props => {
             handleNotification={props.handleNotification}
           />
         </Grid.Row>
-        <Grid.Row></Grid.Row>
-        <ul>
-          <li>Price: {expense.price}</li>
-          <li>Uses: {expense.uses.length}</li>
-          <li>
-            Cost Per Use: {costPerUse(expense.price, expense.uses.length)}
-          </li>
-          <li>Notes: {expense.notes}</li>
-          <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
-          <li>Created: {moment(expense.createdAt).calendar()}</li>
-        </ul>
-        <AddUse
-          id={expense.id}
-          uses={expense.uses}
-          handleNotification={props.handleNotification}
-          handleNewUse={handleNewUse}
-        />
-
-        <ExpenseCalendar uses={expense.uses} />
-        <CostChart expense={expense} />
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <h2>Current Stats</h2>
+            <ul>
+              <li>Membership Price: {expense.price}</li>
+              <li>Number of Uses: {expense.uses.length}</li>
+              <li>
+                Current Cost Per Use:{' '}
+                {costPerUse(expense.price, expense.uses.length)}
+              </li>
+              <li>Notes: {expense.notes}</li>
+              <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
+              <li>Created: {moment(expense.createdAt).calendar()}</li>
+            </ul>
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <CostChart expense={expense} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column wdith={8}>
+            <h2>My past uses</h2>
+            <ExpenseCalendar uses={expense.uses} />
+            <AddUse
+              id={expense.id}
+              uses={expense.uses}
+              handleNotification={props.handleNotification}
+              handleNewUse={handleNewUse}
+              buttonText="Add another use"
+            />
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     </>
   )
