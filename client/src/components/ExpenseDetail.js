@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Loader, Header, Grid } from 'semantic-ui-react'
+import { Container, Loader, Header, Grid, Dropdown } from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -53,10 +53,24 @@ const ExpenseDetail = props => {
     )
   return (
     <Grid>
-      <Grid.Row centered columns={16}>
+      <Grid.Row columns={16}>
+        <Dropdown text="Options">
+          <Dropdown.Menu>
+            <Dropdown.Item>
+              <DeleteExpense
+                id={expense.id}
+                title={expense.title}
+                uses={expense.uses}
+                handleNotification={props.handleNotification}
+                className="button icon"
+              />
+            </Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <Container text>
           <Header as="h1">{expense.title}</Header>
         </Container>
+        <Grid.Column floated="right"></Grid.Column>
       </Grid.Row>
 
       <Grid.Row>
@@ -91,16 +105,6 @@ const ExpenseDetail = props => {
             handleNewUse={handleNewUse}
             buttonText="Add another use"
           />
-        </Grid.Column>
-        <Grid.Column floated="right" width={8}>
-          <div>
-            <DeleteExpense
-              id={expense.id}
-              title={expense.title}
-              uses={expense.uses}
-              handleNotification={props.handleNotification}
-            />
-          </div>
         </Grid.Column>
       </Grid.Row>
     </Grid>
