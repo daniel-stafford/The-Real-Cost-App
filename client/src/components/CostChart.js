@@ -25,7 +25,7 @@ const CostChart = props => {
         // tickValues specifies both the number of ticks and where
         // they are placed on the axis
         tickValues={[1, 2, 3, 4]}
-        tickFormat={['Your Cost per Use', '+ 1 use', '+5 uses', '+10 uses!']}
+        tickFormat={['My cost per use', '+1 use', '+5 uses', '+10 uses']}
       />
       <VictoryAxis
         dependentAxis

@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Loader, Header, Grid, Dropdown } from 'semantic-ui-react'
+import {
+  Container,
+  Loader,
+  Header,
+  Grid,
+  Dropdown,
+  List,
+  Image
+} from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -52,10 +60,13 @@ const ExpenseDetail = props => {
       </div>
     )
   return (
-    <Grid>
+    <Grid centered>
       <Grid.Row columns={16}>
+        <Container text>
+          <Header as="h1">{expense.title}</Header>
+        </Container>
         <Dropdown text="Options">
-          <Dropdown.Menu>
+          <Dropdown.Menu direction="left">
             <Dropdown.Item>
               <DeleteExpense
                 id={expense.id}
@@ -67,14 +78,9 @@ const ExpenseDetail = props => {
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Container text>
-          <Header as="h1">{expense.title}</Header>
-        </Container>
-        <Grid.Column floated="right"></Grid.Column>
       </Grid.Row>
-
       <Grid.Row>
-        <Grid.Column width={6}>
+        <Grid.Column width={8}>
           <h2>Current Stats</h2>
           <ul>
             <li>Membership Price: {expense.price}</li>
@@ -88,14 +94,15 @@ const ExpenseDetail = props => {
             <li>Created: {moment(expense.createdAt).calendar()}</li>
           </ul>
         </Grid.Column>
-        <Grid.Column width={10} floated="right">
-          <div className="expenseDetails__graph">
-            <CostChart expense={expense} className="expenseDetails__graph" />
-          </div>
+        <Grid.Column width={8} floated="right">
+          <h2>Cost Per Use</h2>
+          {/* <div className="expenseDetails__graph"> */}
+          <CostChart expense={expense} className="expenseDetails__graph" />
+          {/* </div> */}
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column width={8}>
+        <Grid.Column>
           <h2>Recorded uses</h2>
           <ExpenseCalendar uses={expense.uses} />
           <AddUse
