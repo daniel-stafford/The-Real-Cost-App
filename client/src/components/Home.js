@@ -9,13 +9,11 @@ const Home = props => {
   const loopingText = [
     'gym membership',
     'metro pass',
-    'bicycle',
+    'road bicycle',
     'Netflix subscription',
-    'hockey skates',
-    'fixie bicycle',
-    ''
+    'yoga membership',
+    'Amazon Prime'
   ]
-  const headerContent = `The Real Cost App`
   const textLoop = (
     <>
       Find out how much your{' '}
