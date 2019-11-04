@@ -4,7 +4,7 @@ Todos:
 
 Client Side:
   ✔ Layout of expense detail @done(19-11-04 15:20)
-  ✔ Keep learning styled componets, SCSS @done(19-10-30 05:45)
+  ✘ Keep learning styled componets, SCSS @cancelled(19-11-04 15:44)
   ✔ Redesign welcome page @done(19-10-30 14:31)
   ☐ Dark mode
   ☐ Convert Victory chart to D3 chart
