@@ -13,7 +13,6 @@ import '../index.css'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
-  console.log('expense detail state', expense)
 
   /*eslint-disable */
   useEffect(() => {
@@ -89,7 +88,7 @@ const ExpenseDetail = props => {
           </ul>
         </Grid.Column>
         <Grid.Column width={8}>
-          <h2>Recorded uses</h2>
+          <h2>Recorded Uses</h2>
           <ExpenseCalendar uses={expense.uses} />
           <AddUse
             id={expense.id}

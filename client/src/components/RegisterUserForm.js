@@ -9,13 +9,10 @@ const RegisterUserForm = props => {
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [disabled, setDisabled] = useState(false)
-  console.log('register use form disable', disabled)
 
   const handleSubmit = async event => {
     event.preventDefault()
-    console.log('before set disabled', disabled)
     setDisabled(true)
-    console.log('after set disabled', disabled)
     if (password !== passwordConfirm) {
       props.handleNotification(
         'error',

@@ -39,7 +39,6 @@ expenseRouter.get('/', (request, response, next) => {
   expenseRouter.put('/:id', async (request, response, next) => {
     console.log('put is firing', request.body)
     const id = request.params.id
-
     try {
       console.log('try firing')
       const expenseToUpdate = await Expense.findById(id)

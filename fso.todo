@@ -1,9 +1,9 @@
 Todos:
-☐ Try to deploy site on AWS
-  ☐ Wait until account confirmed to create ec2 instance
+✘ Try to deploy site on AWS @cancelled(19-11-04 15:20)
+  ✘ Wait until account confirmed to create ec2 instance @cancelled(19-11-04 15:20)
 
 Client Side:
-  ☐ Layout of expense detail
+  ✔ Layout of expense detail @done(19-11-04 15:20)
   ✔ Keep learning styled componets, SCSS @done(19-10-30 05:45)
   ✔ Redesign welcome page @done(19-10-30 14:31)
   ☐ Dark mode
@@ -25,7 +25,7 @@ Feature Ideas:
   ☐ bad words filter
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
-  ☐ Comment featureå
+  ☐ Comment feature
 å
 Random Ideas:
   ☐ Form validation (e.g. check if email) Consider learning regex to do this.
