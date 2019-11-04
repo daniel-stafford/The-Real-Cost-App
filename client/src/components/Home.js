@@ -2,10 +2,13 @@ import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import TextLoop from 'react-text-loop'
+import { Router, Link } from '@reach/router'
 
 import '../index.css'
 
 const Home = props => {
+  let Home2 = () => <div>Home</div>
+
   const loopingText = [
     'gym membership',
     'metro pass',
@@ -59,7 +62,14 @@ const Home = props => {
       </Button>
     </Container>
   )
-  return <HomepageHeading />
+  return (
+    <div>
+      <HomepageHeading />
+      <Router>
+        <Home2 path="dashboard" />
+      </Router>
+    </div>
+  )
 }
 
 export default withRouter(Home)

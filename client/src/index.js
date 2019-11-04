@@ -3,15 +3,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Container } from 'semantic-ui-react'
-import { StaticRouter } from 'react-router'
+import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import './index.css'
 
 ReactDOM.render(
   <Container>
-    <StaticRouter>
+    <Router>
       <App />
-    </StaticRouter>
+    </Router>
   </Container>,
   document.getElementById('root')
 )
