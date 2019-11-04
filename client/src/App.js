@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, Link, withRouter, NavLink } from 'react-router-dom'
+import { Switch, Route, Link, withRouter } from 'react-router-dom'
 import { Menu, Button } from 'semantic-ui-react'
 import { hideNotification } from './utils/constants'
 import {

@@ -57,19 +57,21 @@ const ExpenseDetail = props => {
         <Container text>
           <Header as="h1">{expense.title}</Header>
         </Container>
-        <Dropdown text="Options">
-          <Dropdown.Menu direction="left">
-            <Dropdown.Item>
-              <DeleteExpense
-                id={expense.id}
-                title={expense.title}
-                uses={expense.uses}
-                handleNotification={props.handleNotification}
-                className="button icon"
-              />
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <Grid.Column floated="right">
+          <Dropdown text="Options">
+            <Dropdown.Menu direction="left">
+              <Dropdown.Item>
+                <DeleteExpense
+                  id={expense.id}
+                  title={expense.title}
+                  uses={expense.uses}
+                  handleNotification={props.handleNotification}
+                  className="button icon"
+                />
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Grid.Column>
       </Grid.Row>
       <Grid.Row>
         <Grid.Column width={8}>
@@ -86,15 +88,7 @@ const ExpenseDetail = props => {
             <li>Created: {moment(expense.createdAt).calendar()}</li>
           </ul>
         </Grid.Column>
-        <Grid.Column width={8} floated="right">
-          <h2>Cost Per Use</h2>
-          {/* <div className="expenseDetails__graph"> */}
-          <CostChart expense={expense} className="expenseDetails__graph" />
-          {/* </div> */}
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column>
+        <Grid.Column width={8}>
           <h2>Recorded uses</h2>
           <ExpenseCalendar uses={expense.uses} />
           <AddUse
@@ -104,6 +98,12 @@ const ExpenseDetail = props => {
             handleNewUse={handleNewUse}
             buttonText="Add another use"
           />
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column width={8} floated="left">
+          <h2>Cost Per Use</h2>
+          <CostChart expense={expense} className="expenseDetails__graph" />
         </Grid.Column>
       </Grid.Row>
     </Grid>

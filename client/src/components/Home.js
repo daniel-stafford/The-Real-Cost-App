@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
-import img from '../resources/images/dollars.jpg'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
 

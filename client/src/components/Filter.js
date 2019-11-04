@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { Form } from 'semantic-ui-react'
 const Filter = ({ handleFilter }) => {
   const handleChange = e => {
-    console.log('handle Change is firing')
-    console.log(e.target.value)
     handleFilter(e.target.value.toLowerCase())
   }
   return (

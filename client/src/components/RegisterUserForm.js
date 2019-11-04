@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Form, Button, Message } from 'semantic-ui-react'
+import { Form, Button, Message } from 'semantic-ui-react'
 import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
