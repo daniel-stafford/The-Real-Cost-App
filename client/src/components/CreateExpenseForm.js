@@ -20,7 +20,6 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
         notes: notes.value,
         creator: loggedinUser.id
       }
-      console.log('new expense', newExpense)
 
       await expenseService.create(newExpense)
       handleNotification(

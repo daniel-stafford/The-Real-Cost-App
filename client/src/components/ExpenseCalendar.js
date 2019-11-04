@@ -6,7 +6,6 @@ const ExpenseCalendar = ({ uses }) => {
   const getModifiers = () => {
     const modObject = { highlighted: [] }
     uses.map(date => modObject.highlighted.push(new Date(date)))
-    console.log('modobject', modObject)
     return modObject
   }
   const highlightStyle = `.DayPicker-Day--highlighted {
@@ -16,7 +15,6 @@ const ExpenseCalendar = ({ uses }) => {
 
   return (
     <div>
-      {console.log('calendar is rendering')}
       <style>{highlightStyle}</style>
       <DayPicker modifiers={getModifiers()} />
     </div>

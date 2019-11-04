@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Message } from 'semantic-ui-react'
+import { Form, Button, Message, Popup } from 'semantic-ui-react'
 import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
@@ -58,25 +58,40 @@ const RegisterUserForm = props => {
       <Form onSubmit={handleSubmit}>
         <div>
           Username
-          <input
-            value={username}
-            onChange={({ target }) => setUsername(target.value)}
+          <Popup
+            content="Make sure your username is at least four characters long."
+            trigger={
+              <input
+                value={username}
+                onChange={({ target }) => setUsername(target.value)}
+              />
+            }
           />
         </div>
         <div>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
+          <Popup
+            content="Your password needs to be at least five characters long."
+            trigger={
+              <input
+                type="password"
+                value={password}
+                onChange={({ target }) => setPassword(target.value)}
+              />
+            }
           />
         </div>
         <div>
           Confirm Password
-          <input
-            type="password"
-            value={passwordConfirm}
-            onChange={({ target }) => setPasswordConfirm(target.value)}
+          <Popup
+            content="Rewrite your password here."
+            trigger={
+              <input
+                type="password"
+                value={passwordConfirm}
+                onChange={({ target }) => setPasswordConfirm(target.value)}
+              />
+            }
           />
         </div>
         <div className="register__button">

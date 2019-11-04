@@ -6,7 +6,6 @@ const CostChart = props => {
   const price = props.expense.price
   const currentUses = props.expense.uses.length
 
-  console.log('currentuser', currentUses)
   const data = [
     { use: 1, cost: price / currentUses },
     { use: 2, cost: price / (currentUses + 1) },
