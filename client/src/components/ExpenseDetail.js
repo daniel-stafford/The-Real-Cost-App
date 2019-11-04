@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Container,
-  Loader,
-  Header,
-  Grid,
-  Dropdown,
-  List,
-  Image
-} from 'semantic-ui-react'
+import { Container, Loader, Header, Grid, Dropdown } from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
