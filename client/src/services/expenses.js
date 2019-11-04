@@ -31,7 +31,6 @@ const create = async newObject => {
 }
 
 const update = async (id, data) => {
-  console.log('data in update', data)
   const response = await axios.put(`${baseUrl}/${id}`, data)
   return response.data
 }

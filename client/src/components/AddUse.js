@@ -13,7 +13,6 @@ const AddUse = props => {
       props.handleNewUse(startDate)
       props.handleNotification('success', 'New use added!', 3)
       const update = await expenseService.update(props.id, { startDate })
-      console.log('update', update) //  not sure why this line isn't being read
     } catch (e) {
       console.log('add use failed', e.message)
     }
