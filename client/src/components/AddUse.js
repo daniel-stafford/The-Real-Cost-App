@@ -12,7 +12,7 @@ const AddUse = props => {
     try {
       props.handleNewUse(startDate)
       props.handleNotification('success', 'New use added!', 3)
-      const update = await expenseService.update(props.id, { startDate })
+      await expenseService.update(props.id, { startDate })
     } catch (e) {
       console.log('add use failed', e.message)
     }

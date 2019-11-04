@@ -1,9 +1,32 @@
 import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
+import TextLoop from 'react-text-loop'
+
 import '../index.css'
 
 const Home = props => {
+  const loopingText = [
+    'gym membership',
+    'metro pass',
+    'bicycle',
+    'Netflix subscription',
+    'hockey skates',
+    'fixie bicycle',
+    ''
+  ]
+  const headerContent = `The Real Cost App`
+  const textLoop = (
+    <>
+      Find out how much your{' '}
+      <TextLoop interval={1000}>
+        {loopingText.map(text => (
+          <span>{text}</span>
+        ))}
+      </TextLoop>{' '}
+      really costs.
+    </>
+  )
   const HomepageHeading = ({ mobile }) => (
     <Container text className="header-container">
       <Header
@@ -18,7 +41,7 @@ const Home = props => {
       />
       <Header
         as="h2"
-        content="Track how much your memberships cost per use."
+        content={textLoop}
         style={{
           fontSize: mobile ? '1.5em' : '1.7em',
           fontWeight: 'normal',
