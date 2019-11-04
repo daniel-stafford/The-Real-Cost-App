@@ -29,7 +29,7 @@ const App = props => {
   const [notification, setNotification] = useState(hideNotification)
   const handleNotification = (
     category = 'error',
-    content = 'Something went wrong',
+    content = 'Something went wrong!!!',
     time = 3
   ) => {
     setNotification({ category, content, time })

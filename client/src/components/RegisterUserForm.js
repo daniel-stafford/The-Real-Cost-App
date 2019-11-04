@@ -14,18 +14,20 @@ const RegisterUserForm = props => {
     event.preventDefault()
     setDisabled(true)
     if (password !== passwordConfirm) {
-      props.handleNotification(
+      setDisabled(false)
+      return props.handleNotification(
         'error',
         "Your passwords don't match.  Please try again"
       )
-      return setDisabled(false)
     }
-    if (password.length < 5)
+
+    if (password.length < 5) {
+      setDisabled(false)
       return props.handleNotification(
         'error',
         'Password must be longer than 5 characters'
       )
-    setDisabled(false)
+    }
 
     try {
       await userService.create({ username, password })
@@ -43,12 +45,13 @@ const RegisterUserForm = props => {
         props.setActiveItem('login')
         props.handleNotification(
           'success',
-          'Give me your new username and password to log in',
+          'Give me your username and password to log in',
           5
         )
       }, 3000)
     } catch (e) {
-      props.handleNotification('error', e.message)
+      console.log('catch is running', e.response)
+      props.handleNotification('error', e.response.data.error)
       setDisabled(false)
     }
   }
