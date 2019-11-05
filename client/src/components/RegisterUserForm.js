@@ -4,6 +4,7 @@ import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
 import { formHelpIcon } from '../utils/constants'
+import validator from 'validator'
 
 const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
@@ -15,6 +16,13 @@ const RegisterUserForm = props => {
   const handleSubmit = async event => {
     event.preventDefault()
     setDisabled(true)
+    if (!validator.isEmail(email)) {
+      setDisabled(false)
+      return props.handleNotification(
+        'error',
+        'Please enter a valid email address'
+      )
+    }
     if (password !== passwordConfirm) {
       setDisabled(false)
       return props.handleNotification(
@@ -22,7 +30,6 @@ const RegisterUserForm = props => {
         "Your passwords don't match.  Please try again"
       )
     }
-
     if (password.length < 5) {
       setDisabled(false)
       return props.handleNotification(
@@ -80,7 +87,6 @@ const RegisterUserForm = props => {
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
-            type="email"
             value={email}
             onChange={({ target }) => setEmail(target.value)}
           />
