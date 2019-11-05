@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { Form, Button, Message, Popup } from 'semantic-ui-react'
+import { Form, Button, Message, Popup, Icon } from 'semantic-ui-react'
 import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
+import { formHelpIcon } from '../utils/constants'
 
 const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
@@ -30,6 +31,7 @@ const RegisterUserForm = props => {
     }
 
     try {
+      console.log('try is running')
       await userService.create({ username, password })
       setPassword('')
       setUsername('')
@@ -40,7 +42,7 @@ const RegisterUserForm = props => {
         `Fantastic! New user created! Go ahead and log in. I'll take you there`,
         3
       )
-      setTimeout(params => {
+      setTimeout(() => {
         props.history.push('/login')
         props.setActiveItem('login')
         props.handleNotification(
@@ -60,41 +62,38 @@ const RegisterUserForm = props => {
     <div>
       <Form onSubmit={handleSubmit}>
         <div>
-          Username
+          Username{' '}
           <Popup
-            content="Make sure your username is at least four characters long."
-            trigger={
-              <input
-                value={username}
-                onChange={({ target }) => setUsername(target.value)}
-              />
-            }
+            content="Make sure your username is at least four characters long"
+            trigger={<Icon name={formHelpIcon} />}
+          />
+          <input
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
           />
         </div>
         <div>
-          Password
+          Password{' '}
           <Popup
-            content="Your password needs to be at least five characters long."
-            trigger={
-              <input
-                type="password"
-                value={password}
-                onChange={({ target }) => setPassword(target.value)}
-              />
-            }
+            content="Your password needs to be at least five characters long"
+            trigger={<Icon name={formHelpIcon} />}
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
           />
         </div>
         <div>
-          Confirm Password
+          Confirm Password{' '}
           <Popup
-            content="Rewrite your password here."
-            trigger={
-              <input
-                type="password"
-                value={passwordConfirm}
-                onChange={({ target }) => setPasswordConfirm(target.value)}
-              />
-            }
+            content="Retype your password"
+            trigger={<Icon name={formHelpIcon} />}
+          />
+          <input
+            type="password"
+            value={passwordConfirm}
+            onChange={({ target }) => setPasswordConfirm(target.value)}
           />
         </div>
         <div className="register__button">
