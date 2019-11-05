@@ -87,6 +87,7 @@ const RegisterUserForm = props => {
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
+            type="email"
             value={email}
             onChange={({ target }) => setEmail(target.value)}
           />

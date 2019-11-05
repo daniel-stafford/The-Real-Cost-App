@@ -2,13 +2,10 @@ import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import TextLoop from 'react-text-loop'
-import { Router, Link } from '@reach/router'
 
 import '../index.css'
 
 const Home = props => {
-  let Home2 = () => <div>Home</div>
-
   const loopingText = [
     'gym membership',
     'metro pass',
@@ -22,7 +19,7 @@ const Home = props => {
       Find out how much your{' '}
       <TextLoop interval={1000}>
         {loopingText.map(text => (
-          <span>{text}</span>
+          <span key={text}>{text}</span>
         ))}
       </TextLoop>{' '}
       really costs.
@@ -62,14 +59,7 @@ const Home = props => {
       </Button>
     </Container>
   )
-  return (
-    <div>
-      <HomepageHeading />
-      <Router>
-        <Home2 path="dashboard" />
-      </Router>
-    </div>
-  )
+  return <HomepageHeading />
 }
 
 export default withRouter(Home)
