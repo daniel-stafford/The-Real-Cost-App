@@ -7,6 +7,7 @@ import { formHelpIcon } from '../utils/constants'
 
 const RegisterUserForm = props => {
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordConfirm, setPasswordConfirm] = useState('')
   const [disabled, setDisabled] = useState(false)
@@ -70,6 +71,18 @@ const RegisterUserForm = props => {
           <input
             value={username}
             onChange={({ target }) => setUsername(target.value)}
+          />
+        </div>
+        <div>
+          Email{' '}
+          <Popup
+            content="Make sure you enter a valid email address.  But, don't worry, we won't spam you"
+            trigger={<Icon name={formHelpIcon} />}
+          />
+          <input
+            type="email"
+            value={email}
+            onChange={({ target }) => setEmail(target.value)}
           />
         </div>
         <div>
