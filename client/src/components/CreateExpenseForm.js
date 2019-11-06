@@ -31,7 +31,11 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
         history.push('/expenses')
       }, 2000)
     } catch (error) {
-      console.log(error.message)
+      handleNotification(
+        'error',
+        'Unable to add new expense, check your fields',
+        3
+      )
       setDisabled(false)
     }
   }

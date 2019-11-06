@@ -39,7 +39,6 @@ const RegisterUserForm = props => {
     }
 
     try {
-      console.log('try is running')
       await userService.create({ username, password, email })
       setPassword('')
       setUsername('')
@@ -61,7 +60,6 @@ const RegisterUserForm = props => {
         )
       }, 3000)
     } catch (e) {
-      console.log('catch is running', e.response)
       props.handleNotification('error', e.response.data.error, 5)
       setDisabled(false)
     }

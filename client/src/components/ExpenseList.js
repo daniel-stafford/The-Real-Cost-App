@@ -44,7 +44,6 @@ const ExpenseList = props => {
       <Filter handleFilter={handleFilter} />
       <Card.Group>
         {filteredExpenses.map(e => {
-          console.log('expenses', e)
           return (
             <Card key={e.title}>
               <Card.Content>

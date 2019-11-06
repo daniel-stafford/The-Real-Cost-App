@@ -1,21 +1,21 @@
 import React from 'react'
-import { Container, Header, Button, Icon } from 'semantic-ui-react'
+import { Button, Icon } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
-import TextLoop from 'react-text-loop'
-import Typist from 'react-typist'
-import TypistLoop from 'react-typist-loop'
+// import TextLoop from 'react-text-loop'
+// import Typist from 'react-typist'
+// import TypistLoop from 'react-typist-loop'
 
 import '../index.css'
 
 const Home = props => {
-  const loopingText = [
-    'gym membership',
-    'metro pass',
-    'road bicycle',
-    'Netflix subscription',
-    'yoga membership',
-    'Amazon Prime'
-  ]
+  // const loopingText = [
+  //   'gym membership',
+  //   'metro pass',
+  //   'road bicycle',
+  //   'Netflix subscription',
+  //   'yoga membership',
+  //   'Amazon Prime'
+  // ]
   return (
     <div>
       <h1>The Real Cost App</h1>

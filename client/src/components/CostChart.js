@@ -2,7 +2,6 @@ import React from 'react'
 import { VictoryBar, VictoryChart, VictoryAxis } from 'victory'
 
 const CostChart = props => {
-  console.log('cost chart props', props)
   const price = props.expense.price
   const currentUses = props.expense.uses.length
 

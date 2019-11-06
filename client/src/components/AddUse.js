@@ -11,10 +11,10 @@ const AddUse = props => {
     setShowModal(false)
     try {
       props.handleNewUse(startDate)
-      props.handleNotification('success', 'New use added!', 3)
+      props.handleNotification('success', 'New use added!', 5)
       await expenseService.update(props.id, { startDate })
     } catch (e) {
-      console.log('add use failed', e.message)
+      props.handleNotification('error', 'Unable to add new use', 5)
     }
   }
 
