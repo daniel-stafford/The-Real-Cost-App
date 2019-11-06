@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user.model')
+const nodemailer = require('nodemailer')
 
 usersRouter.get('/', async (request, response) => {
   const users = await User.find({}).populate('blogs', {
