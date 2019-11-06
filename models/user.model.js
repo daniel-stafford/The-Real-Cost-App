@@ -21,6 +21,10 @@ const schema = new Schema(
       required: true,
       unique: true
     },
+    isConfirmed: {
+      type: Boolean,
+      default: false
+    },
     createdExpenses: [
       {
         type: Schema.Types.ObjectId,

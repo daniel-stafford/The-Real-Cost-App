@@ -50,7 +50,7 @@ usersRouter.post('/', async (request, response, next) => {
       from: 'realcostapp@gmail.com',
       to: body.email,
       subject: 'Welcome to the Real Cost App',
-      text: `Alright, youv'e signed up for the Real Cost App! Go to www.stafford-realcostapp.heroku.com and log in! If you have any questions or comments, just reply to this email or email me at realcostapp@gmail.com.  Thanks!`
+      html: `<h3>Great, youv'e signed up for the Real Cost App!</h3> <p>Go to https://stafford-real-cost.herokuapp.com/login and log in! </p><p>If you have any questions or comments, just reply to this email or email me at realcostapp@gmail.com. </p> <p>Thanks!</p>  <p>-Daniel</p>`
     }
     transporter.sendMail(mailOptions, (err, data) => {
       if (err) return console.log('error with nodemailer', err)
