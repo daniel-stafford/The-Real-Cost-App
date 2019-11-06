@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Header, Button, Icon } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import TextLoop from 'react-text-loop'
+import Typist from 'react-typist'
+import TypistLoop from 'react-typist-loop'
 
 import '../index.css'
 
@@ -14,38 +16,30 @@ const Home = props => {
     'yoga membership',
     'Amazon Prime'
   ]
-  const textLoop = (
-    <>
-      Find out how much your{' '}
-      <TextLoop interval={1000}>
-        {loopingText.map(text => (
-          <span key={text}>{text}</span>
-        ))}
-      </TextLoop>{' '}
-      really costs.
-    </>
-  )
-  const HomepageHeading = ({ mobile }) => (
-    <Container text className="header-container">
-      <Header
-        as="h1"
-        content="The Real Cost App"
-        style={{
-          fontSize: mobile ? '2em' : '4em',
-          fontWeight: 'normal',
-          marginBottom: 0,
-          marginTop: mobile ? '1.5em' : '3em'
-        }}
-      />
-      <Header
-        as="h2"
-        content={textLoop}
-        style={{
-          fontSize: mobile ? '1.5em' : '1.7em',
-          fontWeight: 'normal',
-          marginTop: mobile ? '0.5em' : '1.5em'
-        }}
-      />
+  return (
+    <div>
+      <h1>The Real Cost App</h1>
+      <h2>
+        Find out how much your{' '}
+        {/* <TextLoop interval={1000}>
+          {loopingText.map(text => (
+            <span key={text}>{text}</span>
+          ))}
+        </TextLoop>{' '} */}
+        really costs.
+      </h2>
+      {/* <h2>
+        Find out how much your{' '}
+        <TypistLoop interval={1000}>
+          {loopingText.map(text => (
+            <Typist key={text} startDelay={1000}>
+              {text}
+            </Typist>
+          ))}
+        </TypistLoop>{' '}
+        really costs.
+      </h2> */}
+
       <Button
         onClick={() => {
           props.setActiveItem('register')
@@ -57,9 +51,8 @@ const Home = props => {
         Sign up for free
         <Icon name="right arrow" />
       </Button>
-    </Container>
+    </div>
   )
-  return <HomepageHeading />
 }
 
 export default withRouter(Home)
