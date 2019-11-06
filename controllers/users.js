@@ -39,6 +39,23 @@ usersRouter.post('/', async (request, response, next) => {
     })
     const savedUser = await user.save()
     response.json(savedUser)
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    })
+    const mailOptions = {
+      from: 'realcostapp@gmail.com',
+      to: body.email,
+      subject: 'Welcome to the Real Cost App',
+      text: `Alright, youv'e signed up for the Real Cost App! Go to www.stafford-realcostapp.heroku.com and log in! If you have any questions or comments, just reply to this email or email me at realcostapp@gmail.com.  Thanks!`
+    }
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) return console.log('error with nodemailer', err)
+      console.log('email sent!')
+    })
   } catch (exception) {
     console.log('exception in login is firing')
     next(exception)
