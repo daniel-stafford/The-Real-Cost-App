@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === 'production') {
     // don't serve api routes to react app
     res.sendFile(path.join(__dirname, './client/build/index.html'))
   })
-  console.log('Serving React App...')
+  console.log('Serving React App with Heroku')
 }
 
 // if (process.env.NODE_ENV === 'production') {
