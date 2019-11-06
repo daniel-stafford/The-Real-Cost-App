@@ -20,7 +20,7 @@ const Home = props => {
     <div>
       <h1>The Real Cost App</h1>
       <h2>
-        Find out how much your{' '}
+        Find out how much your stuff{' '}
         {/* <TextLoop interval={1000}>
           {loopingText.map(text => (
             <span key={text}>{text}</span>
@@ -28,17 +28,6 @@ const Home = props => {
         </TextLoop>{' '} */}
         really costs.
       </h2>
-      {/* <h2>
-        Find out how much your{' '}
-        <TypistLoop interval={1000}>
-          {loopingText.map(text => (
-            <Typist key={text} startDelay={1000}>
-              {text}
-            </Typist>
-          ))}
-        </TypistLoop>{' '}
-        really costs.
-      </h2> */}
 
       <Button
         onClick={() => {

@@ -40,9 +40,10 @@ const RegisterUserForm = props => {
 
     try {
       console.log('try is running')
-      await userService.create({ username, password })
+      await userService.create({ username, password, email })
       setPassword('')
       setUsername('')
+      setEmail('')
       setPasswordConfirm('')
 
       props.handleNotification(

@@ -16,6 +16,11 @@ const schema = new Schema(
       required: true,
       minlength: 4
     },
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
     createdExpenses: [
       {
         type: Schema.Types.ObjectId,
