@@ -81,7 +81,7 @@ const ExpenseDetail = props => {
         <Grid.Column width={8}>
           <h2>Current Stats</h2>
           <ul>
-            <li>Membership Price: {expense.price}</li>
+            <li>Expense Price: {expense.price}</li>
             <li>Number of Uses: {expense.uses.length}</li>
             <li>
               Current Cost Per Use:
