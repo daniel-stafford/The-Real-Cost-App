@@ -24,8 +24,12 @@ const ExpenseDetail = props => {
   }, [])
   /*eslint-enable */
 
-  const handleNewUse = startDate => {
-    setExpense({ ...expense, uses: expense.uses.concat(startDate) })
+  const handleNewUse = newDate => {
+    setExpense({ ...expense, uses: expense.uses.concat(newDate) })
+  }
+
+  const handleNewNote = newNote => {
+    setExpense({ ...expense, notes: expense.notes.concat(newNote) })
   }
 
   if (!expense) return <Loader active />
@@ -106,12 +110,17 @@ const ExpenseDetail = props => {
         </Grid.Column>
         <Grid.Column width={8}>
           <h2>Notes</h2>
+          <ul>
+            {expense.notes.map(note => {
+              return <li key={note}>{note}</li>
+            })}
+          </ul>
           <AddNote
             id={expense.id}
             handleNotification={props.handleNotification}
+            handleNewNote={handleNewNote}
             buttonText="Add another note"
           />
-          {expense.notes}
         </Grid.Column>
       </Grid.Row>
     </Grid>
