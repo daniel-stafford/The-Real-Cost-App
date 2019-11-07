@@ -40,7 +40,7 @@ usersRouter.post('/', async (request, response, next) => {
     const savedUser = await user.save()
     response.json(savedUser)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      service: 'gmail', //having isseus with gmail and heroku, try sendinblue....
       auth: {
         user: process.env.EMAIL_ADDRESS,
         pass: process.env.EMAIL_PASSWORD
