@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user.model')
 const nodemailer = require('nodemailer')
-const SibApiV3Sdk = require('sib-api-v3-sdk')
+const mailGun = require('nodemailer-mailgun-transport')
 
 usersRouter.get('/', async (request, response) => {
   const users = await User.find({}).populate('blogs', {
@@ -40,38 +40,16 @@ usersRouter.post('/', async (request, response, next) => {
     })
     const savedUser = await user.save()
     response.json(savedUser)
-    //   const defaultClient = SibApiV3Sdk.ApiClient.instance
-    //   const apiKey = defaultClient.authentications['api-key']
-    //   apiKey.apiKey = process.env.SENDINBLUE_API_KEY
-    //   var apiInstance = new SibApiV3Sdk.EmailCampaignsApi()
-    //   var emailCampaigns = new SibApiV3Sdk.CreateEmailCampaign()
 
-    //   emailCampaigns.name = 'Campaign sent via the API'
-    //   emailCampaigns.subject = 'My subject'
-    //   emailCampaigns.sender = {
-    //     name: 'From name',
-    //     email: 'stafford.daniel@gmail.com'
-    //   }
-    //   emailCampaigns.type = 'classic'
-    //   emailCampaigns.text = 'blah blah welcome'
-    //   emailCampaigns.
-    // }
-
-    //   apiInstance.createEmailCampaign(emailCampaigns).then(
-    //     function(data) {
-    //       console.log('API called successfully. Returned data: ' + data)
-    //     },
-    //     function(error) {
-    //       console.error(error)
-    //     }
-    //   )
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', //having isseus with gmail and heroku, try sendinblue???
+    const auth = {
       auth: {
-        user: process.env.EMAIL_ADDRESS,
-        pass: process.env.EMAIL_PASSWORD
+        qpiKey: process.env.MAILGUN_API_KEY,
+        domain: process.env.MAILGUN_DOMAIN
       }
-    })
+    }
+
+    const transporter = nodemailer.createTransport(mailGun(auth))
+
     const mailOptions = {
       from: 'realcostapp@gmail.com',
       to: body.email,
