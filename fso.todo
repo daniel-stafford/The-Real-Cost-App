@@ -3,14 +3,11 @@ Todos:
   ✘ Wait until account confirmed to create ec2 instance @cancelled(19-11-04 15:20)
 
 Client Side:
-  ✔ Layout of expense detail @done(19-11-04 15:20)
-  ✘ Keep learning styled componets, SCSS @cancelled(19-11-04 15:44)
-  ✔ Redesign welcome page @done(19-10-30 14:31)
-  ☐ Dark mode
-  ☐ Convert Victory chart to D3 chart
+  ✘ Dark mode @cancelled(19-11-07 19:59)
+  ✘ Convert Victory chart to D3 chart @cancelled(19-11-07 19:59)
   ☐ Error handling for create new expense
   ☐ Expire awnd refresh tokens
-  ☐ hover help text
+  ☐ tooltips help text on new expense
   ☐ Testing
   ☐ User icon?
   
@@ -18,17 +15,14 @@ Server Side:
   ☐ Chanage expense detail API call from getAll() with filter to user ID specific, get ?id='' to work
 
 Feature Ideas:
-  ☐ Email to user after signing up (will need to add email field)
+  ☐ Email to user after signing up (will need to add email field) <- can't get to work on heroku, only local machien
   ☐ Forgot password feature
   ☐ Summary page with information visualizaion
   ☐ User can edit expenses (change title, uses, etc.)
-  ☐ bad words filter
   ☐ picture field for database? 
   ☐ categories for expense (like with mint)
-  ☐ Comment feature
 å
 Random Ideas:
-  ☐ Form validation (e.g. check if email) Consider learning regex to do this.
   ☐ Create gif of app use as a tutorial
   ☐ Make add use more complicated, add a date, duration (if applicable).
   ☐ Option to send a reminder that membership is due to expire/renew

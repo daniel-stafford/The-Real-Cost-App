@@ -2,7 +2,7 @@ Live site here: https://stafford-real-cost.herokuapp.com/
 
 <p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing your per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
 
-<p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> React and Semantic UI React on the frontend with Node, Express, and MongoDB on the backend.  This is know as the MERN stack.</p>
+<p>Technologies used in this app include <strike>React, Apollo, GraphQL, and MongoDB </strike> React (specifically Create-React-App) and Semantic UI React on the frontend with Node, Express, and MongoDB on the backend.  This is know as the MERN stack.</p>
 
 <p>UPDATE (Sunday, 13 October 2019) After achieving basic functionality with the React/Graphql app (CRUD function, user authentication), I tried deploying my app to Heroku but failed miserably.  I'm now rewriting the app with a RESTful api as I have been able to successfully deploy RESTful apps in the past.  Hopefully deploying an app with graphql via Heroku will become clearer in the future.
 
@@ -81,8 +81,8 @@ Note: my app is now fully converted to REST with Express.
 <li>Monday, 4.11.19 - 5 hours (1030-1130, 14-16, 1930-2130</li>
 <li>Tuesday, 5.11.19 - 3.5 hours (1030-12, 14-16)</li>
 <li>Wednesday, 6.12.19 - 5.5 hours (1345-16, 1730-2015) </li>
-<li>Thursday, 7.12.19 - XXXX hours (940-12, 1410-1650, 1830-2030) </li>
+<li>Thursday, 7.12.19 - 7 hours (940-12, 1410-1650, 1830-2030) </li>
 
-<li>Weekly Total: 14 hours</li>
+<li>Weekly Total: 21 hours</li>
 
 Total Hours: 131.46

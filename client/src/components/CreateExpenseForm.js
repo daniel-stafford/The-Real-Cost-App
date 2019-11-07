@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import useField from '../hooks/useField'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Icon, Popup } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 import expenseService from '../services/expenses'
+import { formHelpIcon } from '../utils/constants'
 
 const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
   const title = useField('text')
@@ -43,19 +44,31 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
     <div>
       <Form onSubmit={handleSubmit}>
         <div>
-          <label>Title: </label>
+          Title{' '}
+          <Popup
+            content="Give a title for your expense e.g. 'Gym Membership'"
+            trigger={<Icon name={formHelpIcon} />}
+          />
           <input {...title} />
         </div>
         <div>
-          <label>Price: </label>
+          Price{' '}
+          <Popup
+            content="How much did your item or membership cost? e.g. if it costs 40 euros, just write '40'"
+            trigger={<Icon name={formHelpIcon} />}
+          />
           <input {...price} />
         </div>
         <div>
-          <label>Notes: </label>
+          Notes{' '}
+          <Popup
+            content="Add further details about your expense and any other information you'd like to remember. You can add notes at a later time, so no rush."
+            trigger={<Icon name={formHelpIcon} />}
+          />
           <input {...notes} />
         </div>
-        <Button disabled={disabled} type="submit">
-          Create!
+        <Button positive disabled={disabled} type="submit">
+          Create New Expense
         </Button>
       </Form>
     </div>
