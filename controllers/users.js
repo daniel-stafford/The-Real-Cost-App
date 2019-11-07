@@ -41,8 +41,9 @@ usersRouter.post('/', async (request, response, next) => {
     const savedUser = await user.save()
     response.json(savedUser)
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
       auth: {
+        type: 'login',
         user: process.env.EMAIL_ADDRESS,
         pass: process.env.EMAIL_PASSWORD
       }
