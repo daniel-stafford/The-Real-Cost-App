@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user.model')
 const nodemailer = require('nodemailer')
-const mailGun = require('nodemailer-mailgun-transport')
+var smtpTransport = require('nodemailer-smtp-transport')
 
 usersRouter.get('/', async (request, response) => {
   const users = await User.find({}).populate('blogs', {
@@ -40,14 +40,16 @@ usersRouter.post('/', async (request, response, next) => {
     })
     const savedUser = await user.save()
     response.json(savedUser)
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      auth: {
-        type: 'login',
-        user: process.env.EMAIL_ADDRESS,
-        pass: process.env.EMAIL_PASSWORD
-      }
-    })
+    const transporter = nodemailer.createTransport(
+      smtpTransport({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+          user: process.env.EMAIL_ADDRESS,
+          pass: process.env.EMAIL_PASSWORD
+        }
+      })
+    )
     const mailOptions = {
       from: 'realcostapp@gmail.com',
       to: body.email,
