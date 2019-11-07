@@ -40,16 +40,13 @@ usersRouter.post('/', async (request, response, next) => {
     })
     const savedUser = await user.save()
     response.json(savedUser)
-    const transporter = nodemailer.createTransport(
-      smtpTransport({
-        service: 'gmail',
-        host: 'smtp.gmail.com',
-        auth: {
-          user: process.env.EMAIL_ADDRESS,
-          pass: process.env.EMAIL_PASSWORD
-        }
-      })
-    )
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    })
     const mailOptions = {
       from: 'realcostapp@gmail.com',
       to: body.email,
