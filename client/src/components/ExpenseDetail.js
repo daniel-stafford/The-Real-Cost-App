@@ -4,7 +4,8 @@ import {
   DeleteExpense,
   AddUse,
   CostChart,
-  ExpenseCalendar
+  ExpenseCalendar,
+  AddNote
 } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
@@ -82,7 +83,6 @@ const ExpenseDetail = props => {
               Current Cost Per Use:
               {costPerUse(expense.price, expense.uses.length)}
             </li>
-            <li>Notes: {expense.notes}</li>
             <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
             <li>Created: {moment(expense.createdAt).calendar()}</li>
           </ul>
@@ -103,6 +103,15 @@ const ExpenseDetail = props => {
         <Grid.Column width={8} floated="left">
           <h2>Cost Per Use</h2>
           <CostChart expense={expense} className="expenseDetails__graph" />
+        </Grid.Column>
+        <Grid.Column width={8}>
+          <h2>Notes</h2>
+          <AddNote
+            id={expense.id}
+            handleNotification={props.handleNotification}
+            buttonText="Add another note"
+          />
+          {expense.notes}
         </Grid.Column>
       </Grid.Row>
     </Grid>

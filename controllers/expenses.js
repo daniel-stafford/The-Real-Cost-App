@@ -40,22 +40,35 @@ expenseRouter.get('/', (request, response, next) => {
     console.log('put is firing', request.body)
     const id = request.params.id
     try {
-      console.log('try firing')
-      const expenseToUpdate = await Expense.findById(id)
-      console.log('uses expense to update', expenseToUpdate.uses)
-      const uses = expenseToUpdate.uses.concat(request.body.startDate)
-      console.log('uses', uses)
-      const updatedExpense = await Expense.findByIdAndUpdate(
-        id,
-        {
-          $set: { uses }
-        },
-        {
-          new: true
-        }
-      )
-      console.log('updatedExpense', updatedExpense)
-      // response.json(updatedExpense.toJSON())
+      if (request.body.startDate) {
+        const expenseToUpdate = await Expense.findById(id)
+        const uses = expenseToUpdate.uses.concat(request.body.startDate)
+        const updatedExpense = await Expense.findByIdAndUpdate(
+          id,
+          {
+            $set: { uses }
+          },
+          {
+            new: true
+          }
+        )
+        console.log('updatedExpense', updatedExpense)
+        return response.json(updatedExpense.toJSON())
+      }
+      if (request.body.note) {
+        console.log('note triggered', request.body.note)
+        const updatedExpense = await Expense.findByIdAndUpdate(
+          id,
+          {
+            $push: { notes: request.body.note }
+          },
+          {
+            new: true
+          }
+        )
+        console.log('updatedExpense', updatedExpense)
+        return response.json(updatedExpense.toJSON())
+      }
     } catch (error) {
       next(error)
     }

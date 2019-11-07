@@ -12,6 +12,7 @@ import Confirmation from './Confirmation'
 import AddUse from './AddUse'
 import Filter from './Filter'
 import CostChart from './CostChart'
+import AddNote from './AddNote'
 // import DatePicker from './DatePicker'
 
 export {
@@ -28,6 +29,7 @@ export {
   Confirmation,
   AddUse,
   Filter,
-  CostChart
+  CostChart,
+  AddNote
   // DatePicker
 }
