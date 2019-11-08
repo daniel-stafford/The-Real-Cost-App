@@ -24,6 +24,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "adorable-avatars": "^0.4.1",
     "axios": "^0.19.0",
     "bcrypt": "^3.0.6",
     "cors": "^2.8.5",

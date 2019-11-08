@@ -7,6 +7,7 @@ const expensesRouter = require('./controllers/expenses')
 const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const middleware = require('./utils/middleware')
+const avatarsMiddleware = require('adorable-avatars')
 
 mongoose
   .set('useCreateIndex', true)
@@ -40,6 +41,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/api/expenses', expensesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
+app.use('/myAvatars', avatarsMiddleware)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
