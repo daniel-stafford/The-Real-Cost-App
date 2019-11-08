@@ -6,6 +6,21 @@ import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
 
 const ExpenseList = props => {
+  const colorList = [
+    'red',
+    'orange',
+    'yellow',
+    'olive',
+    'green',
+    'teal',
+    'blue',
+    'violet',
+    'purple',
+    'pink',
+    'brown',
+    'grey',
+    'black'
+  ]
   const [expenses, setExpenses] = useState(null)
   const [filter, setFilter] = useState('')
   const handleFilter = userInput => {
@@ -45,7 +60,7 @@ const ExpenseList = props => {
       <Card.Group>
         {filteredExpenses.map(e => {
           return (
-            <Card key={e.title}>
+            <Card key={e.title} color={colorList[expenses.length]}>
               <Card.Content>
                 <Card.Header>
                   <Link to={`/expenses/${e.id}`}>{e.title}</Link>

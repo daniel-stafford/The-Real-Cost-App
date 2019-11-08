@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Container, Loader, Header, Grid, Dropdown } from 'semantic-ui-react'
+import {
+  Container,
+  Loader,
+  Header,
+  Grid,
+  Dropdown,
+  Card
+} from 'semantic-ui-react'
 import {
   DeleteExpense,
   AddUse,
@@ -55,6 +62,10 @@ const ExpenseDetail = props => {
         />
       </div>
     )
+  const expensePrice = `Expense Price: ${expense.price}`
+  const expenseUses = `Number of Uses: ${expense.uses.length}`
+  const expenseCost = `Current Cost Per Use:
+    ${costPerUse(expense.price, expense.uses.length)}`
   return (
     <Grid centered>
       <Grid.Row columns={16}>
@@ -80,16 +91,15 @@ const ExpenseDetail = props => {
       <Grid.Row>
         <Grid.Column width={8}>
           <h2>Current Stats</h2>
-          <ul>
-            <li>Expense Price: {expense.price}</li>
-            <li>Number of Uses: {expense.uses.length}</li>
-            <li>
-              Current Cost Per Use:
-              {costPerUse(expense.price, expense.uses.length)}
-            </li>
+          <Card.Group>
+            <Card fluid color="red" header={expensePrice} />
+            <Card fluid color="orange" header={expenseUses} />
+            <Card fluid color="yellow" header={expenseCost} />
+          </Card.Group>
+          {/* <ul>
             <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
             <li>Created: {moment(expense.createdAt).calendar()}</li>
-          </ul>
+          </ul> */}
         </Grid.Column>
         <Grid.Column width={8}>
           <h2>Recorded Uses</h2>
