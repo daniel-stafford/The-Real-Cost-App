@@ -43,7 +43,13 @@ const AddNote = props => {
               <Button positive type="submit">
                 Add new note
               </Button>
-              <Button negative onClick={() => setShowModal(false)}>
+              <Button
+                negative
+                onClick={e => {
+                  e.preventDefault()
+                  setShowModal(false)
+                }}
+              >
                 Cancel
               </Button>
             </div>

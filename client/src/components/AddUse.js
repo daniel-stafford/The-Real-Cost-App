@@ -46,7 +46,13 @@ const AddUse = props => {
               <Button positive type="submit">
                 Add!
               </Button>
-              <Button negative onClick={() => setShowModal(false)}>
+              <Button
+                negative
+                onClick={e => {
+                  e.preventDefault()
+                  setShowModal(false)
+                }}
+              >
                 Cancel
               </Button>
             </div>
