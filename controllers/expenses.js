@@ -24,6 +24,7 @@ expenseRouter.post('/', async (request, response, next) => {
     next(error)
   }
 })
+
 expenseRouter.get('/', (request, response, next) => {
   jwt.verify(request.token, process.env.JWT_SECRET, async (err, authUser) => {
     if (err) return response.status(403).send('Please log in')
@@ -39,66 +40,40 @@ expenseRouter.get('/', (request, response, next) => {
   })
 
   expenseRouter.put('/:id', async (request, response, next) => {
-    console.log('put is firing', request.body)
     const id = request.params.id
+    const body = request.body
     try {
-      if (request.body.dateToAdd) {
+      if (body.dateToAdd) {
         const expenseToUpdate = await Expense.findById(id)
-        console.log('expenseToUpdate', expenseToUpdate)
-        const uses = expenseToUpdate.uses.concat(request.body.dateToAdd)
-        console.log('uses', uses)
+        const uses = expenseToUpdate.uses.concat(body.dateToAdd)
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
-          {
-            $set: { uses }
-          },
-          {
-            new: true
-          }
+          { $set: { uses } },
+          { new: true }
         )
-        console.log('updatedExpense', updatedExpense)
         return response.json(updatedExpense.toJSON())
       }
-      if (request.body.dateToRemove) {
-        console.log('dateToRemove is firing')
-        const expenseToUpdate = await Expense.findById(id)
-        console.log('expenseToUpdate in remove use', expenseToUpdate)
-        console.log(
-          'useDate to string sub',
-          expenseToUpdate.uses.map(useDate => {
-            return moment(useDate).format('MMM Do YY') // Nov 12th 19
-          })
-        )
 
+      if (request.body.dateToRemove) {
+        const expenseToUpdate = await Expense.findById(id)
         const uses = expenseToUpdate.uses.filter(
           useDate =>
             moment(useDate).format('MMM Do YY') !==
-            moment(request.body.dateToRemove).format('MMM Do YY')
+            moment(body.dateToRemove).format('MMM Do YY')
         )
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
-          {
-            $set: { uses }
-          },
-          {
-            new: true
-          }
+          { $set: { uses } },
+          { new: true }
         )
-        console.log('updatedExpense', updatedExpense)
         return response.json(updatedExpense.toJSON())
       }
-      if (request.body.note) {
-        console.log('note triggered', request.body.note)
+      if (body.note) {
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
-          {
-            $push: { notes: request.body.note }
-          },
-          {
-            new: true
-          }
+          { $push: { notes: body.note } },
+          { new: true }
         )
-        console.log('updatedExpense', updatedExpense)
         return response.json(updatedExpense.toJSON())
       }
     } catch (error) {
@@ -113,7 +88,7 @@ expenseRouter.get('/', (request, response, next) => {
       await Expense.findByIdAndDelete(id)
       response.json(expenseToDelete.toJSON())
     } catch (e) {
-      console.log('something went wrong with delete', e.message)
+      next(e)
     }
     await Expense.findByIdAndDelete(id)
   })

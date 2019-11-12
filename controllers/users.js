@@ -20,10 +20,6 @@ usersRouter.post('/', async (request, response, next) => {
       error: 'password and username must be at least 3 characters long'
     })
   if (await User.findOne({ username: body.username })) {
-    console.log(
-      'user find one',
-      await User.findOne({ username: body.username })
-    )
     return response.status(400).json({
       error: 'That username already exists'
     })
@@ -57,7 +53,6 @@ usersRouter.post('/', async (request, response, next) => {
       console.log('email sent!')
     })
   } catch (exception) {
-    console.log('exception in login is firing')
     next(exception)
   }
 })
