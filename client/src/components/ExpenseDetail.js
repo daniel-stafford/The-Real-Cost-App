@@ -111,8 +111,9 @@ const ExpenseDetail = props => {
             uses={expense.uses}
             handleNotification={props.handleNotification}
             handleNewUse={handleNewUse}
-            buttonText='Add another use'
+            buttonText='Add use'
             isPositive={true}
+            isAddUse={true}
           />
           <EditUseButton
             id={expense.id}

@@ -7,8 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css'
 const EditUseButton = props => {
   const [date, setDate] = useState(undefined)
   const [showModal, setShowModal] = useState(false)
-  console.log('buttonType', props.buttonType)
-  const handleSubmit = async () => {
+  const handleAddSubmit = async () => {
     setShowModal(false)
     try {
       props.handleNewUse(date)
@@ -17,6 +16,10 @@ const EditUseButton = props => {
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }
+  }
+  const handleRemoveSubmit = async () => {
+    setShowModal(false)
+    console.log('handleRemoveSubmit clicked')
   }
 
   const handleChange = date => {
@@ -40,7 +43,9 @@ const EditUseButton = props => {
       <Modal.Header>Add a Use!</Modal.Header>
       <Modal.Content>
         <Modal.Description>
-          <Form onSubmit={handleSubmit}>
+          <Form
+            onSubmit={props.isAddUse ? handleAddSubmit : handleRemoveSubmit}
+          >
             <DatePicker
               selected={date}
               onChange={handleChange}
