@@ -90,9 +90,9 @@ Note: my app is now fully converted to REST with Express.
 <li>Week 8</li>
 <ul>
 <li>Monday, 11.11.19 - 1 hour (1230-1330)</li>
-<li>Tuesday, 12.11.19 - 6 hours (7-0830, 9-10, 10:30-12, 13-15, 1530-XXX)</li>
+<li>Tuesday, 12.11.19 - 8 hours (7-830, 9-10, 10:30-12, 13-15, 1530-1730)</li>
 
-<li>Weekly Total: 7 hours</li>
+<li>Weekly Total: 9 hours</li>
 </ul>
  
-Total Hours: 157.46
+Total Hours: 159.46
