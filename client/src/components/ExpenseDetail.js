@@ -132,6 +132,7 @@ const ExpenseDetail = props => {
             modalActionButtonText='Add use'
             isPositive={true}
             isAddUse={true}
+            expense={expense}
           />
           <EditUseButton
             id={expense.id}
@@ -143,6 +144,7 @@ const ExpenseDetail = props => {
             modalActionButtonText='Remove use'
             isNegative={true}
             handleRemoveUse={handleRemoveUse}
+            expense={expense}
           />
         </Grid.Column>
       </Grid.Row>

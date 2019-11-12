@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Form, Button, Modal } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker'
+import moment from 'moment'
 import expenseService from '../services/expenses'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -9,10 +10,18 @@ const EditUseButton = props => {
   const [showModal, setShowModal] = useState(false)
   const handleAddSubmit = async () => {
     setShowModal(false)
+    if (
+      props.expense.uses.filter(
+        use =>
+          moment(use).format('MMM Do YY') === moment(date).format('MMM Do YY')
+      ).length > 0
+    )
+      return props.handleNotification('error', 'Only one use per day', 5)
+
     try {
       props.handleNewUse(date)
-      props.handleNotification('success', 'New use added!', 5)
       await expenseService.update(props.id, { dateToAdd: date })
+      props.handleNotification('success', 'New use added!', 5)
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }
@@ -22,8 +31,8 @@ const EditUseButton = props => {
     try {
       console.log('handleRemoveSbumit firing', date)
       props.handleRemoveUse(date)
-      props.handleNotification('success', 'New use removed!', 5)
       await expenseService.update(props.id, { dateToRemove: date })
+      props.handleNotification('success', 'Use removed!', 5)
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }

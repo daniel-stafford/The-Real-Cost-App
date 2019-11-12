@@ -10,11 +10,9 @@ const AddNote = props => {
     setShowModal(false)
     try {
       props.handleNewNote(note)
+      await expenseService.update(props.id, { note })
       props.handleNotification('success', 'New note added!', 5)
-      const update = await expenseService.update(props.id, { note })
-      console.log('does this run????', update)
     } catch (e) {
-      console.log('add note error', e)
       props.handleNotification('error', 'Unable to add new note', 5)
     }
   }
