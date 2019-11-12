@@ -19,7 +19,13 @@ const EditUseButton = props => {
   }
   const handleRemoveSubmit = async () => {
     setShowModal(false)
-    console.log('handleRemoveSubmit clicked')
+    try {
+      props.handleRemoveUse(date)
+      props.handleNotification('success', 'New use removed!', 5)
+      await expenseService.update(props.id, { date })
+    } catch (e) {
+      props.handleNotification('error', 'Unable to add new use', 5)
+    }
   }
 
   const handleChange = date => {
