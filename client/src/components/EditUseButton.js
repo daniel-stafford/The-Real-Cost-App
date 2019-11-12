@@ -12,7 +12,7 @@ const EditUseButton = props => {
     try {
       props.handleNewUse(date)
       props.handleNotification('success', 'New use added!', 5)
-      await expenseService.update(props.id, { date })
+      await expenseService.update(props.id, { dateToAdd: date })
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }
@@ -22,7 +22,7 @@ const EditUseButton = props => {
     try {
       props.handleRemoveUse(date)
       props.handleNotification('success', 'New use removed!', 5)
-      await expenseService.update(props.id, { date })
+      await expenseService.update(props.id, { dateToRemove: date })
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }
@@ -46,7 +46,7 @@ const EditUseButton = props => {
       }
       centered={false}
     >
-      <Modal.Header>Add a Use!</Modal.Header>
+      <Modal.Header>{props.modalHeader}</Modal.Header>
       <Modal.Content>
         <Modal.Description>
           <Form
@@ -56,11 +56,11 @@ const EditUseButton = props => {
               selected={date}
               onChange={handleChange}
               name='date'
-              placeholderText='Choose a date!'
+              placeholderText='Choose a date'
             />
             <div>
               <Button positive type='submit'>
-                Add new use
+                {props.modalActionButtonText}
               </Button>
               <Button
                 negative

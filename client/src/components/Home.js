@@ -14,7 +14,7 @@ const Home = props => {
     'metro pass',
     'road bicycle',
     'Netflix subscription',
-    'yoga membership',
+    'unlimited yoga pass',
     'Amazon Prime'
   ]
   return (

@@ -16,7 +16,6 @@ import {
 } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
-import moment from 'moment'
 import '../index.css'
 
 const ExpenseDetail = props => {
@@ -58,7 +57,11 @@ const ExpenseDetail = props => {
           uses={expense.uses}
           handleNotification={props.handleNotification}
           handleNewUse={handleNewUse}
-          buttonText='Add first use'
+          modalHeader='Adding first use'
+          buttonText='Add use'
+          modalActionButtonText='Add use'
+          isPositive={true}
+          isAddUse={true}
         />
       </div>
     )
@@ -111,7 +114,9 @@ const ExpenseDetail = props => {
             uses={expense.uses}
             handleNotification={props.handleNotification}
             handleNewUse={handleNewUse}
+            modalHeader='Adding a use'
             buttonText='Add use'
+            modalActionButtonText='Add use'
             isPositive={true}
             isAddUse={true}
           />
@@ -120,7 +125,9 @@ const ExpenseDetail = props => {
             uses={expense.uses}
             handleNotification={props.handleNotification}
             handleNewUse={handleNewUse}
+            modalHeader='Removing a use'
             buttonText='Remove use'
+            modalActionButtonText='Remove use'
             isNegative={true}
           />
         </Grid.Column>

@@ -22,11 +22,11 @@ const getByID = async id => {
   return response.data
 }
 
-const create = async newObject => {
+const create = async data => {
   const config = {
     headers: { Authorization: token }
   }
-  const response = await axios.post(baseUrl, newObject, config)
+  const response = await axios.post(baseUrl, data, config)
   return response.data
 }
 

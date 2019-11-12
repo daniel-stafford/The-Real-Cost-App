@@ -40,9 +40,26 @@ expenseRouter.get('/', (request, response, next) => {
     console.log('put is firing', request.body)
     const id = request.params.id
     try {
-      if (request.body.startDate) {
+      if (request.body.dateToAdd) {
         const expenseToUpdate = await Expense.findById(id)
-        const uses = expenseToUpdate.uses.concat(request.body.startDate)
+        const uses = expenseToUpdate.uses.concat(request.body.date)
+        const updatedExpense = await Expense.findByIdAndUpdate(
+          id,
+          {
+            $set: { uses }
+          },
+          {
+            new: true
+          }
+        )
+        console.log('updatedExpense', updatedExpense)
+        return response.json(updatedExpense.toJSON())
+      }
+      if (request.body.dateToRemove) {
+        const expenseToUpdate = await Expense.findById(id)
+        const uses = expenseToUpdate.uses.filter(
+          useDate => useDate !== request.body.dateToRemove
+        )
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
           {
