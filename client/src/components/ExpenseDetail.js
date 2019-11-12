@@ -34,6 +34,10 @@ const ExpenseDetail = props => {
     setExpense({ ...expense, uses: expense.uses.concat(newDate) })
   }
 
+  const handleRemoveUse = newDate => {
+    console.log('handle remove use firing', newDate)
+  }
+
   const handleNewNote = newNote => {
     setExpense({ ...expense, notes: expense.notes.concat(newNote) })
   }
@@ -129,6 +133,7 @@ const ExpenseDetail = props => {
             buttonText='Remove use'
             modalActionButtonText='Remove use'
             isNegative={true}
+            handleRemoveUse={handleRemoveUse}
           />
         </Grid.Column>
       </Grid.Row>

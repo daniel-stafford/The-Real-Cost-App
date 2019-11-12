@@ -2,6 +2,8 @@ const expenseRouter = require('express').Router()
 const Expense = require('../models/expense.model')
 const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
+const moment = require('moment')
+
 expenseRouter.post('/', async (request, response, next) => {
   const { title, price, uses, notes, creator } = request.body
   try {
@@ -42,7 +44,9 @@ expenseRouter.get('/', (request, response, next) => {
     try {
       if (request.body.dateToAdd) {
         const expenseToUpdate = await Expense.findById(id)
-        const uses = expenseToUpdate.uses.concat(request.body.date)
+        console.log('expenseToUpdate', expenseToUpdate)
+        const uses = expenseToUpdate.uses.concat(request.body.dateToAdd)
+        console.log('uses', uses)
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
           {
@@ -56,9 +60,20 @@ expenseRouter.get('/', (request, response, next) => {
         return response.json(updatedExpense.toJSON())
       }
       if (request.body.dateToRemove) {
+        console.log('dateToRemove is firing')
         const expenseToUpdate = await Expense.findById(id)
+        console.log('expenseToUpdate in remove use', expenseToUpdate)
+        console.log(
+          'useDate to string sub',
+          expenseToUpdate.uses.map(useDate => {
+            return moment(useDate).format('MMM Do YY') // Nov 12th 19
+          })
+        )
+
         const uses = expenseToUpdate.uses.filter(
-          useDate => useDate !== request.body.dateToRemove
+          useDate =>
+            moment(useDate).format('MMM Do YY') !==
+            moment(request.body.dateToRemove).format('MMM Do YY')
         )
         const updatedExpense = await Expense.findByIdAndUpdate(
           id,
