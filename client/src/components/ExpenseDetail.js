@@ -17,6 +17,7 @@ import {
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
 import '../index.css'
+import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
@@ -35,7 +36,14 @@ const ExpenseDetail = props => {
   }
 
   const handleRemoveUse = newDate => {
-    console.log('handle remove use firing', newDate)
+    setExpense({
+      ...expense,
+      uses: expense.uses.filter(
+        use =>
+          moment(use).format('MMM Do YY') !==
+          moment(newDate).format('MMM Do YY')
+      )
+    })
   }
 
   const handleNewNote = newNote => {
