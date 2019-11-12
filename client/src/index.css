@@ -1,12 +1,19 @@
 . .header-container {
 }
+
 .register__warning {
   margin-top: 10px;
   display: inline-block;
 }
+
 .register__button {
   margin-top: 10px;
 }
+
 svg {
   /* height: fit-content !important; */
+}
+
+.Typewriter {
+  display: inline;
 }
