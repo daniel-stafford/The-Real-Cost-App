@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker'
 import expenseService from '../services/expenses'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const AddUse = props => {
+const EditUseButton = props => {
   const [date, setDate] = useState(undefined)
   const [showModal, setShowModal] = useState(false)
   console.log('buttonType', props.buttonType)
@@ -67,4 +67,4 @@ const AddUse = props => {
     </Modal>
   )
 }
-export default AddUse
+export default EditUseButton

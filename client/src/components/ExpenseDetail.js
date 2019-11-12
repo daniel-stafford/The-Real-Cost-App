@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react'
 import {
   DeleteExpense,
-  AddUse,
+  EditUseButton,
   CostChart,
   ExpenseCalendar,
   AddNote
@@ -53,7 +53,7 @@ const ExpenseDetail = props => {
             button below.
           </p>
         </div>
-        <AddUse
+        <EditUseButton
           id={expense.id}
           uses={expense.uses}
           handleNotification={props.handleNotification}
@@ -106,7 +106,7 @@ const ExpenseDetail = props => {
         <Grid.Column width={8}>
           <h2>Recorded Uses</h2>
           <ExpenseCalendar uses={expense.uses} />
-          <AddUse
+          <EditUseButton
             id={expense.id}
             uses={expense.uses}
             handleNotification={props.handleNotification}
@@ -114,7 +114,7 @@ const ExpenseDetail = props => {
             buttonText='Add another use'
             isPositive={true}
           />
-          <AddUse
+          <EditUseButton
             id={expense.id}
             uses={expense.uses}
             handleNotification={props.handleNotification}

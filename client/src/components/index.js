@@ -9,7 +9,7 @@ import ExpenseCalendar from './ExpenseCalendar'
 import ExpenseDetail from './ExpenseDetail'
 import DeleteExpense from './DeleteExpense'
 import Confirmation from './Confirmation'
-import AddUse from './AddUse'
+import EditUseButton from './EditUseButton'
 import Filter from './Filter'
 import CostChart from './CostChart'
 import AddNote from './AddNote'
@@ -27,9 +27,8 @@ export {
   ExpenseDetail,
   DeleteExpense,
   Confirmation,
-  AddUse,
+  EditUseButton,
   Filter,
   CostChart,
   AddNote
-  // DatePicker
 }
