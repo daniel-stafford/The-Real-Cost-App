@@ -1,6 +1,7 @@
 import React from 'react'
 import DayPicker from 'react-day-picker'
 import 'react-day-picker/lib/style.css'
+import '../index.css'
 
 const ExpenseCalendar = ({ uses }) => {
   const getModifiers = () => {
@@ -9,7 +10,7 @@ const ExpenseCalendar = ({ uses }) => {
     return modObject
   }
   const highlightStyle = `.DayPicker-Day--highlighted {
-  background-color: orange;
+  background-color: purple;
   color: white;
 }`
 

@@ -80,6 +80,7 @@ const EditUseButton = props => {
                 onClick={e => {
                   e.preventDefault()
                   setShowModal(false)
+                  setDate(undefined)
                 }}
               >
                 Cancel

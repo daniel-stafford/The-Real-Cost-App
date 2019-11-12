@@ -6,8 +6,12 @@ import {
   Header,
   Grid,
   Dropdown,
-  Card
+  Card,
+  Popup,
+  Icon
 } from 'semantic-ui-react'
+import { formHelpIcon } from '../utils/constants'
+
 import {
   DeleteExpense,
   EditUseButton,
@@ -57,10 +61,10 @@ const ExpenseDetail = props => {
         <Header as='h1'>{expense.title}</Header>
         <div>
           <p>
-            This is your details page for tracking your uses of each membership.
+            This is your details page for tracking your uses of each expense.
           </p>
           <p>
-            When was the last time you used your membership? Choose a date with
+            When was the last time you used your expense? Choose a date with
             button below.
           </p>
         </div>
@@ -72,8 +76,8 @@ const ExpenseDetail = props => {
           modalHeader='Adding first use'
           buttonText='Add use'
           modalActionButtonText='Add use'
-          isPositive={true}
-          isAddUse={true}
+          isPositive
+          isAddUse
           expense={expense}
         />
       </div>
@@ -108,7 +112,7 @@ const ExpenseDetail = props => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column width={8}>
-          <h2>Current Stats</h2>
+          <h2>Current Stats </h2>{' '}
           <Card.Group>
             <Card fluid color='red' header={expensePrice} />
             <Card fluid color='orange' header={expenseUses} />
@@ -120,7 +124,10 @@ const ExpenseDetail = props => {
           </ul> */}
         </Grid.Column>
         <Grid.Column width={8}>
-          <h2>Recorded Uses</h2>
+          <Popup
+            content='Your uses are displayed on this calendar. Note that you can only record one use per day.'
+            trigger={<h2>Recorded Uses</h2>}
+          />
           <ExpenseCalendar uses={expense.uses} />
           <EditUseButton
             id={expense.id}
