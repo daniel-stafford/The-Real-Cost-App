@@ -69,7 +69,7 @@ const ExpenseList = props => {
                 <li> Price: {e.price}</li>
                 <li>Uses: {e.uses.length} </li>
                 {e.uses > 0 && (
-                  <li>Cost Per Use: {costPerUse(e.price, e.uses)}</li>
+                  <li>Cost Per Use: €{costPerUse(e.price, e.uses)}</li>
                 )}
               </Card.Content>
             </Card>

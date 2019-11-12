@@ -6,12 +6,7 @@ import axios from 'axios'
 const UserStatus = ({ loggedinUser }) => {
   const displayUser = capitalize(loggedinUser.username)
   if (!loggedinUser) return <Loader />
-  return (
-    <>
-      {displayUser}
-      is currently logged in
-    </>
-  )
+  return <>{displayUser} is currently logged in</>
 }
 
 export default UserStatus

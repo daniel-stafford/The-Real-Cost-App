@@ -5,28 +5,33 @@ import expenseService from '../services/expenses'
 import 'react-datepicker/dist/react-datepicker.css'
 
 const AddUse = props => {
-  const [startDate, setStartDate] = useState(undefined)
+  const [date, setDate] = useState(undefined)
   const [showModal, setShowModal] = useState(false)
+  console.log('buttonType', props.buttonType)
   const handleSubmit = async () => {
     setShowModal(false)
     try {
-      props.handleNewUse(startDate)
+      props.handleNewUse(date)
       props.handleNotification('success', 'New use added!', 5)
-      await expenseService.update(props.id, { startDate })
+      await expenseService.update(props.id, { date })
     } catch (e) {
       props.handleNotification('error', 'Unable to add new use', 5)
     }
   }
 
   const handleChange = date => {
-    setStartDate(date)
+    setDate(date)
   }
 
   return (
     <Modal
       open={showModal}
       trigger={
-        <Button positive onClick={() => setShowModal(true)}>
+        <Button
+          positive={props.isPositive}
+          negative={props.isNegative}
+          onClick={() => setShowModal(true)}
+        >
           {props.buttonText}
         </Button>
       }
@@ -37,14 +42,14 @@ const AddUse = props => {
         <Modal.Description>
           <Form onSubmit={handleSubmit}>
             <DatePicker
-              selected={startDate}
+              selected={date}
               onChange={handleChange}
-              name="startDate"
-              placeholderText="Choose a date!"
+              name='date'
+              placeholderText='Choose a date!'
             />
             <div>
-              <Button positive type="submit">
-                Add!
+              <Button positive type='submit'>
+                Add new use
               </Button>
               <Button
                 negative

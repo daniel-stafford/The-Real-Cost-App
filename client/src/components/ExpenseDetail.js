@@ -43,7 +43,7 @@ const ExpenseDetail = props => {
   if (expense.uses.length === 0)
     return (
       <div>
-        <Header as="h1">{expense.title}</Header>
+        <Header as='h1'>{expense.title}</Header>
         <div>
           <p>
             This is your details page for tracking your uses of each membership.
@@ -58,30 +58,32 @@ const ExpenseDetail = props => {
           uses={expense.uses}
           handleNotification={props.handleNotification}
           handleNewUse={handleNewUse}
-          buttonText="Add first use"
+          buttonText='Add first use'
         />
       </div>
     )
   const expensePrice = `Expense Price: ${expense.price}`
   const expenseUses = `Number of Uses: ${expense.uses.length}`
-  const expenseCost = `Current Cost Per Use:
-    ${costPerUse(expense.price, expense.uses.length)}`
+  const expenseCost = `Current Cost Per Use: ${costPerUse(
+    expense.price,
+    expense.uses.length
+  )}€`
   return (
     <Grid centered>
       <Grid.Row columns={16}>
         <Container text>
-          <Header as="h1">{expense.title}</Header>
+          <Header as='h1'>{expense.title}</Header>
         </Container>
-        <Grid.Column floated="right">
-          <Dropdown text="Options">
-            <Dropdown.Menu direction="left">
+        <Grid.Column floated='right'>
+          <Dropdown text='Options'>
+            <Dropdown.Menu direction='left'>
               <Dropdown.Item>
                 <DeleteExpense
                   id={expense.id}
                   title={expense.title}
                   uses={expense.uses}
                   handleNotification={props.handleNotification}
-                  className="button icon"
+                  className='button icon'
                 />
               </Dropdown.Item>
             </Dropdown.Menu>
@@ -92,9 +94,9 @@ const ExpenseDetail = props => {
         <Grid.Column width={8}>
           <h2>Current Stats</h2>
           <Card.Group>
-            <Card fluid color="red" header={expensePrice} />
-            <Card fluid color="orange" header={expenseUses} />
-            <Card fluid color="yellow" header={expenseCost} />
+            <Card fluid color='red' header={expensePrice} />
+            <Card fluid color='orange' header={expenseUses} />
+            <Card fluid color='yellow' header={expenseCost} />
           </Card.Group>
           {/* <ul>
             <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>
@@ -109,14 +111,23 @@ const ExpenseDetail = props => {
             uses={expense.uses}
             handleNotification={props.handleNotification}
             handleNewUse={handleNewUse}
-            buttonText="Add another use"
+            buttonText='Add another use'
+            isPositive={true}
+          />
+          <AddUse
+            id={expense.id}
+            uses={expense.uses}
+            handleNotification={props.handleNotification}
+            handleNewUse={handleNewUse}
+            buttonText='Remove use'
+            isNegative={true}
           />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column width={8} floated="left">
+        <Grid.Column width={8} floated='left'>
           <h2>Cost Per Use</h2>
-          <CostChart expense={expense} className="expenseDetails__graph" />
+          <CostChart expense={expense} className='expenseDetails__graph' />
         </Grid.Column>
         <Grid.Column width={8}>
           <h2>Notes</h2>
@@ -129,7 +140,7 @@ const ExpenseDetail = props => {
             id={expense.id}
             handleNotification={props.handleNotification}
             handleNewNote={handleNewNote}
-            buttonText="Add another note"
+            buttonText='Add another note'
           />
         </Grid.Column>
       </Grid.Row>

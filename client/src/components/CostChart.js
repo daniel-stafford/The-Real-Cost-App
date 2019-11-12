@@ -28,7 +28,7 @@ const CostChart = props => {
       <VictoryAxis
         dependentAxis
         // tickFormat specifies how ticks should be displayed
-        tickFormat={x => `$${x}`}
+        tickFormat={x => `${x}€`}
       />
       <VictoryBar data={data} x="use" y="cost" />
     </VictoryChart>
