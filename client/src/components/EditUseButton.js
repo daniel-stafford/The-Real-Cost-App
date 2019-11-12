@@ -21,8 +21,10 @@ const EditUseButton = props => {
     try {
       props.handleNewUse(date)
       await expenseService.update(props.id, { dateToAdd: date })
+      setDate(undefined)
       props.handleNotification('success', 'New use added!', 5)
     } catch (e) {
+      setDate(undefined)
       props.handleNotification('error', 'Unable to add new use', 5)
     }
   }
@@ -31,8 +33,10 @@ const EditUseButton = props => {
     try {
       props.handleRemoveUse(date)
       await expenseService.update(props.id, { dateToRemove: date })
+      setDate(undefined)
       props.handleNotification('success', 'Use removed!', 5)
     } catch (e) {
+      setDate(undefined)
       props.handleNotification('error', 'Unable to add new use', 5)
     }
   }

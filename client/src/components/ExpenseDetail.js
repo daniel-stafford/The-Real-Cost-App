@@ -130,8 +130,8 @@ const ExpenseDetail = props => {
             modalHeader='Adding a use'
             buttonText='Add use'
             modalActionButtonText='Add use'
-            isPositive={true}
-            isAddUse={true}
+            isPositive
+            isAddUse
             expense={expense}
           />
           <EditUseButton
@@ -142,7 +142,7 @@ const ExpenseDetail = props => {
             modalHeader='Removing a use'
             buttonText='Remove use'
             modalActionButtonText='Remove use'
-            isNegative={true}
+            isNegative
             handleRemoveUse={handleRemoveUse}
             expense={expense}
           />
