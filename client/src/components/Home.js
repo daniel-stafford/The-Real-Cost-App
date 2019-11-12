@@ -12,8 +12,8 @@ const Home = props => {
   const strings = [
     'gym membership',
     'metro pass',
-    'road bicycle',
     'Netflix subscription',
+    'road bicycle',
     'unlimited yoga pass',
     'Amazon Prime'
   ]

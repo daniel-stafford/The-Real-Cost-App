@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment'
 import {
   Container,
   Loader,
@@ -17,7 +18,6 @@ import {
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
 import '../index.css'
-import moment from 'moment'
 
 const ExpenseDetail = props => {
   const [expense, setExpense] = useState(null)
@@ -74,10 +74,11 @@ const ExpenseDetail = props => {
           modalActionButtonText='Add use'
           isPositive={true}
           isAddUse={true}
+          expense={expense}
         />
       </div>
     )
-  const expensePrice = `Expense Price: ${expense.price}`
+  const expensePrice = `Expense Price: ${expense.price}€`
   const expenseUses = `Number of Uses: ${expense.uses.length}`
   const expenseCost = `Current Cost Per Use: ${costPerUse(
     expense.price,
@@ -111,7 +112,7 @@ const ExpenseDetail = props => {
           <Card.Group>
             <Card fluid color='red' header={expensePrice} />
             <Card fluid color='orange' header={expenseUses} />
-            <Card fluid color='yellow' header={expenseCost} />
+            <Card fluid color='green' header={expenseCost} />
           </Card.Group>
           {/* <ul>
             <li>Last Updated: {moment(expense.updatedAt).calendar()}</li>

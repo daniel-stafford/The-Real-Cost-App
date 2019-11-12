@@ -11,7 +11,8 @@ const AddNote = props => {
     try {
       props.handleNewNote(note)
       props.handleNotification('success', 'New note added!', 5)
-      await expenseService.update(props.id, { note })
+      const update = await expenseService.update(props.id, { note })
+      console.log('does this run????', update)
     } catch (e) {
       console.log('add note error', e)
       props.handleNotification('error', 'Unable to add new note', 5)
@@ -34,13 +35,13 @@ const AddNote = props => {
             <div>
               New Note:
               <input
-                type="text"
+                type='text'
                 value={note}
                 onChange={({ target }) => setNote(target.value)}
               />
             </div>
             <div>
-              <Button positive type="submit">
+              <Button positive type='submit'>
                 Add new note
               </Button>
               <Button
