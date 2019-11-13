@@ -8,10 +8,8 @@ import {
   Dropdown,
   Card,
   Popup,
-  Icon
+  Button
 } from 'semantic-ui-react'
-import { formHelpIcon } from '../utils/constants'
-
 import {
   DeleteExpense,
   EditUseButton,
@@ -164,7 +162,17 @@ const ExpenseDetail = props => {
           <h2>Notes</h2>
           <ul>
             {expense.notes.map(note => {
-              return <li key={note}>{note}</li>
+              return (
+                <div className='expenseList__singleNote'>
+                  <li key={note}>
+                    {note}{' '}
+                    <Button
+                      className='expenseList__deleteNote'
+                      icon='trash alternate'
+                    />
+                  </li>
+                </div>
+              )
             })}
           </ul>
           <AddNote

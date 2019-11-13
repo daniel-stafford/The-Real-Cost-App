@@ -17,3 +17,15 @@ svg {
 .Typewriter {
   display: inline;
 }
+
+.ui.button.expenseList__deleteNote {
+  display: none;
+}
+
+.expenseList__singleNote :hover .expenseList__deleteNote {
+  display: inline;
+}
+
+.ui.icon.button {
+  background-color: white;
+}
