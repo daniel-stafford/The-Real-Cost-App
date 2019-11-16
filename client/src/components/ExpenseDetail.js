@@ -79,6 +79,7 @@ const ExpenseDetail = props => {
           expense={expense}
           isPositive
           isAddUse
+          icon='add'
         />
       </div>
     )
@@ -91,26 +92,31 @@ const ExpenseDetail = props => {
   return (
     <Grid stackable centered>
       <Grid.Row columns={16}>
-        <Grid.Column width={8} floated='right'>
+        <Grid.Column width={7} floated='right'>
           <Header as='h1'>{expense.title}</Header>
         </Grid.Column>
         <Grid.Column width={3}>
-          <Button>
-            Options
-            <Dropdown>
-              <Dropdown.Menu>
-                <Dropdown.Item>
-                  <DeleteExpense
-                    id={expense.id}
-                    title={expense.title}
-                    uses={expense.uses}
-                    handleNotification={props.handleNotification}
-                    className='button icon'
-                  />
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Button>
+          <Dropdown
+            direction='left'
+            text='Options'
+            icon='options'
+            floating
+            labeled
+            button
+            className='icon'
+          >
+            <Dropdown.Menu>
+              <Dropdown.Item>
+                <DeleteExpense
+                  id={expense.id}
+                  title={expense.title}
+                  uses={expense.uses}
+                  handleNotification={props.handleNotification}
+                  className='button icon'
+                />
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
@@ -143,6 +149,7 @@ const ExpenseDetail = props => {
             isPositive
             isAddUse
             expense={expense}
+            icon='add'
           />
           <EditUseButton
             id={expense.id}
@@ -155,6 +162,7 @@ const ExpenseDetail = props => {
             isNegative
             handleRemoveUse={handleRemoveUse}
             expense={expense}
+            icon='minus'
           />
         </Grid.Column>
       </Grid.Row>
@@ -185,6 +193,7 @@ const ExpenseDetail = props => {
             handleNotification={props.handleNotification}
             handleNewNote={handleNewNote}
             buttonText='Add another note'
+            icon='write'
           />
         </Grid.Column>
       </Grid.Row>

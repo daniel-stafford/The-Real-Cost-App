@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Modal } from 'semantic-ui-react'
+import { Form, Button, Modal, Icon } from 'semantic-ui-react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 import expenseService from '../services/expenses'
@@ -54,6 +54,7 @@ const EditUseButton = props => {
           negative={props.isNegative}
           onClick={() => setShowModal(true)}
         >
+          <Icon name={props.icon} />
           {props.buttonText}
         </Button>
       }

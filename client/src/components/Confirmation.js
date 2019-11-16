@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Confirm } from 'semantic-ui-react'
+import { Button, Confirm, Icon } from 'semantic-ui-react'
 class Confirmation extends Component {
   state = { open: false }
 
@@ -16,7 +16,8 @@ class Confirmation extends Component {
   render() {
     return (
       <div>
-        <Button negative onClick={this.show}>
+        <Button negative size='tiny' onClick={this.show}>
+          <Icon name='trash' />
           Delete This Expense
         </Button>
         <Confirm

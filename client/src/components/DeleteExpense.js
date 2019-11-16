@@ -27,13 +27,13 @@ const DeleteExpense = ({ id, history, title, handleNotification }) => {
   }
   if (!id) return <Loader active />
   return (
-    <div>
+    <>
       <Confirmation
         handleDelete={handleDelete}
         title={title}
         handleNotification={handleNotification}
       />
-    </div>
+    </>
   )
 }
 

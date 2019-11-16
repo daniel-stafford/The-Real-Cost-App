@@ -129,7 +129,7 @@ const App = props => {
           active={activeItem === 'create_expense'}
           onClick={() => handleItemClick('create_expense')}
         >
-          <Icon name='home' />
+          <Icon name='write' />
           Create New Expense
         </Menu.Item>
 

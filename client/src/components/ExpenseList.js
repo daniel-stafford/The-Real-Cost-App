@@ -86,10 +86,8 @@ const ExpenseList = props => {
               <Card.Content>
                 <Card.Header>{e.title}</Card.Header>
                 <List>
-                  <li> Price: {e.price}</li>
-                  <li>Uses: {e.uses.length} </li>
-                  {e.uses > 0 && (
-                    <li>Cost Per Use: €{costPerUse(e.price, e.uses)}</li>
+                  {e.uses.length > 0 && (
+                    <li>Cost Per Use: €{costPerUse(e.price, e.uses.length)}</li>
                   )}
                 </List>
               </Card.Content>

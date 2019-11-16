@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button, Modal } from 'semantic-ui-react'
+import { Form, Button, Modal, Icon } from 'semantic-ui-react'
 import expenseService from '../services/expenses'
 import 'react-datepicker/dist/react-datepicker.css'
 
@@ -20,7 +20,8 @@ const AddNote = props => {
     <Modal
       open={showModal}
       trigger={
-        <Button positive onClick={() => setShowModal(true)}>
+        <Button secondary onClick={() => setShowModal(true)}>
+          <Icon name={props.icon} />
           {props.buttonText}
         </Button>
       }
