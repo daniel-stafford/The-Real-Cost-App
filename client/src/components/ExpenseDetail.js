@@ -89,11 +89,11 @@ const ExpenseDetail = props => {
     expense.uses.length
   )}€`
   return (
-    <Grid centered>
+    <Grid stackable centered>
       <Grid.Row columns={16}>
-        <Container text>
+        <Grid.Column width={8} floated='right'>
           <Header as='h1'>{expense.title}</Header>
-        </Container>
+        </Grid.Column>
         <Grid.Column width={3}>
           <Button>
             Options
