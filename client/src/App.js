@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
-import { Menu, Button } from 'semantic-ui-react'
+import { Menu, Button, Icon } from 'semantic-ui-react'
 import { hideNotification } from './utils/constants'
 import {
   Notification,
@@ -39,12 +39,12 @@ const App = props => {
   }
 
   const logout = () => {
-    handleNotification('success', `OK, Let me log you out`, 2)
+    handleNotification('success', `OK, Let me log you out!`, 3)
     setTimeout(() => {
       localStorage.clear()
       setLoggedinUser(null)
       props.history.push('/')
-      handleNotification('success', `Come back soon!`, 3)
+      handleNotification('success', `Come back soon!`, 4)
     }, 2000)
   }
 
@@ -56,13 +56,14 @@ const App = props => {
   if (!loggedinUser) {
     return (
       <div>
-        <Menu stackable>
+        <Menu stackable icon='labeled'>
           <Menu.Item
             as={Link}
             to='/'
             active={activeItem === 'home'}
             onClick={() => handleItemClick('home')}
           >
+            <Icon name='home' />
             Home
           </Menu.Item>
           <Menu.Menu position='right'>
@@ -72,6 +73,7 @@ const App = props => {
               active={activeItem === 'login'}
               onClick={() => handleItemClick('login')}
             >
+              <Icon name='sign-in' />
               Login
             </Menu.Item>
             <Menu.Item
@@ -80,6 +82,7 @@ const App = props => {
               active={activeItem === 'register'}
               onClick={() => handleItemClick('register')}
             >
+              <Icon name='write' />
               Sign Up
             </Menu.Item>
           </Menu.Menu>
@@ -110,26 +113,34 @@ const App = props => {
   }
   return (
     <div>
-      <Menu stackable>
-        <Menu.Item active={activeItem === 'expenses'}>
-          <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
-            My Expenses
-          </Link>
+      <Menu stackable icon='labeled'>
+        <Menu.Item
+          as={Link}
+          to='/expenses'
+          active={activeItem === 'expenses'}
+          onClick={() => handleItemClick('expenses')}
+        >
+          <Icon name='grid layout' />
+          My Expenses
         </Menu.Item>
-        <Menu.Item active={activeItem === 'create_expense'}>
-          <Link
-            onClick={() => handleItemClick('create_expense')}
-            to='/create_expense'
-          >
-            Create New Expense
-          </Link>
+        <Menu.Item
+          as={Link}
+          to='/create_expense'
+          active={activeItem === 'create_expense'}
+          onClick={() => handleItemClick('create_expense')}
+        >
+          <Icon name='home' />
+          Create New Expense
         </Menu.Item>
+
         <Menu.Menu position='right'>
           <Menu.Item>
+            <Icon name='user' />
             <UserStatus loggedinUser={loggedinUser} />
           </Menu.Item>
-          <Menu.Item>
-            <Button onClick={() => logout()}>Logout</Button>
+          <Menu.Item onClick={() => logout()}>
+            <Icon name='logout' />
+            Logout{' '}
           </Menu.Item>
         </Menu.Menu>
       </Menu>
