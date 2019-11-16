@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Message } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
@@ -71,6 +71,15 @@ const LoginForm = props => {
           </Button>
         </div>
       </Form>
+      <div className='register__warning'>
+        <Message attached='bottom'>
+          New to the site?&nbsp;
+          <a onClick={() => props.setActiveItem('signup')} href='/register'>
+            Sign up here
+          </a>
+          .
+        </Message>
+      </div>
     </div>
   )
 }

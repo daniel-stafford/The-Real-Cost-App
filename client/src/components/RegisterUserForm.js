@@ -98,7 +98,7 @@ const RegisterUserForm = props => {
         <div>
           Password{' '}
           <Popup
-            content='Your password needs to be at least five characters long'
+            content='Your password needs to be at least five characters long and remember that using lowercase or uppercase letters matters!'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
