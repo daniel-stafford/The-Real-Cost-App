@@ -56,7 +56,7 @@ const App = props => {
   if (!loggedinUser) {
     return (
       <div>
-        <Menu pointing>
+        <Menu stackable>
           <Menu.Item
             as={Link}
             to='/'
@@ -65,22 +65,24 @@ const App = props => {
           >
             Home
           </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to='/login'
-            active={activeItem === 'login'}
-            onClick={() => handleItemClick('login')}
-          >
-            Login
-          </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to='/register'
-            active={activeItem === 'register'}
-            onClick={() => handleItemClick('register')}
-          >
-            Sign Up
-          </Menu.Item>
+          <Menu.Menu position='right'>
+            <Menu.Item
+              as={Link}
+              to='/login'
+              active={activeItem === 'login'}
+              onClick={() => handleItemClick('login')}
+            >
+              Login
+            </Menu.Item>
+            <Menu.Item
+              as={Link}
+              to='/register'
+              active={activeItem === 'register'}
+              onClick={() => handleItemClick('register')}
+            >
+              Sign Up
+            </Menu.Item>
+          </Menu.Menu>
         </Menu>
         <Notification notification={notification} />
         <Switch>
@@ -108,7 +110,7 @@ const App = props => {
   }
   return (
     <div>
-      <Menu tabular>
+      <Menu stackable>
         <Menu.Item active={activeItem === 'expenses'}>
           <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
             My Expenses
@@ -122,12 +124,14 @@ const App = props => {
             Create New Expense
           </Link>
         </Menu.Item>
-        <Menu.Item>
-          <UserStatus loggedinUser={loggedinUser} />
-        </Menu.Item>
-        <Menu.Item>
-          <Button onClick={() => logout()}>Logout</Button>
-        </Menu.Item>
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <UserStatus loggedinUser={loggedinUser} />
+          </Menu.Item>
+          <Menu.Item>
+            <Button onClick={() => logout()}>Logout</Button>
+          </Menu.Item>
+        </Menu.Menu>
       </Menu>
       <Notification notification={notification} />
       <Switch>

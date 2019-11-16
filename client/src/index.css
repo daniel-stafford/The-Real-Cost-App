@@ -44,3 +44,6 @@ svg {
 .home__primaryHeader {
   font-size: 100px;
 }
+.ui.grid > .column {
+  margin-top: 0;
+}

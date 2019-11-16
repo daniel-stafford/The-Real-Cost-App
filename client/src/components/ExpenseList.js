@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader, Card } from 'semantic-ui-react'
+import { Loader, Card, Grid, Header, Container } from 'semantic-ui-react'
 import { Filter } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
@@ -48,15 +48,32 @@ const ExpenseList = props => {
   if (expenses.length === 0)
     return (
       <div>
-        <p> You haven't added any expenses yet </p>
-        <p>
-          Go ahead and <Link to="/create_expense">create one!</Link>
-        </p>
+        <div>
+          <h2>My Expenses</h2>
+        </div>
+        <div>
+          <p> You haven't added any expenses yet </p>
+          <p>
+            Go ahead and <Link to='/create_expense'>create one!</Link>
+          </p>
+        </div>
       </div>
     )
   return (
     <>
-      <Filter handleFilter={handleFilter} />
+      <Grid centered columns={10}>
+        <Grid.Row>
+          <Container text>
+            <Grid.Column width={5}>
+              <Header as='h1'>My Expenses</Header>
+            </Grid.Column>
+          </Container>
+          <Grid.Column width={5} floated='left'>
+            <Filter handleFilter={handleFilter} />
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+
       <Card.Group>
         {filteredExpenses.map(e => {
           return (
