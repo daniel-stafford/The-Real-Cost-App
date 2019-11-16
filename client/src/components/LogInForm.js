@@ -1,6 +1,13 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-import { Form, Button, Message } from 'semantic-ui-react'
+import {
+  Form,
+  Button,
+  Message,
+  Grid,
+  Container,
+  Header
+} from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
@@ -48,7 +55,16 @@ const LoginForm = props => {
     }
   }
   return (
-    <div>
+    <>
+      <Grid centered columns={10}>
+        <Grid.Row>
+          <Container text>
+            <Grid.Column width={5}>
+              <Header as='h1'>Login</Header>
+            </Grid.Column>
+          </Container>
+        </Grid.Row>
+      </Grid>
       <Form onSubmit={handleLogin}>
         <div>
           Username
@@ -67,7 +83,7 @@ const LoginForm = props => {
         </div>
         <div className='register__button'>
           <Button disabled={disabled} type='submit' positive>
-            Log In
+            Login
           </Button>
         </div>
       </Form>
@@ -80,7 +96,7 @@ const LoginForm = props => {
           .
         </Message>
       </div>
-    </div>
+    </>
   )
 }
 

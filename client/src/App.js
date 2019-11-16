@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
-import { Menu, Button, Icon } from 'semantic-ui-react'
+import { Menu, Icon } from 'semantic-ui-react'
 import { hideNotification } from './utils/constants'
 import {
   Notification,
@@ -139,7 +139,7 @@ const App = props => {
             <UserStatus loggedinUser={loggedinUser} />
           </Menu.Item>
           <Menu.Item onClick={() => logout()}>
-            <Icon name='logout' />
+            <Icon name='sign-out' />
             Logout{' '}
           </Menu.Item>
         </Menu.Menu>

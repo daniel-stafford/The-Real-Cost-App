@@ -1,5 +1,14 @@
 import React, { useState } from 'react'
-import { Form, Button, Message, Popup, Icon } from 'semantic-ui-react'
+import {
+  Form,
+  Button,
+  Message,
+  Popup,
+  Icon,
+  Grid,
+  Container,
+  Header
+} from 'semantic-ui-react'
 import userService from '../services/users'
 import { withRouter } from 'react-router-dom'
 import '../index.css'
@@ -70,7 +79,16 @@ const RegisterUserForm = props => {
   }
 
   return (
-    <div>
+    <>
+      <Grid centered columns={10}>
+        <Grid.Row>
+          <Container text>
+            <Grid.Column width={5}>
+              <Header as='h1'>Sign Up</Header>
+            </Grid.Column>
+          </Container>
+        </Grid.Row>
+      </Grid>
       <Form onSubmit={handleSubmit}>
         <div>
           Username{' '}
@@ -134,7 +152,7 @@ const RegisterUserForm = props => {
           &nbsp;instead.
         </Message>
       </div>
-    </div>
+    </>
   )
 }
 

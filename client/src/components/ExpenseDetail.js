@@ -26,10 +26,13 @@ const ExpenseDetail = props => {
 
   /*eslint-disable */
   useEffect(() => {
+    let isSubscribed = true
+
     expenseService.setToken(props.loggedinUser.token)
     expenseService.getAll(props.id).then(response => {
       setExpense(...response.expenses.filter(e => e.id === props.id))
     })
+    return () => (isSubscribed = false)
   }, [])
   /*eslint-enable */
 
@@ -53,7 +56,7 @@ const ExpenseDetail = props => {
   }
 
   if (!expense) return <Loader active />
-  if (expense.uses.length === 0)
+  if (expense.title && expense.uses.length === 0)
     return (
       <div>
         <Header as='h1'>{expense.title}</Header>
@@ -74,6 +77,7 @@ const ExpenseDetail = props => {
           modalHeader='Adding first use'
           buttonText='Add use'
           modalActionButtonText='Add use'
+          expense={expense}
           isPositive
           isAddUse
         />

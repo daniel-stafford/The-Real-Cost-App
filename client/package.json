@@ -25,6 +25,7 @@
     "semantic-ui-react": "^0.88.1",
     "styled-components": "^4.4.0",
     "typewriter-effect": "^2.12.1",
+    "use-async-effect": "^2.2.1",
     "validator": "^12.0.0",
     "victory": "^33.1.1"
   },

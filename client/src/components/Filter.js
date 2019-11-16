@@ -7,9 +7,9 @@ const Filter = ({ handleFilter }) => {
   }
   return (
     <Form onChange={handleChange}>
-      <div className="ui icon input">
-        <input type="text" placeholder="Search..." />
-        <i aria-hidden="true" className="search icon"></i>
+      <div className='ui icon input'>
+        <input type='text' placeholder='Search expenses...' />
+        <i aria-hidden='true' className='search icon'></i>
       </div>
     </Form>
   )

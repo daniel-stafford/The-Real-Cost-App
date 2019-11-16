@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import useField from '../hooks/useField'
-import { Form, Button, Icon, Popup } from 'semantic-ui-react'
+import {
+  Form,
+  Button,
+  Icon,
+  Popup,
+  Grid,
+  Container,
+  Header
+} from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 import expenseService from '../services/expenses'
 import { formHelpIcon } from '../utils/constants'
@@ -42,6 +50,15 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
   }
   return (
     <div>
+      <Grid centered columns={10}>
+        <Grid.Row>
+          <Container text>
+            <Grid.Column width={5}>
+              <Header as='h1'>Create New Expense</Header>
+            </Grid.Column>
+          </Container>
+        </Grid.Row>
+      </Grid>
       <Form onSubmit={handleSubmit}>
         <div>
           Title{' '}
@@ -67,7 +84,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
           />
           <input {...notes} />
         </div>
-        <Button positive disabled={disabled} type="submit">
+        <Button positive disabled={disabled} type='submit'>
           Create New Expense
         </Button>
       </Form>
