@@ -40,8 +40,8 @@ const RegisterUserForm = props => {
 
     try {
       await userService.create({
-        username,
-        password: password.toLowerCase(),
+        username: username.toLowerCase(),
+        password,
         email
       })
       setPassword('')

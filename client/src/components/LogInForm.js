@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-import { Form, Button, Grid } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
@@ -22,8 +22,8 @@ const LoginForm = props => {
     }
     try {
       const loggedinUser = await loginService.login({
-        username,
-        password: password.toLowerCase()
+        username: username.toLowerCase(),
+        password
       })
       window.localStorage.setItem(
         'real-cost-user',
