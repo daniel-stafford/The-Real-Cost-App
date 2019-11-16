@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader, Card, Grid, Header, Container } from 'semantic-ui-react'
+import { Loader, Card, Grid, Header, Container, List } from 'semantic-ui-react'
 import { Filter } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
@@ -77,17 +77,21 @@ const ExpenseList = props => {
       <Card.Group>
         {filteredExpenses.map(e => {
           return (
-            <Card key={e.title} color={colorList[expenses.length]}>
+            <Card
+              raised
+              key={e.title}
+              color={colorList[expenses.length]}
+              href={`/expenses/${e.id}`}
+            >
               <Card.Content>
-                <Card.Header>
-                  <Link to={`/expenses/${e.id}`}>{e.title}</Link>
-                </Card.Header>
-
-                <li> Price: {e.price}</li>
-                <li>Uses: {e.uses.length} </li>
-                {e.uses > 0 && (
-                  <li>Cost Per Use: €{costPerUse(e.price, e.uses)}</li>
-                )}
+                <Card.Header>{e.title}</Card.Header>
+                <List>
+                  <li> Price: {e.price}</li>
+                  <li>Uses: {e.uses.length} </li>
+                  {e.uses > 0 && (
+                    <li>Cost Per Use: €{costPerUse(e.price, e.uses)}</li>
+                  )}
+                </List>
               </Card.Content>
             </Card>
           )

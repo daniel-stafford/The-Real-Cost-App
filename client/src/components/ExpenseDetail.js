@@ -98,7 +98,7 @@ const ExpenseDetail = props => {
           <Button>
             Options
             <Dropdown>
-              <Dropdown.Menu direction='left'>
+              <Dropdown.Menu>
                 <Dropdown.Item>
                   <DeleteExpense
                     id={expense.id}
