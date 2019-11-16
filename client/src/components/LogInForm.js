@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import loginService from '../services/login'
-import { Form, Button } from 'semantic-ui-react'
+import { Form, Button, Grid } from 'semantic-ui-react'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
@@ -23,7 +23,7 @@ const LoginForm = props => {
     try {
       const loggedinUser = await loginService.login({
         username,
-        password
+        password: password.toLowerCase()
       })
       window.localStorage.setItem(
         'real-cost-user',
@@ -60,13 +60,13 @@ const LoginForm = props => {
         <div>
           Password
           <input
-            type="password"
+            type='password'
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
         </div>
-        <div className="register__button">
-          <Button disabled={disabled} type="submit" positive>
+        <div className='register__button'>
+          <Button disabled={disabled} type='submit' positive>
             Log In
           </Button>
         </div>

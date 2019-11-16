@@ -76,7 +76,6 @@ const ExpenseDetail = props => {
           modalActionButtonText='Add use'
           isPositive
           isAddUse
-          expense={expense}
         />
       </div>
     )
@@ -163,8 +162,8 @@ const ExpenseDetail = props => {
           <ul>
             {expense.notes.map(note => {
               return (
-                <div className='expenseList__singleNote'>
-                  <li key={note}>
+                <div className='expenseList__singleNote' key={note}>
+                  <li>
                     {note}{' '}
                     <Button
                       className='expenseList__deleteNote'

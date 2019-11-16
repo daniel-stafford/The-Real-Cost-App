@@ -30,7 +30,7 @@ const CostChart = props => {
         // tickFormat specifies how ticks should be displayed
         tickFormat={x => `${x}€`}
       />
-      <VictoryBar data={data} x="use" y="cost" />
+      <VictoryBar data={data} x='use' y='cost' />
     </VictoryChart>
   )
 }

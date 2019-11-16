@@ -39,7 +39,11 @@ const RegisterUserForm = props => {
     }
 
     try {
-      await userService.create({ username, password, email })
+      await userService.create({
+        username,
+        password: password.toLowerCase(),
+        email
+      })
       setPassword('')
       setUsername('')
       setEmail('')
@@ -71,7 +75,7 @@ const RegisterUserForm = props => {
         <div>
           Username{' '}
           <Popup
-            content="Make sure your username is at least four characters long"
+            content='Make sure your username is at least four characters long'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
@@ -86,7 +90,7 @@ const RegisterUserForm = props => {
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
-            type="email"
+            type='email'
             value={email}
             onChange={({ target }) => setEmail(target.value)}
           />
@@ -94,11 +98,11 @@ const RegisterUserForm = props => {
         <div>
           Password{' '}
           <Popup
-            content="Your password needs to be at least five characters long"
+            content='Your password needs to be at least five characters long'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
-            type="password"
+            type='password'
             value={password}
             onChange={({ target }) => setPassword(target.value)}
           />
@@ -106,25 +110,25 @@ const RegisterUserForm = props => {
         <div>
           Confirm Password{' '}
           <Popup
-            content="Retype your password"
+            content='Retype your password'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
-            type="password"
+            type='password'
             value={passwordConfirm}
             onChange={({ target }) => setPasswordConfirm(target.value)}
           />
         </div>
-        <div className="register__button">
-          <Button disabled={disabled} type="submit" positive>
+        <div className='register__button'>
+          <Button disabled={disabled} type='submit' positive>
             Sign me up!
           </Button>
         </div>
       </Form>
-      <div className="register__warning">
-        <Message attached="bottom">
+      <div className='register__warning'>
+        <Message attached='bottom'>
           Already signed up?&nbsp;
-          <a onClick={() => props.setActiveItem('login')} href="/login">
+          <a onClick={() => props.setActiveItem('login')} href='/login'>
             Login here
           </a>
           &nbsp;instead.

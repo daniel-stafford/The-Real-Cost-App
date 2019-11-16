@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon, Container } from 'semantic-ui-react'
+import { Button, Icon, Grid, Header } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
 // import TextLoop from 'react-text-loop'
@@ -18,32 +18,33 @@ const Home = props => {
     'Amazon Prime'
   ]
   return (
-    <Container>
-      <h1>The Real Cost App</h1>
-      <h2 className='home__subheader'>
-        Find out how much your{' '}
-        <Typewriter
-          options={{
-            strings,
-            autoStart: true,
-            loop: true
+    <Grid>
+      <Grid.Column>
+        <h1 className='home__primaryHeader'>The Real Cost App</h1>
+        <Header as='h2' className='home__subheader'>
+          Find out how much your{' '}
+          <Typewriter
+            options={{
+              strings,
+              autoStart: true,
+              loop: true
+            }}
+          />
+          really costs.
+        </Header>
+        <Button
+          onClick={() => {
+            props.setActiveItem('register')
+            props.history.push('/register')
           }}
-        />
-        really costs.
-      </h2>
-
-      <Button
-        onClick={() => {
-          props.setActiveItem('register')
-          props.history.push('/register')
-        }}
-        primary
-        size='huge'
-      >
-        Sign up for free
-        <Icon name='right arrow' />
-      </Button>
-    </Container>
+          primary
+          size='huge'
+        >
+          Sign up for free
+          <Icon name='right arrow' />
+        </Button>
+      </Grid.Column>
+    </Grid>
   )
 }
 

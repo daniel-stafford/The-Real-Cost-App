@@ -59,7 +59,7 @@ const App = props => {
         <Menu pointing>
           <Menu.Item
             as={Link}
-            to="/"
+            to='/'
             active={activeItem === 'home'}
             onClick={() => handleItemClick('home')}
           >
@@ -67,7 +67,7 @@ const App = props => {
           </Menu.Item>
           <Menu.Item
             as={Link}
-            to="/login"
+            to='/login'
             active={activeItem === 'login'}
             onClick={() => handleItemClick('login')}
           >
@@ -75,7 +75,7 @@ const App = props => {
           </Menu.Item>
           <Menu.Item
             as={Link}
-            to="/register"
+            to='/register'
             active={activeItem === 'register'}
             onClick={() => handleItemClick('register')}
           >
@@ -84,19 +84,19 @@ const App = props => {
         </Menu>
         <Notification notification={notification} />
         <Switch>
-          <Route exact path="/login">
+          <Route exact path='/login'>
             <LogInForm
               handleNotification={handleNotification}
               setLoggedinUser={setLoggedinUser}
             />
           </Route>
-          <Route exact path="/register">
+          <Route exact path='/register'>
             <RegisterUserForm
               handleNotification={handleNotification}
               setActiveItem={setActiveItem}
             />
           </Route>
-          <Route exact path="/">
+          <Route exact path='/'>
             <Home
               handleNotification={handleNotification}
               setActiveItem={setActiveItem}
@@ -110,14 +110,14 @@ const App = props => {
     <div>
       <Menu tabular>
         <Menu.Item active={activeItem === 'expenses'}>
-          <Link onClick={() => handleItemClick('expenses')} to="/expenses">
+          <Link onClick={() => handleItemClick('expenses')} to='/expenses'>
             My Expenses
           </Link>
         </Menu.Item>
         <Menu.Item active={activeItem === 'create_expense'}>
           <Link
             onClick={() => handleItemClick('create_expense')}
-            to="/create_expense"
+            to='/create_expense'
           >
             Create New Expense
           </Link>
@@ -137,14 +137,14 @@ const App = props => {
             loggedinUser={loggedinUser}
           />
         </Route>
-        <Route exact path="/create_expense">
+        <Route exact path='/create_expense'>
           <CreateExpenseForm
             handleNotification={handleNotification}
             loggedinUser={loggedinUser}
           />
         </Route>
         <Route
-          path="/expenses/:id"
+          path='/expenses/:id'
           exact
           render={({ match }) => (
             <ExpenseDetail
