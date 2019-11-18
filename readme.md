@@ -93,8 +93,16 @@ Note: my app is now fully converted to REST with Express.
 <li>Tuesday, 12.11.19 - 8 hours (7-830, 9-10, 10:30-12, 13-15, 1530-1730)</li>
 <li>Wednesday, 13.11.19 - 3 hours (9-12)</li>
 <li>Saturday, 16.11.19 - 6.5 hours (715-1015, 13-16, 1945-2015)</li>
+<li>Sunday, 17.11.19 - 2 hours (840-1040)</li>
 
-<li>Weekly Total: 12 hours</li>
+<li>Weekly Total: 20.5 hours</li>
+</ul>
+
+<li>Week 9</li>
+<ul>
+<li>Monday, 18.11.19 - XXXX hour (1830-XXXX)</li>
+
+<li>Weekly Total: XXXX hours</li>
 </ul>
  
 Total Hours: 159.46

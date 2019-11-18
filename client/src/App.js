@@ -82,7 +82,7 @@ const App = props => {
               active={activeItem === 'register'}
               onClick={() => handleItemClick('register')}
             >
-              <Icon name='write' />
+              <Icon name='signup' />
               Sign Up
             </Menu.Item>
           </Menu.Menu>

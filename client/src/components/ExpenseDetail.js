@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment'
 import {
-  Container,
   Loader,
   Header,
   Grid,
