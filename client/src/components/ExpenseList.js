@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  Loader,
-  Card,
-  Grid,
-  Header,
-  Container,
-  List,
-  Popup,
-  Icon
-} from 'semantic-ui-react'
+import { Loader, Card, Grid, Header, Container, List } from 'semantic-ui-react'
 import { Filter } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
-import { formHelpIcon } from '../utils/constants'
 
 const ExpenseList = props => {
   const colorList = [

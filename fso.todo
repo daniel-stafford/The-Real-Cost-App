@@ -1,13 +1,18 @@
 Todos:
-✘ Try to deploy site on AWS @cancelled(19-11-04 15:20)
-  ✘ Wait until account confirmed to create ec2 instance @cancelled(19-11-04 15:20)
+
+For Tuesday, 18 Nov:
+  ☐ Set up cypress testing
+  ☐ Fix notifcation messages for add/edit use
+  ☐ Fix puncutation in notifcations
+  ☐ Have outside user (a friend!) try out the app.
+  ☐ Submit for grading.
+
 
 Client Side:
   ✘ Dark mode @cancelled(19-11-07 19:59)
   ✘ Convert Victory chart to D3 chart @cancelled(19-11-07 19:59)
   ☐ Error handling for create new expense
   ☐ Expire awnd refresh tokens
-  ☐ tooltips help text on new expense
   ☐ Testing
   ☐ User icon?
   
@@ -55,6 +60,9 @@ Completed:
   ✔ Pull expenses (tied to user) @done(19-10-26 18:06)
   ✔ Create new expense (tied to user) @done(19-10-26 18:06)
   ✔ Each expense has own expense detail @done(19-10-26 18:06)
+  ✘ Try to deploy site on AWS @cancelled(19-11-04 15:20)
+  ✘ Wait until account confirmed to create ec2 instance @cancelled(19-11-04 15:20)
+
   
 
 
