@@ -176,13 +176,7 @@ const ExpenseDetail = props => {
             {expense.notes.map(note => {
               return (
                 <div className='expenseList__singleNote' key={note}>
-                  <li>
-                    {note}{' '}
-                    <Button
-                      className='expenseList__deleteNote'
-                      icon='trash alternate'
-                    />
-                  </li>
+                  <li>{note}</li>
                 </div>
               )
             })}

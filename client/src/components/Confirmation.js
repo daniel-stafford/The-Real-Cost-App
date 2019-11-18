@@ -21,6 +21,7 @@ class Confirmation extends Component {
           Delete This Expense
         </Button>
         <Confirm
+          dimmer='blurring'
           open={this.state.open}
           onCancel={this.handleCancel}
           content={`Are you sure you want to delete ${this.props.title}?`}

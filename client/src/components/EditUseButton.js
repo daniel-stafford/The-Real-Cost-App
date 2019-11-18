@@ -48,6 +48,7 @@ const EditUseButton = props => {
   return (
     <Modal
       open={showModal}
+      dimmer='blurring'
       trigger={
         <Button
           positive={props.isPositive}
@@ -60,9 +61,9 @@ const EditUseButton = props => {
       }
       centered={false}
     >
-      <Modal.Header>{props.modalHeader}</Modal.Header>
       <Modal.Content>
         <Modal.Description>
+          Select a date:
           <Form
             onSubmit={props.isAddUse ? handleAddSubmit : handleRemoveSubmit}
           >
@@ -70,7 +71,7 @@ const EditUseButton = props => {
               selected={date}
               onChange={handleChange}
               name='date'
-              placeholderText='Choose a date'
+              placeholderText='Show calendar...'
             />
             <div>
               <Button positive type='submit'>

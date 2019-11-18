@@ -19,6 +19,7 @@ const AddNote = props => {
   return (
     <Modal
       open={showModal}
+      dimmer='blurring'
       trigger={
         <Button secondary onClick={() => setShowModal(true)}>
           <Icon name={props.icon} />
@@ -27,12 +28,11 @@ const AddNote = props => {
       }
       centered={false}
     >
-      <Modal.Header>Add a new note!</Modal.Header>
       <Modal.Content>
         <Modal.Description>
           <Form onSubmit={handleSubmit}>
             <div>
-              New Note:
+              Add a new note:
               <input
                 type='text'
                 value={note}
