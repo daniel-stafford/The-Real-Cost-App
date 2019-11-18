@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Loader, Card, Grid, Header, Container, List } from 'semantic-ui-react'
+import {
+  Loader,
+  Card,
+  Grid,
+  Header,
+  Container,
+  List,
+  Popup,
+  Icon
+} from 'semantic-ui-react'
 import { Filter } from '../components'
 import expenseService from '../services/expenses'
 import { costPerUse } from '../utils/functions'
+import { formHelpIcon } from '../utils/constants'
 
 const ExpenseList = props => {
   const colorList = [
@@ -47,18 +57,26 @@ const ExpenseList = props => {
   if (!expenses) return <Loader active />
   if (expenses.length === 0)
     return (
-      <div>
-        <div>
-          <h2>My Expenses</h2>
-        </div>
+      <>
+        <Grid centered columns={10}>
+          <Grid.Row>
+            <Container text>
+              <Grid.Column width={5}>
+                <Header as='h1'>My Expenses</Header>
+              </Grid.Column>
+            </Container>
+          </Grid.Row>
+        </Grid>
+
         <div>
           <p> You haven't added any expenses yet </p>
           <p>
             Go ahead and <Link to='/create_expense'>create one!</Link>
           </p>
         </div>
-      </div>
+      </>
     )
+
   return (
     <>
       <Grid centered columns={10}>

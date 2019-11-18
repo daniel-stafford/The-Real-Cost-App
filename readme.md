@@ -114,7 +114,7 @@ Note: my app is now fully converted to REST with Express.
 
 <li>Week 9</li>
 <ul>
-<li>Monday, 18.11.19 - 2 hour (1830-2030)</li>
+<li>Monday, 18.11.19 - 2 hours (1830-2030)</li>
 
 <li>Weekly Total: 2 hours</li>
 </ul>

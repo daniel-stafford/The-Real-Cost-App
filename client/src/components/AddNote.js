@@ -21,7 +21,7 @@ const AddNote = props => {
       open={showModal}
       dimmer='blurring'
       trigger={
-        <Button secondary onClick={() => setShowModal(true)}>
+        <Button primary onClick={() => setShowModal(true)}>
           <Icon name={props.icon} />
           {props.buttonText}
         </Button>

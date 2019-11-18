@@ -6,8 +6,11 @@ import {
   Message,
   Grid,
   Container,
-  Header
+  Header,
+  Popup,
+  Icon
 } from 'semantic-ui-react'
+import { formHelpIcon } from '../utils/constants'
 import { withRouter } from 'react-router'
 
 const LoginForm = props => {
@@ -67,14 +70,22 @@ const LoginForm = props => {
       </Grid>
       <Form onSubmit={handleLogin}>
         <div>
-          Username
+          Username{' '}
+          <Popup
+            content='Write down the username you used when you signed up.'
+            trigger={<Icon name={formHelpIcon} />}
+          />
           <input
             value={username}
             onChange={({ target }) => setUsername(target.value)}
           />
         </div>
         <div>
-          Password
+          Password{' '}
+          <Popup
+            content='Write down your password you used when you signed up. Upper and lower case letters do matter!'
+            trigger={<Icon name={formHelpIcon} />}
+          />
           <input
             type='password'
             value={password}

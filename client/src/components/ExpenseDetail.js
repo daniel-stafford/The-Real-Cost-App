@@ -7,7 +7,7 @@ import {
   Dropdown,
   Card,
   Popup,
-  Button
+  Container
 } from 'semantic-ui-react'
 import {
   DeleteExpense,
@@ -56,16 +56,25 @@ const ExpenseDetail = props => {
   if (!expense) return <Loader active />
   if (expense.title && expense.uses.length === 0)
     return (
-      <div>
-        <Header as='h1'>{expense.title}</Header>
+      <>
         <div>
-          <p>
-            This is your details page for tracking your uses of each expense.
-          </p>
-          <p>
-            When was the last time you used your expense? Choose a date with
-            button below.
-          </p>
+          <div>
+            This is your details page for tracking your uses of {expense.title}.
+            <br />
+            <br />
+          </div>
+          <div>
+            When was the last time you used {expense.title}? Choose a date with
+            the button below.
+            <br />
+            <br />
+          </div>
+          <div>
+            If you can't remember the last use, just choose any date. You can
+            always change it later.
+            <br />
+            <br />
+          </div>
         </div>
         <EditUseButton
           id={expense.id}
@@ -80,7 +89,7 @@ const ExpenseDetail = props => {
           isAddUse
           icon='add'
         />
-      </div>
+      </>
     )
   const expensePrice = `Expense Price: ${expense.price}€`
   const expenseUses = `Number of Uses: ${expense.uses.length}`
@@ -120,7 +129,10 @@ const ExpenseDetail = props => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column width={8}>
-          <h2>Current Stats </h2>{' '}
+          <Popup
+            content='Here are important details about your expense. Check out your current cost per use!  It is simply the expense price divided by the number of uses.'
+            trigger={<h2>Current Stats</h2>}
+          />
           <Card.Group>
             <Card fluid color='red' header={expensePrice} />
             <Card fluid color='orange' header={expenseUses} />
@@ -167,11 +179,17 @@ const ExpenseDetail = props => {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column width={8} floated='left'>
-          <h2>Cost Per Use</h2>
+          <Popup
+            content='Here is a simple chart showing your current cost per uses and how it will decrease with further use. Check out how the cost per use lowers with one additional use (+1), five additional uses (+5) and ten additional uses (+10).  Good encouragement to increase those uses, huh?'
+            trigger={<h2>Cost Per Use</h2>}
+          />
           <CostChart expense={expense} className='expenseDetails__graph' />
         </Grid.Column>
         <Grid.Column width={8}>
-          <h2>Notes</h2>
+          <Popup
+            content='Go ahead and write any details about your expense here.  It could be encouragement, expiration dates, observations, whatever!'
+            trigger={<h2>Notes</h2>}
+          />
           <ul>
             {expense.notes.map(note => {
               return (
