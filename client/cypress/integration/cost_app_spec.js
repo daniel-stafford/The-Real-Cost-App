@@ -14,6 +14,6 @@ describe('Cost App', function() {
     cy.contains('cost')
   })
   it('login form can be opened', function() {
-    cy.contains('Login').click()
+    cy.get('[href="/login"]').click()
   })
 })

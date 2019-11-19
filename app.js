@@ -44,6 +44,7 @@ app.use('/api/login', loginRouter)
 app.use('/myAvatars', avatarsMiddleware)
 
 if (process.env.NODE_ENV === 'test') {
+  console.log('in testing mode!!!!!!')
   const testingRouter = require('./controllers/testing')
   app.use('/api/testing', testingRouter)
 }
