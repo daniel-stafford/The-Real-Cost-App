@@ -18,7 +18,8 @@
     "dev": "cd client && code . && cd ../ && npm run watch",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "deploy": "git add . && git commit -m deploy_check && git push heroku master",
-    "test": "cross-env NODE_ENV=test jest --verbose --runInBand"
+    "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+    "start:test": "cross-env NODE_ENV=test node index.js"
   },
   "keywords": [],
   "author": "",
