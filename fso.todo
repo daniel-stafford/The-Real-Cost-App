@@ -38,7 +38,7 @@ Broad Ideas:
 
 Completed:  
   ✔ Chart showing cost of current uses, prices of futures uses (encourage further use) @done(19-10-28 21:21)
-  ✔ Hide add use modal once clicked @done(19-10-28 20:29)
+  ✔ Hide add usesta modal once clicked @done(19-10-28 20:29)
   ✔ Disable create expense button once clicked (can currently create duplicates) @done(19-10-28 19:08)
   ✔ Changes uses from a number to an an array of dates in MongoDB @done(19-10-28 17:32)
   ✔ Display uses on a calendar @done(19-10-28 17:31)
