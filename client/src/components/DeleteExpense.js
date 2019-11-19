@@ -16,7 +16,7 @@ const DeleteExpense = ({ id, history, title, handleNotification }) => {
       } catch (error) {
         handleNotification(
           'error',
-          `Something went wrong with deleting that. Let's go back to the expenses page`,
+          `Something went wrong with deleting that. Let's go back to the expenses page.`,
           2000
         )
         setTimeout(() => {

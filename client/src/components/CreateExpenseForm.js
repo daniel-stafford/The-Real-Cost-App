@@ -33,7 +33,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
       await expenseService.create(newExpense)
       handleNotification(
         'success',
-        "Nice! New expense created! Let's go see your updated expense list",
+        "Nice! New expense created! Let's go see your updated expense list.",
         3
       )
       setTimeout(() => {
@@ -42,7 +42,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
     } catch (error) {
       handleNotification(
         'error',
-        'Unable to add new expense, check your fields',
+        'Unable to add new expense, make sure you have filled out the form correctly.',
         3
       )
       setDisabled(false)
@@ -63,7 +63,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
         <div>
           Title{' '}
           <Popup
-            content="Give a title for your expense e.g. 'Gym Membership'"
+            content="Give a title for your expense e.g. 'Gym Membership'."
             trigger={<Icon name={formHelpIcon} />}
           />
           <input {...title} />
@@ -71,7 +71,7 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
         <div>
           Price{' '}
           <Popup
-            content="How much did your item or membership cost? e.g. if it costs 40 euros, just write '40'"
+            content="How much did your item or membership cost? e.g. if it costs 40 euros, just write '40'."
             trigger={<Icon name={formHelpIcon} />}
           />
           <input {...price} />

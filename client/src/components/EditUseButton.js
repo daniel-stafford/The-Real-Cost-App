@@ -16,7 +16,7 @@ const EditUseButton = props => {
           moment(use).format('MMM Do YY') === moment(date).format('MMM Do YY')
       ).length > 0
     )
-      return props.handleNotification('error', 'Only one use per day', 5)
+      return props.handleNotification('error', 'Only one use per day.', 5)
 
     try {
       props.handleNewUse(date)
@@ -25,11 +25,23 @@ const EditUseButton = props => {
       props.handleNotification('success', 'New use added!', 5)
     } catch (e) {
       setDate(undefined)
-      props.handleNotification('error', 'Unable to add new use', 5)
+      props.handleNotification('error', `Unable to add new use: ${e}`, 5)
     }
   }
   const handleRemoveSubmit = async () => {
     setShowModal(false)
+    if (
+      props.expense.uses.filter(
+        use =>
+          moment(use).format('MMM Do YY') === moment(date).format('MMM Do YY')
+      ).length === 0
+    )
+      return props.handleNotification(
+        'error',
+        `No use removed, as that date had no recorded use.`,
+        5
+      )
+
     try {
       props.handleRemoveUse(date)
       await expenseService.update(props.id, { dateToRemove: date })
@@ -37,7 +49,7 @@ const EditUseButton = props => {
       props.handleNotification('success', 'Use removed!', 5)
     } catch (e) {
       setDate(undefined)
-      props.handleNotification('error', 'Unable to add new use', 5)
+      props.handleNotification('error', `Unable to add new use. ${e}`, 5)
     }
   }
 
