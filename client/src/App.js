@@ -93,6 +93,7 @@ const App = props => {
             <LogInForm
               handleNotification={handleNotification}
               setLoggedinUser={setLoggedinUser}
+              setActiveItem={setActiveItem}
             />
           </Route>
           <Route exact path='/register'>

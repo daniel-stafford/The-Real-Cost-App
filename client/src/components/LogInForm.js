@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import loginService from '../services/login'
 import {
   Form,
@@ -101,9 +102,9 @@ const LoginForm = props => {
       <div className='register__warning'>
         <Message attached='bottom'>
           New to the site?&nbsp;
-          <a onClick={() => props.setActiveItem('signup')} href='/register'>
+          <Link onClick={() => props.setActiveItem('register')} to='/register'>
             Sign up here
-          </a>
+          </Link>
           .
         </Message>
       </div>
