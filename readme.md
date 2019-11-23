@@ -1,11 +1,11 @@
-Live site here: https://stafford-real-cost.herokuapp.com/
+Live site here: https://stafford-real-cost.herokuapp.com/  Note: The site may take a while to load - that's what you get for free hosting on Heroku (the server goes into hibernation every 30 minutes)
 
-<p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing your per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
+<p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing you per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
 
 <p>Features of the application include: </p>
 <ul>
 <li>New users can create their own account: passwords are hashed and thus secured. </li>
-<li>A user is logged in via a JSON web token stored in local storage</li>
+<li>A user is logged in via a JSON web token stored in local storage.</li>
 <li>Upon logged in, a user is prompted to start tracking an expense, such as a gym membership.</li>
 <li>The user creates a new expense and then is asked when it was last used (e.g. when was the last time you went to the gym?)</li>
 <li>Upon adding a use, the user is displayed details of his expense, to include title, purchase cost, and current cost per use.</li>
