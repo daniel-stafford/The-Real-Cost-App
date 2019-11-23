@@ -42,7 +42,8 @@
     "nodemailer-mailgun-transport": "^1.4.0",
     "nodemailer-smtp-transport": "^2.7.4",
     "semantic-ui-react": "^0.88.1",
-    "sib-api-v3-sdk": "^7.1.4"
+    "sib-api-v3-sdk": "^7.1.4",
+    "woke-dyno": "0.0.4"
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
