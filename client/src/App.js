@@ -17,15 +17,6 @@ import expenseService from './services/expenses'
 const App = props => {
   const [loggedinUser, setLoggedinUser] = useState(null)
 
-  useEffect(() => {
-    const userInStorage = window.localStorage.getItem('real-cost-user')
-    if (userInStorage) {
-      const user = JSON.parse(userInStorage)
-      setLoggedinUser(user)
-      expenseService.setToken(userInStorage.token)
-    }
-  }, [])
-
   const [notification, setNotification] = useState(hideNotification)
   const handleNotification = (
     category = 'error',
@@ -37,6 +28,22 @@ const App = props => {
       setNotification(hideNotification)
     }, time * 1000)
   }
+
+  useEffect(() => {
+    const userInStorage = window.localStorage.getItem('real-cost-user')
+    if (userInStorage) {
+      const user = JSON.parse(userInStorage)
+      setLoggedinUser(user)
+      expenseService.setToken(userInStorage.token)
+    }
+    setTimeout(() => {
+      handleNotification(
+        'success',
+        `Welcome! Feel free to login with the credentials username: user, password: password to quickly demo the app!`,
+        10
+      )
+    }, 2000)
+  }, [])
 
   const logout = () => {
     handleNotification('success', `OK, Let me log you out!`, 3)

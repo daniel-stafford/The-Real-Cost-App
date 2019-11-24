@@ -73,7 +73,7 @@ const LoginForm = props => {
         <div>
           Username{' '}
           <Popup
-            content='Write down the username you used when you signed up.'
+            content='Write down the username you used when you signed up.  You can use the username, user, if you would to simply demo the app'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
@@ -84,7 +84,7 @@ const LoginForm = props => {
         <div>
           Password{' '}
           <Popup
-            content='Write down your password you used when you signed up. Upper and lower case letters do matter!'
+            content='Write down your password you used when you signed up. Upper and lower case letters do matter! Use the password, password, if you would like to just demo the app.'
             trigger={<Icon name={formHelpIcon} />}
           />
           <input
