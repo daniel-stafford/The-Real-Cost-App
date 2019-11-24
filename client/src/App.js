@@ -42,7 +42,7 @@ const App = props => {
         `Welcome! Feel free to login with the credentials username: user, password: password to quickly demo the app!`,
         10
       )
-    }, 2000)
+    }, 500)
   }, [])
 
   const logout = () => {
