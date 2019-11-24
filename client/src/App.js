@@ -36,13 +36,6 @@ const App = props => {
       setLoggedinUser(user)
       expenseService.setToken(userInStorage.token)
     }
-    setTimeout(() => {
-      handleNotification(
-        'success',
-        `Welcome! Feel free to login with the credentials username: user, password: password to quickly demo the app!`,
-        10
-      )
-    }, 500)
   }, [])
 
   const logout = () => {
@@ -51,7 +44,7 @@ const App = props => {
       localStorage.clear()
       setLoggedinUser(null)
       props.history.push('/')
-      handleNotification('success', `Come back soon!`, 4)
+      handleNotification('success', `Come back soon!`, 6)
     }, 2000)
   }
 

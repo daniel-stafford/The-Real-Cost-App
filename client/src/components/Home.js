@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Button, Icon, Grid, Header } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
-// import TextLoop from 'react-text-loop'
-// import Typist from 'react-typist'
-// import TypistLoop from 'react-typist-loop'
-
 import '../index.css'
 
 const Home = props => {
+  useEffect(() => {
+    props.handleNotification(
+      'success',
+      `Welcome! Feel free to login with the credentials username: user, password: password to quickly demo the app!`,
+      5
+    )
+  }, [])
   const strings = [
     'gym membership',
     'metro pass',
