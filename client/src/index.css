@@ -53,3 +53,7 @@ footer {
   position: absolute;
   bottom: 0;
 }
+
+.button {
+  cursor: pointer;
+}
