@@ -49,11 +49,11 @@ svg {
   justify-content: center;
 }
 
+.button {
+  cursor: pointer;
+}
+
 footer {
   position: absolute;
   bottom: 0;
-}
-
-.button {
-  cursor: pointer;
 }

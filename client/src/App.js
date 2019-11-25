@@ -111,9 +111,6 @@ const App = props => {
             />
           </Route>
         </Switch>
-        <StickyFooter bottomThreshold={50}>
-          <Footer />
-        </StickyFooter>
       </div>
     )
   }
