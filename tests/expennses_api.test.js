@@ -9,19 +9,18 @@ const initialExpenses = helper.initialExpenses
 
 beforeEach(async () => {
   await Expense.deleteMany({})
-  const expense = new Expense(initialExpenses[0])
-  await expense.save()
 })
 
-describe('addition of a new expense', () => {
-  test('all expenses are returned', async () => {
-    const response = await api.get('/api/expenses')
-    expect(response.body.length).toBe(initialExpenses.length)
+describe('get expenses', () => {
+  test('Check if tothrow method works', () => {
+    const t = () => {
+      throw new TypeError()
+    }
+    expect(t).toThrow(TypeError)
   })
-  test('new expense id as response is formatted correctly', async () => {
+  test('fails if user not logged in ', async () => {
     const response = await api.get('/api/expenses')
-    expect(response.body[0].id).toBeDefined()
-    expect(response.body[0]._id).not.toBeDefined()
+    expect(response.status).toBe(403)
   })
 })
 
