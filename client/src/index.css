@@ -5,12 +5,12 @@ body {
 }
 
 .register__warning {
-  margin-top: 10px;
+  margin-top: 0.5rem;
   display: inline-block;
 }
 
-.register__button {
-  margin-top: 10px;
+.ui .button {
+  margin-top: 0.5rem;
 }
 
 .app__container {

@@ -13,7 +13,6 @@ import {
   ExpenseDetail,
   Footer
 } from './components'
-import StickyFooter from 'react-sticky-footer'
 import expenseService from './services/expenses'
 
 const App = props => {

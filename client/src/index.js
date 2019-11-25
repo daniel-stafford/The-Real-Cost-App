@@ -8,7 +8,7 @@ import App from './App'
 import './index.css'
 
 ReactDOM.render(
-  <Container>
+  <Container inverted>
     <Router>
       <App />
     </Router>

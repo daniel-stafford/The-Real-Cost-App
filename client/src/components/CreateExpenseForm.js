@@ -12,6 +12,7 @@ import {
 import { withRouter } from 'react-router'
 import expenseService from '../services/expenses'
 import { formHelpIcon } from '../utils/constants'
+import '../index.css'
 
 const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
   const title = useField('text')
@@ -84,9 +85,16 @@ const CreateExpenseForm = ({ history, handleNotification, loggedinUser }) => {
           />
           <input {...notes} />
         </div>
-        <Button positive disabled={disabled} type='submit'>
-          Create New Expense
-        </Button>
+        <div>
+          <Button
+            positive
+            disabled={disabled}
+            type='submit'
+            className='createExpense__button'
+          >
+            Create New Expense
+          </Button>
+        </div>
       </Form>
     </div>
   )
