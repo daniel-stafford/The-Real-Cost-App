@@ -22,6 +22,9 @@ body {
   padding-bottom: 3.5rem;
 }
 
+.home__container {
+  height: 70vh;
+}
 .loggedIn__container {
   position: relative;
   min-height: 100vh;

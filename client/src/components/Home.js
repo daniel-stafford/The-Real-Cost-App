@@ -22,31 +22,33 @@ const Home = ({ handleNotification, setActiveItem, history }) => {
     'Amazon Prime'
   ]
   return (
-    <Grid>
+    <Grid verticalAlign='middle' className='home__container'>
       <Grid.Column>
-        <h1 className='home__primaryHeader'>The Real Cost App</h1>
-        <Header as='h2' className='home__subheader'>
-          Find out how much your{' '}
-          <Typewriter
-            options={{
-              strings,
-              autoStart: true,
-              loop: true
+        <div className='home__content'>
+          <h1 className='home__primaryHeader'>The Real Cost App</h1>
+          <Header as='h2' className='home__subheader'>
+            Find out how much your{' '}
+            <Typewriter
+              options={{
+                strings,
+                autoStart: true,
+                loop: true
+              }}
+            />
+            really costs.
+          </Header>
+          <Button
+            onClick={() => {
+              setActiveItem('register')
+              history.push('/register')
             }}
-          />
-          really costs.
-        </Header>
-        <Button
-          onClick={() => {
-            setActiveItem('register')
-            history.push('/register')
-          }}
-          primary
-          size='huge'
-        >
-          Sign up for free
-          <Icon name='right arrow' />
-        </Button>
+            primary
+            size='huge'
+          >
+            Sign up for free
+            <Icon name='right arrow' />
+          </Button>
+        </div>
       </Grid.Column>
     </Grid>
   )
