@@ -57,60 +57,63 @@ const App = props => {
 
   if (!loggedinUser) {
     return (
-      <div>
-        <Menu stackable icon='labeled'>
-          <Menu.Item
-            as={Link}
-            to='/'
-            active={activeItem === 'home'}
-            onClick={() => handleItemClick('home')}
-          >
-            <Icon name='home' />
-            Home
-          </Menu.Item>
-          <Menu.Menu position='right'>
+      <div className='loggedOut__container'>
+        <div className='loggedOut__content-wrap'>
+          <Menu stackable icon='labeled'>
             <Menu.Item
               as={Link}
-              to='/login'
-              active={activeItem === 'login'}
-              onClick={() => handleItemClick('login')}
+              to='/'
+              active={activeItem === 'home'}
+              onClick={() => handleItemClick('home')}
             >
-              <Icon name='sign-in' />
-              Login
+              <Icon name='home' />
+              Home
             </Menu.Item>
-            <Menu.Item
-              as={Link}
-              to='/register'
-              active={activeItem === 'register'}
-              onClick={() => handleItemClick('register')}
-            >
-              <Icon name='signup' />
-              Sign Up
-            </Menu.Item>
-          </Menu.Menu>
-        </Menu>
-        <Notification notification={notification} />
-        <Switch>
-          <Route exact path='/login'>
-            <LogInForm
-              handleNotification={handleNotification}
-              setLoggedinUser={setLoggedinUser}
-              setActiveItem={setActiveItem}
-            />
-          </Route>
-          <Route exact path='/register'>
-            <RegisterUserForm
-              handleNotification={handleNotification}
-              setActiveItem={setActiveItem}
-            />
-          </Route>
-          <Route exact path='/'>
-            <Home
-              handleNotification={handleNotification}
-              setActiveItem={setActiveItem}
-            />
-          </Route>
-        </Switch>
+            <Menu.Menu position='right'>
+              <Menu.Item
+                as={Link}
+                to='/login'
+                active={activeItem === 'login'}
+                onClick={() => handleItemClick('login')}
+              >
+                <Icon name='sign-in' />
+                Login
+              </Menu.Item>
+              <Menu.Item
+                as={Link}
+                to='/register'
+                active={activeItem === 'register'}
+                onClick={() => handleItemClick('register')}
+              >
+                <Icon name='signup' />
+                Sign Up
+              </Menu.Item>
+            </Menu.Menu>
+          </Menu>
+          <Notification notification={notification} />
+          <Switch>
+            <Route exact path='/login'>
+              <LogInForm
+                handleNotification={handleNotification}
+                setLoggedinUser={setLoggedinUser}
+                setActiveItem={setActiveItem}
+              />
+            </Route>
+            <Route exact path='/register'>
+              <RegisterUserForm
+                handleNotification={handleNotification}
+                setActiveItem={setActiveItem}
+              />
+            </Route>
+            <Route exact path='/'>
+              <Home
+                handleNotification={handleNotification}
+                setActiveItem={setActiveItem}
+              />
+            </Route>
+          </Switch>
+        </div>
+
         <Footer />
       </div>
     )
