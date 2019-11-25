@@ -13,12 +13,21 @@ body {
   margin-top: 10px;
 }
 
-.loggedOut__container {
+.app__container {
   position: relative;
   min-height: 100vh;
 }
 
-.loggedOut__content-wrap {
+.content__container {
+  padding-bottom: 3.5rem;
+}
+
+.loggedIn__container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.loggedIn__content-wrap {
   padding-bottom: 3.5rem;
 }
 

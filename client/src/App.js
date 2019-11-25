@@ -57,8 +57,8 @@ const App = props => {
 
   if (!loggedinUser) {
     return (
-      <div className='loggedOut__container'>
-        <div className='loggedOut__content-wrap'>
+      <div className='app__container'>
+        <div className='content__container'>
           <Menu stackable icon='labeled'>
             <Menu.Item
               as={Link}
@@ -119,64 +119,67 @@ const App = props => {
     )
   }
   return (
-    <div>
-      <Menu stackable icon='labeled'>
-        <Menu.Item
-          as={Link}
-          to='/expenses'
-          active={activeItem === 'expenses'}
-          onClick={() => handleItemClick('expenses')}
-        >
-          <Icon name='grid layout' />
-          My Expenses
-        </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to='/create_expense'
-          active={activeItem === 'create_expense'}
-          onClick={() => handleItemClick('create_expense')}
-        >
-          <Icon name='write' />
-          Create New Expense
-        </Menu.Item>
+    <div className='app__container'>
+      <div className='content__container'>
+        <Menu stackable icon='labeled'>
+          <Menu.Item
+            as={Link}
+            to='/expenses'
+            active={activeItem === 'expenses'}
+            onClick={() => handleItemClick('expenses')}
+          >
+            <Icon name='grid layout' />
+            My Expenses
+          </Menu.Item>
+          <Menu.Item
+            as={Link}
+            to='/create_expense'
+            active={activeItem === 'create_expense'}
+            onClick={() => handleItemClick('create_expense')}
+          >
+            <Icon name='write' />
+            Create New Expense
+          </Menu.Item>
 
-        <Menu.Menu position='right'>
-          <Menu.Item>
-            <Icon name='user' />
-            <UserStatus loggedinUser={loggedinUser} />
-          </Menu.Item>
-          <Menu.Item onClick={() => logout()}>
-            <Icon name='sign-out' />
-            Logout{' '}
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-      <Notification notification={notification} />
-      <Switch>
-        <Route exact path={['/expenses', '/']}>
-          <ExpenseList
-            handleNotification={handleNotification}
-            loggedinUser={loggedinUser}
-          />
-        </Route>
-        <Route exact path='/create_expense'>
-          <CreateExpenseForm
-            handleNotification={handleNotification}
-            loggedinUser={loggedinUser}
-          />
-        </Route>
-        <Route
-          path='/expenses/:id'
-          exact
-          render={({ match }) => (
-            <ExpenseDetail
-              id={match.params.id}
+          <Menu.Menu position='right'>
+            <Menu.Item>
+              <Icon name='user' />
+              <UserStatus loggedinUser={loggedinUser} />
+            </Menu.Item>
+            <Menu.Item onClick={() => logout()}>
+              <Icon name='sign-out' />
+              Logout{' '}
+            </Menu.Item>
+          </Menu.Menu>
+        </Menu>
+        <Notification notification={notification} />
+        <Switch>
+          <Route exact path={['/expenses', '/']}>
+            <ExpenseList
               handleNotification={handleNotification}
               loggedinUser={loggedinUser}
             />
-          )}
-        />
-      </Switch>
+          </Route>
+          <Route exact path='/create_expense'>
+            <CreateExpenseForm
+              handleNotification={handleNotification}
+              loggedinUser={loggedinUser}
+            />
+          </Route>
+          <Route
+            path='/expenses/:id'
+            exact
+            render={({ match }) => (
+              <ExpenseDetail
+                id={match.params.id}
+                handleNotification={handleNotification}
+                loggedinUser={loggedinUser}
+              />
+            )}
+          />
+        </Switch>
+      </div>
+      <Footer />
     </div>
   )
 }
