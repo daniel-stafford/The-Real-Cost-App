@@ -13,6 +13,7 @@ import {
   ExpenseDetail,
   Footer
 } from './components'
+import StickyFooter from 'react-sticky-footer'
 import expenseService from './services/expenses'
 
 const App = props => {
@@ -110,6 +111,9 @@ const App = props => {
             />
           </Route>
         </Switch>
+        <StickyFooter bottomThreshold={50}>
+          <Footer />
+        </StickyFooter>
       </div>
     )
   }

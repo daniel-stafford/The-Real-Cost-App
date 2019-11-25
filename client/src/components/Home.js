@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Button, Icon, Grid, Header } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
+
 import '../index.css'
 
 const Home = ({ handleNotification, setActiveItem, history }) => {

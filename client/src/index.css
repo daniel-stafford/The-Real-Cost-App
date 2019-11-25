@@ -1,15 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 
-html,
-body {
-  height: 100%;
-}
-
 body {
   font-family: 'Josefin Sans', cursive;
-}
-
-. .header-container {
 }
 
 .register__warning {
@@ -60,6 +52,4 @@ svg {
 footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
-  margin-top: 3rem;
 }
