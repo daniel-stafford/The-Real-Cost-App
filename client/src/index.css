@@ -51,3 +51,10 @@ svg {
 .dimmed.dimmable > .ui.modals.dimmer.visible {
   justify-content: center;
 }
+
+footer {
+  position: absolute;
+  left: 10%;
+  bottom: 1rem;
+  right: 0;
+}

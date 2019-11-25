@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
 import '../index.css'
 
-const Home = props => {
+const Home = ({ handleNotification, setActiveItem, history }) => {
   useEffect(() => {
-    props.handleNotification(
+    handleNotification(
       'success',
       `Welcome! Feel free to login with the credentials username: user, password: password to quickly demo the app!`,
       5
@@ -37,8 +37,8 @@ const Home = props => {
         </Header>
         <Button
           onClick={() => {
-            props.setActiveItem('register')
-            props.history.push('/register')
+            setActiveItem('register')
+            history.push('/register')
           }}
           primary
           size='huge'

@@ -13,7 +13,7 @@ import EditUseButton from './EditUseButton'
 import Filter from './Filter'
 import CostChart from './CostChart'
 import AddNote from './AddNote'
-// import DatePicker from './DatePicker'
+import Footer from './Footer'
 
 export {
   CreateExpenseForm,
@@ -30,5 +30,6 @@ export {
   EditUseButton,
   Filter,
   CostChart,
-  AddNote
+  AddNote,
+  Footer
 }

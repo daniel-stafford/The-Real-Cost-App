@@ -10,7 +10,8 @@ import {
   UserStatus,
   ExpenseList,
   CreateExpenseForm,
-  ExpenseDetail
+  ExpenseDetail,
+  Footer
 } from './components'
 import expenseService from './services/expenses'
 
@@ -109,6 +110,7 @@ const App = props => {
             />
           </Route>
         </Switch>
+        <Footer />
       </div>
     )
   }
