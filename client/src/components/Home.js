@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Button, Icon, Grid, Header } from 'semantic-ui-react'
 import { withRouter } from 'react-router-dom'
 import Typewriter from 'typewriter-effect'
+import { useSpring, animated } from 'react-spring'
 
 import '../index.css'
 
@@ -21,6 +22,15 @@ const Home = ({ handleNotification, setActiveItem, history }) => {
     'unlimited yoga pass',
     'Amazon Prime'
   ]
+  const fade = useSpring({
+    from: {
+      opacity: 0
+    },
+    to: {
+      opacity: 1
+    }
+  })
+  console.log('fade', fade)
   return (
     <Grid verticalAlign='middle' className='home__container'>
       <Grid.Column>
