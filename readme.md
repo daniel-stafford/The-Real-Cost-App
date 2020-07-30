@@ -1,4 +1,4 @@
-Live site here: https://stafford-real-cost.herokuapp.com/  Note: The site may take a while to load - that's what you get for free hosting on Heroku (the server goes into hibernation every 30 minutes)
+Live site here: https://stafford-real-cost.herokuapp.com/ 
 
 <p>Ever wonder how much something really costs? The Real Cost App is here to help. Say you buy a gym membership for the year - how much it is costing you per visit? With this app, you can track how many times you use a product or a service and see the per use cost. The more you use something, the cheaper it gets!</p>
 
