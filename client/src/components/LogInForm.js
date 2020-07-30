@@ -9,17 +9,17 @@ import {
   Container,
   Header,
   Popup,
-  Icon
+  Icon,
 } from 'semantic-ui-react'
 import { formHelpIcon } from '../utils/constants'
 import { withRouter } from 'react-router'
 
-const LoginForm = props => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [disabled, setDisabled] = useState(false)
 
-  const handleLogin = async event => {
+  const handleLogin = async (event) => {
     event.preventDefault()
     setDisabled(true)
     if (username.length === 0) {
@@ -34,7 +34,7 @@ const LoginForm = props => {
     try {
       const loggedinUser = await loginService.login({
         username: username.toLowerCase(),
-        password
+        password,
       })
       window.localStorage.setItem(
         'real-cost-user',
@@ -105,7 +105,8 @@ const LoginForm = props => {
           <Link onClick={() => props.setActiveItem('register')} to='/register'>
             Sign up here
           </Link>
-          .
+          . Otherwise use the credentials "user" and "password" to test out the
+          site.
         </Message>
       </div>
     </>
